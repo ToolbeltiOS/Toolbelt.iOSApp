@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Toolbelt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #E8732C;
+            --orange-light: #F5923D;
+            --deep-blue: #1a2a4a;
+            --darker-blue: #0f1a2e;
+            --text-white: #ffffff;
+            --text-light: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #d4702a 0%, #b85a24 15%, #6b4a5a 35%, #3a4a6a 55%, var(--deep-blue) 75%, var(--darker-blue) 100%);
+            min-height: 100vh;
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-white);
+            margin-bottom: 48px;
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        .thank-you-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 48px 40px;
+            backdrop-filter: blur(20px);
+            max-width: 500px;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            background: var(--text-white);
+            color: var(--deep-blue);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="Toolbelt Logo" class="logo-icon">
+        <span class="logo-text">TOOLBELT</span>
+    </a>
+    
+    <div class="thank-you-card">
+        <div class="checkmark">✓</div>
+        <h1>Message Sent!</h1>
+        <p>Thanks for reaching out. We'll get back to you as soon as possible.</p>
+        <a href="index.html" class="btn">← Back to Home</a>
+    </div>
+</body>
+</html>
