@@ -539,6 +539,121 @@
             padding: 100px 0;
         }
 
+        /* Why Toolbelt Section */
+        .why-toolbelt {
+            padding: 100px 0;
+        }
+
+        .why-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-icon {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .why-content h2 {
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .why-story {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .why-story.highlight {
+            color: var(--orange-light);
+            font-weight: 600;
+            font-size: 20px;
+            margin-top: 32px;
+            margin-bottom: 0;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .faq-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--orange);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--orange-light);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--orange);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 24px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
         .contact-form-wrapper {
             max-width: 500px;
             margin: 0 auto;
@@ -755,6 +870,25 @@
         </div>
     </section>
 
+    <!-- Why Toolbelt Section -->
+    <section class="why-toolbelt" id="why">
+        <div class="container">
+            <div class="why-content">
+                <div class="why-icon">🔧</div>
+                <h2>Why Toolbelt?</h2>
+                <p class="why-story">
+                    Most invoicing apps are built for office workers sitting at desks. But contractors don't work at desks — they're on ladders, under sinks, and covered in sawdust.
+                </p>
+                <p class="why-story">
+                    Toolbelt was built for the real world. Voice input when your hands are full. AI that turns "fixed leaky pipe under kitchen sink, replaced washers" into professional invoice language. Offline mode for basements with no signal.
+                </p>
+                <p class="why-story highlight">
+                    This is the invoicing app contractors deserve — fast, simple, and built for the job site.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="container">
@@ -794,6 +928,72 @@
             </div>
             <div class="free-tier">
                 <p><strong>Try it free</strong> — Create up to 3 documents per month at no cost. No credit card required.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Toolbelt.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do I need internet to use Toolbelt?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No! Toolbelt works completely offline. Create invoices and quotes from the job site, basement, or anywhere with no signal. Your data syncs automatically when you're back online.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I add my own logo to invoices?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Add your business logo, choose your brand colors, and pick from multiple professional templates. Your invoices will look like they came from an established business.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is my data secure?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Your data is stored securely on your device and protected by iOS security. We don't sell your information or share it with third parties. Your business data stays your business.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does the AI writing feature work?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Just describe the work in your own words — "fixed leaky pipe, replaced washers" — and our AI transforms it into professional invoice language. You can also use voice input when your hands are busy.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I cancel my subscription anytime?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, no contracts or commitments. Cancel anytime directly through your Apple account. You'll keep access until the end of your billing period.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What's included in the free version?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The free version lets you create up to 3 invoices or quotes per month with all features included. No credit card required, no trial expiration. Upgrade only when you need more.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -850,5 +1050,25 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
