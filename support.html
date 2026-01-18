@@ -106,6 +106,22 @@
         .support-card:hover {
             background: rgba(255, 255, 255, 0.12);
             transform: translateY(-4px);
+            cursor: pointer;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover .card-btn {
+            transform: scale(1.05);
         }
 
         .support-icon {
@@ -366,20 +382,23 @@
             <p class="intro-text">Toolbelt is a professional invoicing app designed specifically for contractors, freelancers, and small business owners. Create beautiful quotes and invoices in seconds.</p>
             
             <div class="support-grid">
-                <div class="support-card">
+                <div class="support-card" onclick="selectTopic('General Question')">
                     <div class="support-icon">📧</div>
                     <h3>Email Support</h3>
                     <p>Have a question or issue? Pro subscribers receive priority support with faster response times.</p>
+                    <span class="card-btn">Contact Us</span>
                 </div>
-                <div class="support-card">
+                <div class="support-card" onclick="selectTopic('Feature Request')">
                     <div class="support-icon">💬</div>
                     <h3>Feature Request</h3>
                     <p>Have an idea to make Toolbelt better? We're constantly improving based on your feedback!</p>
+                    <span class="card-btn">Send Suggestion</span>
                 </div>
-                <div class="support-card">
+                <div class="support-card" onclick="selectTopic('Bug Report')">
                     <div class="support-icon">🐛</div>
                     <h3>Report a Bug</h3>
                     <p>Found something that's not working right? Let us know so we can fix it quickly.</p>
+                    <span class="card-btn">Report Bug</span>
                 </div>
             </div>
 
@@ -546,5 +565,18 @@
             <p class="version">Version 1.0 | © 2026 Toolbelt</p>
         </div>
     </div>
+
+    <script>
+        function selectTopic(topic) {
+            // Scroll to form
+            document.querySelector('.contact-form-wrapper').scrollIntoView({ behavior: 'smooth' });
+            
+            // Set the dropdown value
+            setTimeout(() => {
+                document.getElementById('type').value = topic;
+                document.getElementById('name').focus();
+            }, 500);
+        }
+    </script>
 </body>
 </html>
