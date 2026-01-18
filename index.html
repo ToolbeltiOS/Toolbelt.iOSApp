@@ -534,6 +534,67 @@
             font-size: 14px;
         }
 
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+        }
+
+        .contact-form-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 32px;
+            backdrop-filter: blur(20px);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-white);
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 3px rgba(232, 115, 44, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -598,23 +659,13 @@
     <nav>
         <div class="container">
             <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="48" fill="#1a2a4a"/>
-                    <g transform="translate(20, 20) scale(0.6)">
-                        <!-- Wrench -->
-                        <path d="M30 85 L55 60 L45 50 L20 75 Z" fill="#E8732C" stroke="#E8732C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="25" cy="80" r="12" fill="none" stroke="#E8732C" stroke-width="8"/>
-                        <!-- Hammer -->
-                        <path d="M70 15 L85 30 L60 55 L45 40 Z" fill="#E8732C" stroke="#E8732C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                        <rect x="40" y="50" width="35" height="12" rx="2" transform="rotate(-45 57 56)" fill="#E8732C"/>
-                    </g>
-                </svg>
+                <img src="logo.png" alt="Toolbelt Logo" class="logo-icon">
                 <span class="logo-text">TOOLBELT</span>
             </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
-                <a href="mailto:ToolbeltiOS@gmail.com">Contact</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -747,26 +798,53 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have questions or feedback? We'd love to hear from you.</p>
+            </div>
+            <div class="contact-form-wrapper">
+                <form class="contact-form" action="https://formsubmit.co/ToolbeltiOS@gmail.com" method="POST">
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New Toolbelt Contact Form Submission">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://toolbeltios.github.io/toolbelt/thanks.html">
+                    <input type="text" name="_honey" style="display:none">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <a href="#" class="logo">
-                    <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
-                        <circle cx="50" cy="50" r="48" fill="#1a2a4a"/>
-                        <g transform="translate(20, 20) scale(0.6)">
-                            <path d="M30 85 L55 60 L45 50 L20 75 Z" fill="#E8732C" stroke="#E8732C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="25" cy="80" r="12" fill="none" stroke="#E8732C" stroke-width="8"/>
-                            <path d="M70 15 L85 30 L60 55 L45 40 Z" fill="#E8732C" stroke="#E8732C" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                            <rect x="40" y="50" width="35" height="12" rx="2" transform="rotate(-45 57 56)" fill="#E8732C"/>
-                        </g>
-                    </svg>
+                    <img src="logo.png" alt="Toolbelt Logo" style="width: 32px; height: 32px;">
                     <span class="logo-text" style="font-size: 20px;">TOOLBELT</span>
                 </a>
                 <div class="footer-links">
-                    <a href="mailto:ToolbeltiOS@gmail.com">Contact</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://github.com/ToolbeltiOS/ToolbeltiOS/blob/main/PRIVACY_POLICY.md" target="_blank">Privacy Policy</a>
+                    <a href="https://github.com/ToolbeltiOS/ToolbeltiOS/blob/main/TERMS_OF_SERVICE.md" target="_blank">Terms of Service</a>
+                    <a href="https://github.com/ToolbeltiOS/ToolbeltiOS/blob/main/Support" target="_blank">Support</a>
                 </div>
                 <p class="footer-copyright">© 2025 Toolbelt. All rights reserved.</p>
             </div>
