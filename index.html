@@ -499,6 +499,635 @@
             color: var(--text-white);
         }
 
+        /* Demo Section */
+        .demo-section {
+            padding: 100px 0;
+        }
+
+        .demo-wrapper {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .demo-phone {
+            width: 280px;
+            height: 580px;
+            background: #1a1a2e;
+            border-radius: 40px;
+            padding: 12px;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+
+        .demo-phone-notch {
+            position: absolute;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 25px;
+            background: #1a1a2e;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        .demo-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #2a3a5a 0%, #1a2a4a 100%);
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Play Overlay */
+        .demo-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(42, 58, 90, 0.95) 0%, rgba(26, 42, 74, 0.98) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+        }
+
+        .demo-play-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            box-shadow: 0 10px 40px rgba(232, 115, 44, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse-play 2s ease-in-out infinite;
+        }
+
+        .play-button svg {
+            margin-left: 4px;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(232, 115, 44, 0.6);
+        }
+
+        @keyframes pulse-play {
+            0%, 100% { box-shadow: 0 10px 40px rgba(232, 115, 44, 0.4); }
+            50% { box-shadow: 0 10px 60px rgba(232, 115, 44, 0.7); }
+        }
+
+        .play-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .play-subtext {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .demo-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-frame.active {
+            opacity: 1;
+        }
+
+        /* Splash Screen */
+        .splash-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: linear-gradient(180deg, #2a3a5a 0%, #1a2a4a 100%);
+        }
+
+        .splash-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 16px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .splash-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 3px;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        /* App Header */
+        .app-header {
+            padding: 50px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .app-greeting {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .app-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .back-btn {
+            font-size: 13px;
+            color: var(--orange-light);
+        }
+
+        /* App Grid */
+        .app-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 16px;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .app-card.highlight-card {
+            background: rgba(232, 115, 44, 0.2);
+            border: 1px solid var(--orange);
+        }
+
+        .card-icon {
+            font-size: 28px;
+        }
+
+        .app-card span {
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* Tap Indicator */
+        .tap-indicator {
+            position: absolute;
+            top: 165px;
+            left: 55px;
+            pointer-events: none;
+        }
+
+        .tap-indicator.btn-tap {
+            top: auto;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tap-circle {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: tap 1.5s ease-in-out infinite;
+        }
+
+        @keyframes tap {
+            0%, 100% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Invoice Form */
+        .invoice-form {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .field-value {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .field-textarea {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: white;
+            min-height: 80px;
+            line-height: 1.5;
+        }
+
+        .cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+            width: fit-content;
+            margin-top: 8px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(232, 115, 44, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(232, 115, 44, 0.8); }
+        }
+
+        .enhanced-badge {
+            color: var(--orange-light);
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        .form-field.enhanced .field-textarea {
+            border: 1px solid var(--orange);
+            background: rgba(232, 115, 44, 0.1);
+        }
+
+        .generate-btn-container, .share-btn-container {
+            padding: 16px;
+            margin-top: auto;
+            position: relative;
+        }
+
+        .generate-btn, .share-btn {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* PDF Preview */
+        .pdf-preview {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pdf-doc {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            width: 100%;
+            color: #333;
+            font-size: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .pdf-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .pdf-logo {
+            width: 30px;
+            height: 30px;
+            background: var(--orange);
+            border-radius: 6px;
+        }
+
+        .pdf-company {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .pdf-company strong {
+            font-size: 12px;
+        }
+
+        .pdf-company span {
+            font-size: 8px;
+            color: #666;
+        }
+
+        .pdf-invoice-num {
+            font-size: 9px;
+            color: #666;
+        }
+
+        .pdf-divider {
+            height: 2px;
+            background: var(--orange);
+            margin: 10px 0;
+        }
+
+        .pdf-details {
+            margin-bottom: 12px;
+        }
+
+        .pdf-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-size: 9px;
+        }
+
+        .pdf-items {
+            background: #f5f5f5;
+            border-radius: 4px;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .pdf-item-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 8px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .pdf-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+        }
+
+        .pdf-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--orange);
+        }
+
+        /* Success Screen */
+        .success-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-check {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 20px;
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .success-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .success-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .success-time {
+            font-size: 14px;
+            color: var(--orange-light);
+            font-weight: 600;
+        }
+
+        /* Demo Steps */
+        .demo-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 300px;
+        }
+
+        .demo-step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+
+        .demo-step.active {
+            opacity: 1;
+            background: rgba(232, 115, 44, 0.1);
+            border-color: var(--orange);
+        }
+
+        .demo-step.completed {
+            opacity: 0.7;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .demo-step.active .step-number {
+            background: var(--orange);
+            color: white;
+        }
+
+        .demo-step.completed .step-number {
+            background: #22c55e;
+            color: white;
+        }
+
+        .demo-step.completed .step-number::after {
+            content: '✓';
+        }
+
+        .demo-step.completed .step-number {
+            font-size: 0;
+        }
+
+        .demo-step.completed .step-number::after {
+            font-size: 14px;
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .step-content strong {
+            font-size: 14px;
+            color: var(--text-white);
+        }
+
+        .step-content span {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Demo Controls */
+        .demo-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .demo-control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-control-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--orange);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .demo-wrapper {
+                flex-direction: column;
+            }
+
+            .demo-steps {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                max-width: 100%;
+            }
+
+            .demo-step {
+                flex: 0 0 auto;
+                padding: 12px;
+            }
+
+            .step-content span {
+                display: none;
+            }
+        }
+
         /* Footer */
         footer {
             padding: 60px 0 40px;
@@ -809,6 +1438,233 @@
         </div>
     </section>
 
+    <!-- Demo Video Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2>See It In Action</h2>
+                <p>Watch how easy it is to create a professional invoice in seconds.</p>
+            </div>
+            <div class="demo-wrapper">
+                <div class="demo-phone">
+                    <div class="demo-phone-notch"></div>
+                    <div class="demo-screen">
+                        <!-- Play Overlay -->
+                        <div class="demo-play-overlay" id="demo-overlay">
+                            <div class="play-content">
+                                <div class="play-button" id="play-btn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                                <div class="play-text">Invoice in 27 seconds</div>
+                                <div class="play-subtext">Watch how Toolbelt turns paperwork into a 30-second task</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen 1: Splash -->
+                        <div class="demo-frame active" id="frame-splash">
+                            <div class="splash-screen">
+                                <img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" class="splash-logo">
+                                <div class="splash-title">TOOLBELT</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen 2: Home -->
+                        <div class="demo-frame" id="frame-home">
+                            <div class="app-header">
+                                <span class="app-greeting">Good morning! 👋</span>
+                                <span class="app-title">Dashboard</span>
+                            </div>
+                            <div class="app-grid">
+                                <div class="app-card highlight-card">
+                                    <div class="card-icon">📄</div>
+                                    <span>New Invoice</span>
+                                </div>
+                                <div class="app-card">
+                                    <div class="card-icon">📋</div>
+                                    <span>New Quote</span>
+                                </div>
+                                <div class="app-card">
+                                    <div class="card-icon">👤</div>
+                                    <span>Clients</span>
+                                </div>
+                                <div class="app-card">
+                                    <div class="card-icon">📁</div>
+                                    <span>Templates</span>
+                                </div>
+                            </div>
+                            <div class="tap-indicator">
+                                <div class="tap-circle"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen 3: New Invoice -->
+                        <div class="demo-frame" id="frame-invoice">
+                            <div class="app-header">
+                                <span class="back-btn">← Back</span>
+                                <span class="app-title">New Invoice</span>
+                            </div>
+                            <div class="invoice-form">
+                                <div class="form-field">
+                                    <label>Client</label>
+                                    <div class="field-value typing-effect" id="client-field">Johnson Residence</div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Description</label>
+                                    <div class="field-textarea">
+                                        <span class="typing-text" id="desc-field"></span>
+                                        <span class="cursor">|</span>
+                                    </div>
+                                    <div class="ai-badge">
+                                        <span class="ai-icon">✨</span> AI Enhance
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen 4: AI Enhancement -->
+                        <div class="demo-frame" id="frame-ai">
+                            <div class="app-header">
+                                <span class="back-btn">← Back</span>
+                                <span class="app-title">New Invoice</span>
+                            </div>
+                            <div class="invoice-form">
+                                <div class="form-field">
+                                    <label>Client</label>
+                                    <div class="field-value">Johnson Residence</div>
+                                </div>
+                                <div class="form-field enhanced">
+                                    <label>Description <span class="enhanced-badge">✨ Enhanced</span></label>
+                                    <div class="field-textarea enhanced-text" id="enhanced-field">
+                                    </div>
+                                </div>
+                                <div class="form-field">
+                                    <label>Amount</label>
+                                    <div class="field-value">$350.00</div>
+                                </div>
+                            </div>
+                            <div class="generate-btn-container">
+                                <div class="generate-btn">Generate PDF</div>
+                                <div class="tap-indicator btn-tap">
+                                    <div class="tap-circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen 5: PDF Preview -->
+                        <div class="demo-frame" id="frame-pdf">
+                            <div class="app-header">
+                                <span class="back-btn">← Back</span>
+                                <span class="app-title">Invoice Preview</span>
+                            </div>
+                            <div class="pdf-preview">
+                                <div class="pdf-doc">
+                                    <div class="pdf-header">
+                                        <div class="pdf-logo"></div>
+                                        <div class="pdf-company">
+                                            <strong>Mike's Plumbing</strong>
+                                            <span>Professional Services</span>
+                                        </div>
+                                        <div class="pdf-invoice-num">INV-0042</div>
+                                    </div>
+                                    <div class="pdf-divider"></div>
+                                    <div class="pdf-details">
+                                        <div class="pdf-row">
+                                            <span>Bill To:</span>
+                                            <span>Johnson Residence</span>
+                                        </div>
+                                        <div class="pdf-row">
+                                            <span>Date:</span>
+                                            <span>Jan 18, 2025</span>
+                                        </div>
+                                    </div>
+                                    <div class="pdf-items">
+                                        <div class="pdf-item-header">
+                                            <span>Description</span>
+                                            <span>Amount</span>
+                                        </div>
+                                        <div class="pdf-item">
+                                            <span>Kitchen sink repair & maintenance</span>
+                                            <span>$350.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="pdf-total">
+                                        <span>Total Due:</span>
+                                        <span>$350.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="share-btn-container">
+                                <div class="share-btn">
+                                    <span>📤</span> Send to Client
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen 6: Success -->
+                        <div class="demo-frame" id="frame-success">
+                            <div class="success-screen">
+                                <div class="success-check">✓</div>
+                                <div class="success-title">Invoice Sent!</div>
+                                <div class="success-subtitle">Johnson Residence will receive it shortly.</div>
+                                <div class="success-time">Total time: 27 seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-steps">
+                    <div class="demo-step active" data-step="0">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>Open the app</strong>
+                            <span>Quick launch, no login required</span>
+                        </div>
+                    </div>
+                    <div class="demo-step" data-step="1">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>Tap "New Invoice"</strong>
+                            <span>Start from the home screen</span>
+                        </div>
+                    </div>
+                    <div class="demo-step" data-step="2">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>Describe the work</strong>
+                            <span>In your own words</span>
+                        </div>
+                    </div>
+                    <div class="demo-step" data-step="3">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <strong>AI enhances it</strong>
+                            <span>Professional wording, instantly</span>
+                        </div>
+                    </div>
+                    <div class="demo-step" data-step="4">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <strong>Preview PDF</strong>
+                            <span>Your branding, your layout</span>
+                        </div>
+                    </div>
+                    <div class="demo-step" data-step="5">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <strong>Send to client</strong>
+                            <span>Done in under 30 seconds!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-controls">
+                <button class="demo-control-btn" id="demo-pause">⏸ Pause</button>
+                <button class="demo-control-btn" id="demo-restart">↺ Restart</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
@@ -1068,6 +1924,150 @@
                     faqItem.classList.add('active');
                 }
             });
+        });
+
+        // Demo Animation
+        const demoFrames = [
+            'frame-splash',
+            'frame-home', 
+            'frame-invoice',
+            'frame-ai',
+            'frame-pdf',
+            'frame-success'
+        ];
+        
+        const frameTimings = [2000, 2500, 4000, 3000, 3000, 3000];
+        let currentFrame = 0;
+        let demoTimeout;
+        let typingTimeout;
+        let isPaused = false;
+        
+        const roughText = "fixed leaky pipe under kitchen sink replaced washers and tightened connections";
+        const enhancedText = "Professional plumbing repair service: Diagnosed and repaired leak beneath kitchen sink. Replaced worn washers and secured all pipe connections to prevent future issues.";
+        
+        const pauseBtn = document.getElementById('demo-pause');
+        const restartBtn = document.getElementById('demo-restart');
+        const playBtn = document.getElementById('play-btn');
+        const overlay = document.getElementById('demo-overlay');
+        
+        function typeText(element, text, speed = 50) {
+            return new Promise(resolve => {
+                let i = 0;
+                element.textContent = '';
+                function type() {
+                    if (isPaused) {
+                        const continueTyping = () => {
+                            if (!isPaused) {
+                                type();
+                            } else {
+                                setTimeout(continueTyping, 100);
+                            }
+                        };
+                        setTimeout(continueTyping, 100);
+                        return;
+                    }
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        typingTimeout = setTimeout(type, speed);
+                    } else {
+                        resolve();
+                    }
+                }
+                type();
+            });
+        }
+        
+        function showFrame(index) {
+            document.querySelectorAll('.demo-frame').forEach(frame => {
+                frame.classList.remove('active');
+            });
+            
+            const frameId = demoFrames[index];
+            document.getElementById(frameId).classList.add('active');
+            
+            document.querySelectorAll('.demo-step').forEach((step, i) => {
+                step.classList.remove('active', 'completed');
+                if (i < index) {
+                    step.classList.add('completed');
+                } else if (i === index) {
+                    step.classList.add('active');
+                }
+            });
+            
+            if (frameId === 'frame-invoice') {
+                const descField = document.getElementById('desc-field');
+                typeText(descField, roughText, 40);
+            }
+            
+            if (frameId === 'frame-ai') {
+                const enhancedField = document.getElementById('enhanced-field');
+                enhancedField.textContent = '';
+                setTimeout(() => {
+                    typeText(enhancedField, enhancedText, 20);
+                }, 500);
+            }
+        }
+        
+        function runDemo() {
+            if (isPaused) return;
+            
+            showFrame(currentFrame);
+            
+            demoTimeout = setTimeout(() => {
+                if (isPaused) return;
+                
+                currentFrame++;
+                if (currentFrame < demoFrames.length) {
+                    runDemo();
+                } else {
+                    // Stop at the end
+                    isPaused = true;
+                    pauseBtn.textContent = '▶ Play';
+                }
+            }, frameTimings[currentFrame]);
+        }
+        
+        function startDemo() {
+            overlay.classList.add('hidden');
+            currentFrame = 0;
+            isPaused = false;
+            pauseBtn.textContent = '⏸ Pause';
+            runDemo();
+        }
+        
+        // Click overlay or play button to start
+        overlay.addEventListener('click', startDemo);
+        
+        // Pause/Play button
+        pauseBtn.addEventListener('click', () => {
+            isPaused = !isPaused;
+            if (isPaused) {
+                clearTimeout(demoTimeout);
+                pauseBtn.textContent = '▶ Play';
+            } else {
+                pauseBtn.textContent = '⏸ Pause';
+                demoTimeout = setTimeout(() => {
+                    currentFrame++;
+                    if (currentFrame < demoFrames.length) {
+                        runDemo();
+                    } else {
+                        currentFrame = 0;
+                        runDemo();
+                    }
+                }, 1000);
+            }
+        });
+        
+        // Restart button
+        restartBtn.addEventListener('click', () => {
+            clearTimeout(demoTimeout);
+            clearTimeout(typingTimeout);
+            overlay.classList.add('hidden');
+            currentFrame = 0;
+            isPaused = false;
+            pauseBtn.textContent = '⏸ Pause';
+            runDemo();
         });
     </script>
 </body>
