@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolbelt Blog - Tips & Guides for Contractors</title>
+    <meta name="description" content="Expert invoicing tips, business advice, and guides for contractors and tradespeople. Learn how to get paid faster and grow your business.">
+    <meta name="keywords" content="contractor invoicing, contractor tips, get paid faster, invoice tips, contractor business, tradesperson advice">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Toolbelt Blog - Tips & Guides for Contractors">
+    <meta property="og:description" content="Expert invoicing tips, business advice, and guides for contractors and tradespeople.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://toolbelt.pro/blog/">
+    <meta property="og:image" content="https://toolbelt.pro/og-blog.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://toolbelt.pro/blog/">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJV1HLMC17"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EJV1HLMC17');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --orange: #E8732C;
+            --orange-light: #F5923D;
+            --deep-blue: #1a2a4a;
+            --darker-blue: #0f1a2e;
+            --text-white: #ffffff;
+            --text-light: rgba(255, 255, 255, 0.85);
+            --text-muted: rgba(255, 255, 255, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #d4702a 0%, #b85a24 15%, #6b4a5a 35%, #3a4a6a 55%, var(--deep-blue) 75%, var(--darker-blue) 100%);
+            min-height: 100vh;
+            color: var(--text-white);
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 24px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: linear-gradient(180deg, rgba(212, 112, 42, 0.95) 0%, rgba(212, 112, 42, 0) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+        }
+
+        .logo-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-white);
+        }
+
+        /* Hero Section */
+        .blog-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(36px, 6vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .blog-hero h1 span {
+            color: var(--orange-light);
+        }
+
+        .blog-hero p {
+            font-size: clamp(18px, 2.5vw, 22px);
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            padding: 40px 0 100px;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--deep-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+        }
+
+        .blog-card-content {
+            padding: 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card-category {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .blog-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            color: var(--text-white);
+        }
+
+        .blog-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .blog-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .read-more {
+            color: var(--orange-light);
+            font-weight: 600;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: gap 0.2s ease;
+        }
+
+        .blog-card:hover .read-more {
+            gap: 8px;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .featured-post .blog-card-image {
+            height: 100%;
+            min-height: 300px;
+            border-radius: 24px 0 0 24px;
+        }
+
+        .featured-post .blog-card-content {
+            padding: 40px;
+        }
+
+        .featured-post h2 {
+            font-size: 28px;
+        }
+
+        .featured-badge {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        @media (max-width: 900px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post .blog-card-image {
+                border-radius: 24px 24px 0 0;
+                min-height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-white);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        /* CTA Section */
+        .blog-cta {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 80px;
+            backdrop-filter: blur(20px);
+        }
+
+        .blog-cta h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .blog-cta p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--text-white);
+            color: var(--deep-blue);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../" class="logo">
+                <img src="../B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" class="logo-icon">
+                <span class="logo-text">TOOLBELT</span>
+            </a>
+            <div class="nav-links">
+                <a href="../#features">Features</a>
+                <a href="../#pricing">Pricing</a>
+                <a href="./" class="active">Blog</a>
+                <a href="../#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>The Contractor's <span>Playbook</span></h1>
+            <p>Tips, guides, and strategies to help you get paid faster and grow your business.</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="container">
+        <div class="blog-grid">
+            <!-- Featured Post -->
+            <a href="get-paid-faster-as-contractor.html" class="blog-card featured-post">
+                <div class="blog-card-image">💰</div>
+                <div class="blog-card-content">
+                    <span class="featured-badge">⭐ Featured</span>
+                    <h2>How to Get Paid Faster as a Contractor: 7 Proven Strategies</h2>
+                    <p>Late payments are the #1 cash flow killer for contractors. Learn the exact strategies successful tradespeople use to get paid within days, not weeks. From invoice timing to payment terms that actually work.</p>
+                    <div class="blog-card-meta">
+                        <span>📅 January 2025</span>
+                        <span>⏱️ 8 min read</span>
+                        <span class="read-more">Read More →</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 2 -->
+            <a href="invoicing-mistakes-contractors-make.html" class="blog-card">
+                <div class="blog-card-image">⚠️</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">Invoicing</span>
+                    <h2>5 Invoicing Mistakes That Are Costing You Money</h2>
+                    <p>Most contractors leave thousands on the table each year due to simple invoicing errors. Here's what you're doing wrong and how to fix it today.</p>
+                    <div class="blog-card-meta">
+                        <span>📅 January 2025</span>
+                        <span>⏱️ 6 min read</span>
+                        <span class="read-more">Read More →</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 3 -->
+            <a href="professional-invoice-template-guide.html" class="blog-card">
+                <div class="blog-card-image">📄</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">Templates</span>
+                    <h2>The Professional Invoice Template Guide for Contractors</h2>
+                    <p>What separates a $50/hour contractor from a $150/hour contractor? Often, it's perception. Learn how professional invoices can transform your business image.</p>
+                    <div class="blog-card-meta">
+                        <span>📅 January 2025</span>
+                        <span>⏱️ 7 min read</span>
+                        <span class="read-more">Read More →</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 4 -->
+            <a href="quote-vs-invoice-when-to-use.html" class="blog-card">
+                <div class="blog-card-image">🤔</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">Business</span>
+                    <h2>Quote vs Invoice: When to Use Each (And Why It Matters)</h2>
+                    <p>Using quotes and invoices incorrectly can cost you jobs and create payment disputes. Here's the definitive guide to using each document correctly.</p>
+                    <div class="blog-card-meta">
+                        <span>📅 January 2025</span>
+                        <span>⏱️ 5 min read</span>
+                        <span class="read-more">Read More →</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Post 5 -->
+            <a href="contractor-tax-deductions-guide.html" class="blog-card">
+                <div class="blog-card-image">🧾</div>
+                <div class="blog-card-content">
+                    <span class="blog-card-category">Taxes</span>
+                    <h2>15 Tax Deductions Every Contractor Should Know in 2025</h2>
+                    <p>Stop overpaying the IRS. These commonly missed deductions could save you thousands this tax season. Written specifically for plumbers, electricians, and tradespeople.</p>
+                    <div class="blog-card-meta">
+                        <span>📅 January 2025</span>
+                        <span>⏱️ 10 min read</span>
+                        <span class="read-more">Read More →</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="blog-cta">
+            <h2>Ready to Invoice Like a Pro?</h2>
+            <p>Join thousands of contractors who've simplified their invoicing with Toolbelt.</p>
+            <a href="../" class="btn btn-primary">
+                <span>Get Toolbelt Free</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="../" class="logo">
+                    <img src="../B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" style="width: 32px; height: 32px;">
+                    <span class="logo-text" style="font-size: 20px;">TOOLBELT</span>
+                </a>
+                <div class="footer-links">
+                    <a href="../#contact">Contact</a>
+                    <a href="../privacy.html">Privacy Policy</a>
+                    <a href="../terms.html">Terms of Service</a>
+                    <a href="../support.html">Support</a>
+                </div>
+                <p class="footer-copyright">© 2025 Toolbelt. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
