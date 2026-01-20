@@ -286,10 +286,21 @@
     gap: 8px;
 }
 
-.waitlist-box p {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 20px;
+.waitlist-box {
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid var(--orange);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 500px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(232, 115, 44, 0.3);
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 30px rgba(232, 115, 44, 0.3); }
+    50% { box-shadow: 0 0 50px rgba(232, 115, 44, 0.5); }
 }
 
 .waitlist-form {
