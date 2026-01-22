@@ -56,7 +56,6 @@
             overflow-x: hidden;
         }
 
-        /* Noise texture overlay */
         body::before {
             content: '';
             position: fixed;
@@ -78,7 +77,6 @@
             z-index: 2;
         }
 
-        /* Navigation */
         nav {
             padding: 24px 0;
             position: fixed;
@@ -170,7 +168,6 @@
             background: rgba(255, 255, 255, 0.25);
         }
 
-        /* Hero Section */
         .hero {
             padding: 160px 0 80px;
             text-align: center;
@@ -235,24 +232,26 @@
         .app-store-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
             background: #000;
             color: #fff;
-            padding: 14px 28px;
-            border-radius: 12px;
+            padding: 20px 40px;
+            border-radius: 16px;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.4);
+            animation: glowPulse 2s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .app-store-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.3), 0 12px 40px rgba(0, 0, 0, 0.5);
         }
 
         .app-store-btn svg {
-            width: 28px;
-            height: 28px;
+            width: 36px;
+            height: 36px;
         }
 
         .app-store-btn .text {
@@ -260,118 +259,25 @@
         }
 
         .app-store-btn .text small {
-            font-size: 11px;
-            opacity: 0.8;
+            font-size: 13px;
+            opacity: 0.9;
             display: block;
         }
 
         .app-store-btn .text strong {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: 600;
         }
 
-        /* Waitlist Section */
-.waitlist-section {
-    animation: fadeInUp 0.8s ease 0.35s forwards;
-    opacity: 0;
-    margin-bottom: 40px;
-}
+        @keyframes glowPulse {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.4);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.35), 0 8px 32px rgba(0, 0, 0, 0.4);
+            }
+        }
 
-.waitlist-box {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 32px;
-    max-width: 500px;
-    margin: 0 auto;
-    backdrop-filter: blur(10px);
-}
-
-.waitlist-box h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.waitlist-box {
-    background: rgba(255, 255, 255, 0.12);
-    border: 2px solid var(--orange);
-    border-radius: 20px;
-    padding: 32px;
-    max-width: 500px;
-    margin: 0 auto;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 30px rgba(232, 115, 44, 0.3);
-    animation: glow-pulse 2s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-    0%, 100% { box-shadow: 0 0 30px rgba(232, 115, 44, 0.3); }
-    50% { box-shadow: 0 0 50px rgba(232, 115, 44, 0.5); }
-}
-
-.waitlist-form {
-    display: flex;
-    gap: 12px;
-}
-
-.waitlist-form input[type="email"] {
-    flex: 1;
-    padding: 14px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text-white);
-    font-family: inherit;
-    font-size: 15px;
-    transition: all 0.3s ease;
-}
-
-.waitlist-form input[type="email"]::placeholder {
-    color: var(--text-muted);
-}
-
-.waitlist-form input[type="email"]:focus {
-    outline: none;
-    border-color: var(--orange);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.waitlist-form button {
-    padding: 14px 24px;
-    background: var(--orange);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-family: inherit;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.waitlist-form button:hover {
-    background: var(--orange-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(232, 115, 44, 0.4);
-}
-
-@media (max-width: 500px) {
-    .waitlist-form {
-        flex-direction: column;
-    }
-
-    .waitlist-form button {
-        width: 100%;
-    }
-}   
-    
-        /* Phone mockup */
         .hero-phones {
             display: flex;
             justify-content: center;
@@ -407,7 +313,6 @@
             }
         }
 
-        /* Features Section */
         .features {
             padding: 100px 0;
         }
@@ -475,7 +380,6 @@
             line-height: 1.6;
         }
 
-        /* Screenshots Section */
         .screenshots {
             padding: 80px 0;
             overflow: hidden;
@@ -501,7 +405,6 @@
             100% { transform: translateX(calc(-260px * 6 - 24px * 6)); }
         }
 
-        /* Pricing Section */
         .pricing {
             padding: 100px 0;
         }
@@ -598,7 +501,6 @@
             font-weight: 700;
         }
 
-        /* Free tier */
         .free-tier {
             text-align: center;
             margin-top: 40px;
@@ -619,7 +521,6 @@
             color: var(--text-white);
         }
 
-        /* Comparison Table */
         .comparison {
             padding: 100px 0;
         }
@@ -711,7 +612,6 @@
             color: var(--text-light);
         }
 
-        /* Time Calculator */
         .calculator {
             padding: 100px 0;
         }
@@ -902,43 +802,29 @@
             .calculator-card {
                 padding: 24px;
             }
-
             .calculator-inputs {
                 flex-direction: column;
                 gap: 16px;
             }
-
             .result-comparison {
                 flex-direction: column;
                 gap: 12px;
             }
-
             .result-arrow {
                 transform: rotate(90deg);
             }
-
             .savings-value {
                 font-size: 32px;
             }
-        }
-
-        @media (max-width: 600px) {
             .comparison-table {
                 font-size: 13px;
             }
-
             .comparison-table th,
             .comparison-table td {
                 padding: 12px 10px;
             }
-
-            .guarantee-badge {
-                flex-direction: column;
-                text-align: center;
-            }
         }
 
-        /* Demo Section */
         .demo-section {
             padding: 100px 0;
         }
@@ -982,7 +868,6 @@
             position: relative;
         }
 
-        /* Play Overlay */
         .demo-play-overlay {
             position: absolute;
             top: 0;
@@ -1066,7 +951,6 @@
             opacity: 1;
         }
 
-        /* Splash Screen */
         .splash-screen {
             display: flex;
             flex-direction: column;
@@ -1095,7 +979,6 @@
             50% { transform: scale(1.05); opacity: 0.8; }
         }
 
-        /* App Header */
         .app-header {
             padding: 50px 16px 16px;
             display: flex;
@@ -1119,7 +1002,6 @@
             color: var(--orange-light);
         }
 
-        /* App Grid */
         .app-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1153,7 +1035,6 @@
             color: white;
         }
 
-        /* Tap Indicator */
         .tap-indicator {
             position: absolute;
             top: 165px;
@@ -1181,7 +1062,6 @@
             50% { transform: scale(1.2); opacity: 1; }
         }
 
-        /* Invoice Form */
         .invoice-form {
             padding: 16px;
             display: flex;
@@ -1284,7 +1164,6 @@
             gap: 8px;
         }
 
-        /* PDF Preview */
         .pdf-preview {
             padding: 16px;
             flex: 1;
@@ -1386,7 +1265,6 @@
             color: var(--orange);
         }
 
-        /* Success Screen */
         .success-screen {
             display: flex;
             flex-direction: column;
@@ -1436,7 +1314,6 @@
             font-weight: 600;
         }
 
-        /* Demo Steps */
         .demo-steps {
             display: flex;
             flex-direction: column;
@@ -1518,7 +1395,6 @@
             color: var(--text-muted);
         }
 
-        /* Demo Controls */
         .demo-controls {
             display: flex;
             justify-content: center;
@@ -1549,25 +1425,21 @@
             .demo-wrapper {
                 flex-direction: column;
             }
-
             .demo-steps {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
                 max-width: 100%;
             }
-
             .demo-step {
                 flex: 0 0 auto;
                 padding: 12px;
             }
-
             .step-content span {
                 display: none;
             }
         }
 
-        /* Footer */
         footer {
             padding: 60px 0 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1602,12 +1474,10 @@
             font-size: 14px;
         }
 
-        /* Contact Section */
         .contact {
             padding: 100px 0;
         }
 
-        /* Why Toolbelt Section */
         .why-toolbelt {
             padding: 100px 0;
         }
@@ -1644,7 +1514,6 @@
             margin-bottom: 0;
         }
 
-        /* FAQ Section */
         .faq {
             padding: 100px 0;
         }
@@ -1722,7 +1591,6 @@
             color: var(--text-muted);
         }
 
-        /* Testimonials Section */
         .testimonials {
             padding: 100px 0;
             overflow: hidden;
@@ -1813,7 +1681,6 @@
             .testimonial-card {
                 min-width: 300px;
             }
-
             @keyframes scrollTestimonials {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(calc(-300px * 8 - 24px * 8)); }
@@ -1876,7 +1743,6 @@
             min-height: 120px;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -1888,55 +1754,54 @@
             }
         }
 
-        /* Mobile responsiveness */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
-
             .hero {
                 padding: 120px 0 60px;
             }
-
             .phone-mockup {
                 width: 240px;
             }
-
             .features-grid {
                 grid-template-columns: 1fr;
             }
-
             .pricing-cards {
                 grid-template-columns: 1fr;
             }
-
             .pricing-card.featured {
                 transform: none;
             }
-
             .pricing-card.featured:hover {
                 transform: translateY(-4px);
             }
-
             .footer-content {
                 flex-direction: column;
                 text-align: center;
             }
-
             .footer-links {
                 flex-direction: column;
                 gap: 16px;
             }
+            .app-store-btn {
+                padding: 16px 28px;
+            }
+            .app-store-btn .text strong {
+                font-size: 20px;
+            }
+            .app-store-btn svg {
+                width: 32px;
+                height: 32px;
+            }
         }
 
-        /* Smooth scrolling sections */
         section {
             scroll-margin-top: 100px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="#" class="logo">
@@ -1944,46 +1809,30 @@
                 <span class="logo-text">TOOLBELT</span>
             </a>
             <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#pricing">Pricing</a>
-    <a href="blog/">Blog</a>
-    <a href="#contact">Contact</a>
-</div>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="blog/">Blog</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <span class="hero-badge">Coming Soon to the App Store</span>
+            <span class="hero-badge">Available on the App Store</span>
             <h1>The <span>#1</span> Invoice App<br>for Contractors</h1>
             <p class="hero-subtitle">Invoice and quote like a pro. From the job site.</p>
             <div class="hero-cta">
-                <div class="app-store-btn" style="opacity: 0.6; cursor: default;">
+                <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" class="app-store-btn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                     </svg>
                     <span class="text">
-                        <small>Coming Soon on the</small>
+                        <small>Download on the</small>
                         <strong>App Store</strong>
                     </span>
-                 </div>
+                </a>
             </div>
-            <!-- Waitlist Section -->
-<div class="waitlist-section">
-    <div class="waitlist-box">
-        <h3>🔔 Get Notified at Launch</h3>
-        <p>Be the first to know when Toolbelt is available. No spam, just one email.</p>
-        <form class="waitlist-form" action="https://formsubmit.co/47d0c9f8cca107167df3fb48480fdfb6" method="POST">
-            <input type="hidden" name="_subject" value="🎉 New Toolbelt Waitlist Signup!">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://toolbelt.pro/thanks.html">
-            <input type="text" name="_honey" style="display:none">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <button type="submit">Notify Me</button>
-        </form>
-    </div>
-</div>
             <div class="hero-phones">
                 <img src="1.jpg" alt="Toolbelt App Screenshot" class="phone-mockup">
                 <img src="3.jpg" alt="Toolbelt App Features" class="phone-mockup secondary">
@@ -1991,7 +1840,6 @@
         </div>
     </section>
 
-    <!-- Demo Video Section -->
     <section class="demo-section" id="demo">
         <div class="container">
             <div class="section-header">
@@ -2002,7 +1850,6 @@
                 <div class="demo-phone">
                     <div class="demo-phone-notch"></div>
                     <div class="demo-screen">
-                        <!-- Play Overlay -->
                         <div class="demo-play-overlay" id="demo-overlay">
                             <div class="play-content">
                                 <div class="play-button" id="play-btn">
@@ -2014,16 +1861,12 @@
                                 <div class="play-subtext">Watch how Toolbelt turns paperwork into a 30-second task</div>
                             </div>
                         </div>
-                        
-                        <!-- Screen 1: Splash -->
                         <div class="demo-frame active" id="frame-splash">
                             <div class="splash-screen">
                                 <img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" class="splash-logo">
                                 <div class="splash-title">TOOLBELT</div>
                             </div>
                         </div>
-                        
-                        <!-- Screen 2: Home -->
                         <div class="demo-frame" id="frame-home">
                             <div class="app-header">
                                 <span class="app-greeting">Good morning! 👋</span>
@@ -2051,8 +1894,6 @@
                                 <div class="tap-circle"></div>
                             </div>
                         </div>
-                        
-                        <!-- Screen 3: New Invoice -->
                         <div class="demo-frame" id="frame-invoice">
                             <div class="app-header">
                                 <span class="back-btn">← Back</span>
@@ -2075,8 +1916,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Screen 4: AI Enhancement -->
                         <div class="demo-frame" id="frame-ai">
                             <div class="app-header">
                                 <span class="back-btn">← Back</span>
@@ -2089,8 +1928,7 @@
                                 </div>
                                 <div class="form-field enhanced">
                                     <label>Description <span class="enhanced-badge">✨ Enhanced</span></label>
-                                    <div class="field-textarea enhanced-text" id="enhanced-field">
-                                    </div>
+                                    <div class="field-textarea enhanced-text" id="enhanced-field"></div>
                                 </div>
                                 <div class="form-field">
                                     <label>Amount</label>
@@ -2104,8 +1942,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Screen 5: PDF Preview -->
                         <div class="demo-frame" id="frame-pdf">
                             <div class="app-header">
                                 <span class="back-btn">← Back</span>
@@ -2154,8 +1990,6 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Screen 6: Success -->
                         <div class="demo-frame" id="frame-success">
                             <div class="success-screen">
                                 <div class="success-check">✓</div>
@@ -2218,7 +2052,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
@@ -2260,7 +2093,6 @@
         </div>
     </section>
 
-    <!-- Screenshots Carousel -->
     <section class="screenshots">
         <div class="screenshots-scroll">
             <img src="1.jpg" alt="Toolbelt Screenshot 1">
@@ -2269,7 +2101,6 @@
             <img src="4.jpg" alt="Toolbelt Screenshot 4">
             <img src="5.jpg" alt="Toolbelt Screenshot 5">
             <img src="6.jpg" alt="Toolbelt Screenshot 6">
-            <!-- Duplicate for infinite scroll -->
             <img src="1.jpg" alt="Toolbelt Screenshot 1">
             <img src="2.jpg" alt="Toolbelt Screenshot 2">
             <img src="3.jpg" alt="Toolbelt Screenshot 3">
@@ -2279,60 +2110,23 @@
         </div>
     </section>
 
-    <!-- Why Toolbelt Section -->
     <section class="why-toolbelt" id="why">
         <div class="container">
             <div class="why-content">
                 <div class="why-icon">🔧</div>
                 <h2>Why Toolbelt?</h2>
-                <p class="why-story">
-                    Most invoicing apps are built for office workers sitting at desks. But contractors don't work at desks — they're on ladders, under sinks, and covered in sawdust.
-                </p>
-                <p class="why-story">
-                    Toolbelt was built for the real world. Voice input when your hands are full. AI that turns "fixed leaky pipe under kitchen sink, replaced washers" into professional invoice language. Offline mode for basements with no signal.
-                </p>
-                <p class="why-story highlight">
-                    This is the invoicing app contractors deserve — fast, simple, and built for the job site.
-                </p>
+                <p class="why-story">Most invoicing apps are built for office workers sitting at desks. But contractors don't work at desks — they're on ladders, under sinks, and covered in sawdust.</p>
+                <p class="why-story">Toolbelt was built for the real world. Voice input when your hands are full. AI that turns "fixed leaky pipe under kitchen sink, replaced washers" into professional invoice language. Offline mode for basements with no signal.</p>
+                <p class="why-story highlight">This is the invoicing app contractors deserve — fast, simple, and built for the job site.</p>
             </div>
         </div>
     </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Simple Pricing</h2>
-                <p>Start free. Upgrade when you're ready to grow.</p>
-            </div>
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>Monthly</h3>
-                    <div class="price">$14.99<span>/mo</span></div>
-                    <p class="period">Billed monthly</p>
-                    <ul>
-                        <li>Unlimited invoices & quotes</li>
-                        <li>AI-powered descriptions</li>
                         <li>Voice input</li>
                         <li>Custom PDF templates</li>
                         <li>Client management</li>
                         <li>Offline mode</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>Yearly</h3>
-                    <div class="price">$99.99<span>/yr</span></div>
-                    <p class="period">Save $79.89 per year</p>
-                    <ul>
-                        <li>Unlimited invoices & quotes</li>
-                        <li>AI-powered descriptions</li>
-                        <li>Voice input</li>
-                        <li>Custom PDF templates</li>
-                        <li>Client management</li>
-                        <li>Offline mode</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
+                    <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
                 </div>
             </div>
             <div class="free-tier">
@@ -2341,7 +2135,6 @@
         </div>
     </section>
 
-    <!-- Comparison Table Section -->
     <section class="comparison" id="compare">
         <div class="container">
             <div class="section-header">
@@ -2359,54 +2152,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Built for contractors</td>
-                            <td class="highlight-col"><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td>AI-powered descriptions</td>
-                            <td class="highlight-col"><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td>Voice input</td>
-                            <td class="highlight-col"><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                        </tr>
-                        <tr>
-                            <td>Works offline</td>
-                            <td class="highlight-col"><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="partial">Some</span></td>
-                        </tr>
-                        <tr>
-                            <td>No learning curve</td>
-                            <td class="highlight-col"><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="partial">Varies</span></td>
-                        </tr>
-                        <tr>
-                            <td>Mobile-first design</td>
-                            <td class="highlight-col"><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="check">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Custom branded PDFs</td>
-                            <td class="highlight-col"><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="partial">Limited</span></td>
-                        </tr>
-                        <tr class="price-row">
-                            <td>Monthly price</td>
-                            <td class="highlight-col"><strong>$14.99</strong></td>
-                            <td>$30 - $80</td>
-                            <td>$15 - $25</td>
-                        </tr>
+                        <tr><td>Built for contractors</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+                        <tr><td>AI-powered descriptions</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+                        <tr><td>Voice input</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="cross">✗</span></td></tr>
+                        <tr><td>Works offline</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="partial">Some</span></td></tr>
+                        <tr><td>No learning curve</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="partial">Varies</span></td></tr>
+                        <tr><td>Mobile-first design</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
+                        <tr><td>Custom branded PDFs</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="partial">Limited</span></td></tr>
+                        <tr class="price-row"><td>Monthly price</td><td class="highlight-col"><strong>$14.99</strong></td><td>$30 - $80</td><td>$15 - $25</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -2416,7 +2169,6 @@
         </div>
     </section>
 
-    <!-- Time Calculator Section -->
     <section class="calculator" id="calculator">
         <div class="container">
             <div class="section-header">
@@ -2473,7 +2225,6 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
@@ -2482,64 +2233,33 @@
             </div>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Do I need internet to use Toolbelt?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>No! Toolbelt works completely offline. Create invoices and quotes from the job site, basement, or anywhere with no signal. Your data syncs automatically when you're back online.</p>
-                    </div>
+                    <button class="faq-question"><span>Do I need internet to use Toolbelt?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>No! Toolbelt works completely offline. Create invoices and quotes from the job site, basement, or anywhere with no signal. Your data syncs automatically when you're back online.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Can I add my own logo to invoices?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolutely. Add your business logo, choose your brand colors, and pick from multiple professional templates. Your invoices will look like they came from an established business.</p>
-                    </div>
+                    <button class="faq-question"><span>Can I add my own logo to invoices?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Absolutely. Add your business logo, choose your brand colors, and pick from multiple professional templates. Your invoices will look like they came from an established business.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Is my data secure?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes. Your data is stored securely on your device and protected by iOS security. We don't sell your information or share it with third parties. Your business data stays your business.</p>
-                    </div>
+                    <button class="faq-question"><span>Is my data secure?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Yes. Your data is stored securely on your device and protected by iOS security. We don't sell your information or share it with third parties. Your business data stays your business.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>How does the AI writing feature work?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Just describe the work in your own words — "fixed leaky pipe, replaced washers" — and our AI transforms it into professional invoice language. You can also use voice input when your hands are busy.</p>
-                    </div>
+                    <button class="faq-question"><span>How does the AI writing feature work?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Just describe the work in your own words — "fixed leaky pipe, replaced washers" — and our AI transforms it into professional invoice language. You can also use voice input when your hands are busy.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>Can I cancel my subscription anytime?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, no contracts or commitments. Cancel anytime directly through your Apple account. You'll keep access until the end of your billing period.</p>
-                    </div>
+                    <button class="faq-question"><span>Can I cancel my subscription anytime?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>Yes, no contracts or commitments. Cancel anytime directly through your Apple account. You'll keep access until the end of your billing period.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question">
-                        <span>What's included in the free version?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The free version lets you create up to 3 invoices or quotes per month with all features included. No credit card required, no trial expiration. Upgrade only when you need more.</p>
-                    </div>
+                    <button class="faq-question"><span>What's included in the free version?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer"><p>The free version lets you create up to 3 invoices or quotes per month with all features included. No credit card required, no trial expiration. Upgrade only when you need more.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
     <section class="testimonials" id="reviews">
         <div class="container">
             <div class="section-header">
@@ -2548,187 +2268,25 @@
             </div>
         </div>
         <div class="testimonials-scroll">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🔧</div>
-                    <div class="author-info">
-                        <strong>Mike R.</strong>
-                        <span>Plumber • Austin, TX</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">⚡</div>
-                    <div class="author-info">
-                        <strong>James T.</strong>
-                        <span>Electrician • Denver, CO</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🏠</div>
-                    <div class="author-info">
-                        <strong>Dave K.</strong>
-                        <span>General Contractor • Phoenix, AZ</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🔨</div>
-                    <div class="author-info">
-                        <strong>Carlos M.</strong>
-                        <span>Handyman • Miami, FL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">❄️</div>
-                    <div class="author-info">
-                        <strong>Sarah L.</strong>
-                        <span>HVAC Technician • Toronto, ON</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🚿</div>
-                    <div class="author-info">
-                        <strong>Tom B.</strong>
-                        <span>Plumber • Chicago, IL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🪚</div>
-                    <div class="author-info">
-                        <strong>Ryan P.</strong>
-                        <span>Carpenter • Seattle, WA</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🎨</div>
-                    <div class="author-info">
-                        <strong>Michelle W.</strong>
-                        <span>Painter • Atlanta, GA</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Duplicate for infinite scroll -->
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🔧</div>
-                    <div class="author-info">
-                        <strong>Mike R.</strong>
-                        <span>Plumber • Austin, TX</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">⚡</div>
-                    <div class="author-info">
-                        <strong>James T.</strong>
-                        <span>Electrician • Denver, CO</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🏠</div>
-                    <div class="author-info">
-                        <strong>Dave K.</strong>
-                        <span>General Contractor • Phoenix, AZ</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🔨</div>
-                    <div class="author-info">
-                        <strong>Carlos M.</strong>
-                        <span>Handyman • Miami, FL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">❄️</div>
-                    <div class="author-info">
-                        <strong>Sarah L.</strong>
-                        <span>HVAC Technician • Toronto, ON</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🚿</div>
-                    <div class="author-info">
-                        <strong>Tom B.</strong>
-                        <span>Plumber • Chicago, IL</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🪚</div>
-                    <div class="author-info">
-                        <strong>Ryan P.</strong>
-                        <span>Carpenter • Seattle, WA</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">🎨</div>
-                    <div class="author-info">
-                        <strong>Michelle W.</strong>
-                        <span>Painter • Atlanta, GA</span>
-                    </div>
-                </div>
-            </div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber • Austin, TX</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician • Denver, CO</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor • Phoenix, AZ</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman • Miami, FL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician • Toronto, ON</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber • Chicago, IL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter • Seattle, WA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter • Atlanta, GA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber • Austin, TX</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician • Denver, CO</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor • Phoenix, AZ</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman • Miami, FL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician • Toronto, ON</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber • Chicago, IL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter • Seattle, WA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter • Atlanta, GA</span></div></div></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
@@ -2737,13 +2295,11 @@
             </div>
             <div class="contact-form-wrapper">
                 <form class="contact-form" action="https://formsubmit.co/47d0c9f8cca107167df3fb48480fdfb6" method="POST">
-                    <!-- FormSubmit configuration -->
                     <input type="hidden" name="_subject" value="New Toolbelt Contact Form Submission">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="https://toolbelt.pro/thanks.html">
                     <input type="text" name="_honey" style="display:none">
-                    
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -2762,7 +2318,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2782,25 +2337,15 @@
     </footer>
 
     <script>
-        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
-                
-                // Close all other FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Toggle current item
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
+                document.querySelectorAll('.faq-item').forEach(item => { item.classList.remove('active'); });
+                if (!isActive) { faqItem.classList.add('active'); }
             });
         });
 
-        // Time Calculator
         const invoicesInput = document.getElementById('invoices-per-week');
         const minutesInput = document.getElementById('minutes-per-invoice');
         const currentTimeEl = document.getElementById('current-time');
@@ -2810,44 +2355,26 @@
         const daysSavedEl = document.getElementById('days-saved');
 
         function formatTime(minutes) {
-            if (minutes < 60) {
-                return `${Math.round(minutes)} min`;
-            } else {
-                const hours = Math.floor(minutes / 60);
-                const mins = Math.round(minutes % 60);
-                if (mins === 0) {
-                    return `${hours} hr${hours > 1 ? 's' : ''}`;
-                }
-                return `${hours} hr${hours > 1 ? 's' : ''} ${mins} min`;
-            }
+            if (minutes < 60) { return `${Math.round(minutes)} min`; }
+            const hours = Math.floor(minutes / 60);
+            const mins = Math.round(minutes % 60);
+            if (mins === 0) { return `${hours} hr${hours > 1 ? 's' : ''}`; }
+            return `${hours} hr${hours > 1 ? 's' : ''} ${mins} min`;
         }
 
         function calculateSavings() {
             const invoicesPerWeek = parseInt(invoicesInput.value) || 1;
             const minutesPerInvoice = parseInt(minutesInput.value) || 1;
-            
-            // Current time per month (4.33 weeks per month)
             const currentMonthlyMinutes = invoicesPerWeek * minutesPerInvoice * 4.33;
-            
-            // Toolbelt time (assuming 1 minute per invoice with Toolbelt)
             const toolbeltMonthlyMinutes = invoicesPerWeek * 1 * 4.33;
-            
-            // Time saved
             const savedMinutes = currentMonthlyMinutes - toolbeltMonthlyMinutes;
-            
-            // Yearly savings
             const yearlySavedMinutes = savedMinutes * 12;
             const yearlySavedHours = Math.round(yearlySavedMinutes / 60);
-            
-            // Work days saved (8 hour work day)
             const workDaysSaved = yearlySavedHours / 8;
-            
-            // Update display
             currentTimeEl.textContent = formatTime(currentMonthlyMinutes);
             toolbeltTimeEl.textContent = formatTime(toolbeltMonthlyMinutes);
             timeSavedEl.textContent = formatTime(savedMinutes);
             yearlySavingsEl.textContent = `${yearlySavedHours} hours`;
-            
             if (workDaysSaved >= 5) {
                 const weeks = (workDaysSaved / 5).toFixed(1);
                 daysSavedEl.textContent = `${weeks} work weeks`;
@@ -2856,67 +2383,44 @@
             }
         }
 
-        // Plus/minus buttons
         document.querySelectorAll('.calc-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const targetId = btn.dataset.target;
                 const input = document.getElementById(targetId);
                 const currentVal = parseInt(input.value) || 0;
-                
                 if (btn.classList.contains('plus')) {
                     input.value = Math.min(currentVal + 1, parseInt(input.max));
                 } else {
                     input.value = Math.max(currentVal - 1, parseInt(input.min));
                 }
-                
                 calculateSavings();
             });
         });
 
-        // Input change listeners
         invoicesInput.addEventListener('input', calculateSavings);
         minutesInput.addEventListener('input', calculateSavings);
-
-        // Initial calculation
         calculateSavings();
 
-        // Demo Animation
-        const demoFrames = [
-            'frame-splash',
-            'frame-home', 
-            'frame-invoice',
-            'frame-ai',
-            'frame-pdf',
-            'frame-success'
-        ];
-        
+        const demoFrames = ['frame-splash', 'frame-home', 'frame-invoice', 'frame-ai', 'frame-pdf', 'frame-success'];
         const frameTimings = [2000, 2500, 4000, 3000, 3000, 3000];
         let currentFrame = 0;
         let demoTimeout;
         let typingTimeout;
         let isPaused = false;
-        
         const roughText = "fixed leaky pipe under kitchen sink replaced washers and tightened connections";
         const enhancedText = "Professional plumbing repair service: Diagnosed and repaired leak beneath kitchen sink. Replaced worn washers and secured all pipe connections to prevent future issues.";
-        
         const pauseBtn = document.getElementById('demo-pause');
         const restartBtn = document.getElementById('demo-restart');
         const playBtn = document.getElementById('play-btn');
         const overlay = document.getElementById('demo-overlay');
-        
+
         function typeText(element, text, speed = 50) {
             return new Promise(resolve => {
                 let i = 0;
                 element.textContent = '';
                 function type() {
                     if (isPaused) {
-                        const continueTyping = () => {
-                            if (!isPaused) {
-                                type();
-                            } else {
-                                setTimeout(continueTyping, 100);
-                            }
-                        };
+                        const continueTyping = () => { if (!isPaused) { type(); } else { setTimeout(continueTyping, 100); } };
                         setTimeout(continueTyping, 100);
                         return;
                     }
@@ -2924,64 +2428,43 @@
                         element.textContent += text.charAt(i);
                         i++;
                         typingTimeout = setTimeout(type, speed);
-                    } else {
-                        resolve();
-                    }
+                    } else { resolve(); }
                 }
                 type();
             });
         }
-        
+
         function showFrame(index) {
-            document.querySelectorAll('.demo-frame').forEach(frame => {
-                frame.classList.remove('active');
-            });
-            
+            document.querySelectorAll('.demo-frame').forEach(frame => { frame.classList.remove('active'); });
             const frameId = demoFrames[index];
             document.getElementById(frameId).classList.add('active');
-            
             document.querySelectorAll('.demo-step').forEach((step, i) => {
                 step.classList.remove('active', 'completed');
-                if (i < index) {
-                    step.classList.add('completed');
-                } else if (i === index) {
-                    step.classList.add('active');
-                }
+                if (i < index) { step.classList.add('completed'); }
+                else if (i === index) { step.classList.add('active'); }
             });
-            
             if (frameId === 'frame-invoice') {
                 const descField = document.getElementById('desc-field');
                 typeText(descField, roughText, 40);
             }
-            
             if (frameId === 'frame-ai') {
                 const enhancedField = document.getElementById('enhanced-field');
                 enhancedField.textContent = '';
-                setTimeout(() => {
-                    typeText(enhancedField, enhancedText, 20);
-                }, 500);
+                setTimeout(() => { typeText(enhancedField, enhancedText, 20); }, 500);
             }
         }
-        
+
         function runDemo() {
             if (isPaused) return;
-            
             showFrame(currentFrame);
-            
             demoTimeout = setTimeout(() => {
                 if (isPaused) return;
-                
                 currentFrame++;
-                if (currentFrame < demoFrames.length) {
-                    runDemo();
-                } else {
-                    // Stop at the end
-                    isPaused = true;
-                    pauseBtn.textContent = '▶ Play';
-                }
+                if (currentFrame < demoFrames.length) { runDemo(); }
+                else { isPaused = true; pauseBtn.textContent = '▶ Play'; }
             }, frameTimings[currentFrame]);
         }
-        
+
         function startDemo() {
             overlay.classList.add('hidden');
             currentFrame = 0;
@@ -2989,11 +2472,9 @@
             pauseBtn.textContent = '⏸ Pause';
             runDemo();
         }
-        
-        // Click overlay or play button to start
+
         overlay.addEventListener('click', startDemo);
-        
-        // Pause/Play button
+
         pauseBtn.addEventListener('click', () => {
             isPaused = !isPaused;
             if (isPaused) {
@@ -3003,17 +2484,12 @@
                 pauseBtn.textContent = '⏸ Pause';
                 demoTimeout = setTimeout(() => {
                     currentFrame++;
-                    if (currentFrame < demoFrames.length) {
-                        runDemo();
-                    } else {
-                        currentFrame = 0;
-                        runDemo();
-                    }
+                    if (currentFrame < demoFrames.length) { runDemo(); }
+                    else { currentFrame = 0; runDemo(); }
                 }, 1000);
             }
         });
-        
-        // Restart button
+
         restartBtn.addEventListener('click', () => {
             clearTimeout(demoTimeout);
             clearTimeout(typingTimeout);
