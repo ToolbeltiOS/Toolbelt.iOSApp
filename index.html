@@ -11,8 +11,8 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "v4peke782d");
-</script>
-    
+    </script>
+
     <meta name="description" content="Invoice and quote like a pro. From the job site. AI-powered invoicing built for contractors and tradespeople.">
     <link rel="icon" type="image/png" href="B08867EB-3D4C-47F4-ADA9-14E851617D94.png">
     <link rel="apple-touch-icon" href="B08867EB-3D4C-47F4-ADA9-14E851617D94.png">
@@ -26,47 +26,60 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --orange: #E8732C;
             --orange-light: #F5923D;
-            --deep-blue: #1a2a4a;
-            --darker-blue: #0f1a2e;
-            --text-white: #ffffff;
-            --text-light: rgba(255, 255, 255, 0.85);
-            --text-muted: rgba(255, 255, 255, 0.6);
+            --orange-glow: rgba(232, 115, 44, 0.35);
+            --surface: #0c0f14;
+            --surface-raised: rgba(255, 255, 255, 0.04);
+            --surface-hover: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --text-white: #f0f0f2;
+            --text-light: rgba(240, 240, 242, 0.75);
+            --text-muted: rgba(240, 240, 242, 0.45);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(180deg, #d4702a 0%, #b85a24 15%, #6b4a5a 35%, #3a4a6a 55%, var(--deep-blue) 75%, var(--darker-blue) 100%);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--surface);
             min-height: 100vh;
             color: var(--text-white);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Subtle grain overlay */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.018;
             pointer-events: none;
             z-index: 1;
+        }
+
+        /* Ambient glow behind hero */
+        .hero-glow {
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(232, 115, 44, 0.12) 0%, rgba(232, 115, 44, 0.04) 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
@@ -77,15 +90,18 @@
             z-index: 2;
         }
 
+        /* ─── NAV ─── */
         nav {
-            padding: 24px 0;
+            padding: 20px 0;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 100;
-            background: linear-gradient(180deg, rgba(212, 112, 42, 0.95) 0%, rgba(212, 112, 42, 0) 100%);
-            backdrop-filter: blur(10px);
+            background: rgba(12, 15, 20, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
         nav .container {
@@ -102,120 +118,131 @@
             color: var(--text-white);
         }
 
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-        }
+        .logo-icon { width: 40px; height: 40px; border-radius: 10px; }
 
         .logo-text {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 26px;
+            letter-spacing: 3px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-light);
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
+            font-size: 14px;
+            letter-spacing: 0.3px;
             transition: color 0.2s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--text-white);
-        }
+        .nav-links a:hover { color: var(--text-white); }
 
+        /* ─── BUTTONS ─── */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 14px 28px;
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
+            font-family: inherit;
         }
 
         .btn-primary {
-            background: var(--text-white);
-            color: var(--deep-blue);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            background: var(--orange);
+            color: white;
+            box-shadow: 0 0 0 1px rgba(232, 115, 44, 0.3), 0 4px 20px var(--orange-glow);
         }
-
         .btn-primary:hover {
+            background: var(--orange-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 0 1px rgba(232, 115, 44, 0.5), 0 8px 40px var(--orange-glow);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
+            background: var(--surface-raised);
             color: var(--text-white);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
         }
-
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
         }
 
+        /* ─── HERO ─── */
         .hero {
-            padding: 160px 0 80px;
+            padding: 160px 0 100px;
             text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            padding: 8px 18px;
             border-radius: 50px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            margin-bottom: 24px;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 0.8s ease forwards;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease forwards;
         }
 
-        .hero-badge::before {
-            content: '🍎';
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         .hero h1 {
-            font-family: 'DM Sans', sans-serif;
-            font-size: clamp(48px, 8vw, 80px);
-            font-weight: 700;
-            line-height: 1.05;
-            margin-bottom: 16px;
-            animation: fadeInUp 0.8s ease 0.1s forwards;
+            font-size: clamp(52px, 8vw, 88px);
+            font-weight: 800;
+            line-height: 1.0;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            animation: fadeInUp 0.6s ease 0.1s forwards;
             opacity: 0;
         }
 
-        .hero h1 span {
-            color: var(--orange-light);
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--orange) 0%, #f7a84b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: clamp(20px, 3vw, 28px);
+            font-size: clamp(18px, 2.5vw, 22px);
             font-weight: 400;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+            animation: fadeInUp 0.6s ease 0.2s forwards;
             opacity: 0;
         }
 
@@ -224,79 +251,54 @@
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 60px;
-            animation: fadeInUp 0.8s ease 0.3s forwards;
+            margin-bottom: 80px;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
             opacity: 0;
         }
 
         .app-store-btn {
             display: inline-flex;
             align-items: center;
-            gap: 16px;
-            background: #000;
-            color: #fff;
-            padding: 20px 40px;
-            border-radius: 16px;
+            gap: 14px;
+            background: white;
+            color: #000;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.4);
-            animation: glowPulse 2s ease-in-out infinite;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 8px 32px rgba(0, 0, 0, 0.4);
         }
 
         .app-store-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.3), 0 12px 40px rgba(0, 0, 0, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.2), 0 16px 48px rgba(0, 0, 0, 0.5);
         }
 
-        .app-store-btn svg {
-            width: 36px;
-            height: 36px;
-        }
+        .app-store-btn svg { width: 30px; height: 30px; }
 
-        .app-store-btn .text {
-            text-align: left;
-        }
-
-        .app-store-btn .text small {
-            font-size: 13px;
-            opacity: 0.9;
-            display: block;
-        }
-
-        .app-store-btn .text strong {
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { 
-                box-shadow: 0 0 30px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(0, 0, 0, 0.4);
-            }
-            50% { 
-                box-shadow: 0 0 50px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.35), 0 8px 32px rgba(0, 0, 0, 0.4);
-            }
-        }
+        .app-store-btn .text { text-align: left; }
+        .app-store-btn .text small { font-size: 11px; opacity: 0.6; display: block; letter-spacing: 0.5px; }
+        .app-store-btn .text strong { font-size: 20px; font-weight: 700; }
 
         .hero-phones {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin-top: 40px;
+            gap: 20px;
             animation: fadeInUp 0.8s ease 0.4s forwards;
             opacity: 0;
+            position: relative;
         }
 
         .phone-mockup {
-            width: 280px;
+            width: 260px;
             height: auto;
-            border-radius: 36px;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease;
+            border-radius: 32px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.05);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .phone-mockup:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-12px);
         }
 
         .phone-mockup.secondary {
@@ -309,180 +311,320 @@
                 transform: translateY(40px);
             }
             .phone-mockup.secondary:hover {
-                transform: translateY(30px) scale(1.02);
+                transform: translateY(28px);
             }
         }
 
-        .features {
-            padding: 100px 0;
+        /* ─── VIDEO SECTION ─── */
+        .video-section {
+            padding: 120px 0;
+            position: relative;
         }
 
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .video-wrapper {
+            max-width: 380px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .video-phone-frame {
+            background: #1a1a2e;
+            border-radius: 48px;
+            padding: 14px;
+            position: relative;
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.08),
+                0 40px 100px rgba(0, 0, 0, 0.6),
+                0 0 80px var(--orange-glow);
+        }
+
+        .video-phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 32px;
+            background: #1a1a2e;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .video-phone-frame video {
+            width: 100%;
+            border-radius: 36px;
+            display: block;
+        }
+
+        .video-label {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .video-label p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .video-label p strong {
+            color: var(--orange);
+        }
+
+        /* ─── SECTION STYLING ─── */
         .section-header {
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 72px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 16px;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .section-header h2 {
-            font-size: clamp(36px, 5vw, 52px);
-            font-weight: 700;
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -1px;
             margin-bottom: 16px;
+            line-height: 1.1;
         }
 
         .section-header p {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 520px;
             margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ─── FEATURES ─── */
+        .features {
+            padding: 120px 0;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 32px;
-            backdrop-filter: blur(20px);
-            transition: all 0.3s ease;
+            background: var(--surface);
+            padding: 40px 32px;
+            transition: all 0.4s ease;
+            position: relative;
         }
 
-        .feature-card:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.2);
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(232, 115, 44, 0.06) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
+
+        .feature-card:hover::after { opacity: 1; }
+        .feature-card:hover { background: rgba(255,255,255,0.02); }
 
         .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            border-radius: 16px;
+            width: 48px;
+            height: 48px;
+            background: rgba(232, 115, 44, 0.1);
+            border: 1px solid rgba(232, 115, 44, 0.15);
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 28px;
+            margin-bottom: 24px;
+            font-size: 24px;
         }
 
         .feature-card h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
         }
 
         .feature-card p {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
+        /* ─── SCREENSHOTS ─── */
         .screenshots {
-            padding: 80px 0;
+            padding: 80px 0 120px;
             overflow: hidden;
         }
 
-        .screenshots-scroll {
+        .screenshots-track {
             display: flex;
-            gap: 24px;
-            padding: 20px 0;
-            animation: scroll 30s linear infinite;
+            gap: 20px;
+            animation: scroll-screenshots 35s linear infinite;
+            width: max-content;
         }
 
-        .screenshots-scroll img {
-            width: 260px;
+        .screenshots-track:hover {
+            animation-play-state: paused;
+        }
+
+        .screenshots-track img {
+            width: 240px;
             height: auto;
-            border-radius: 28px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.05);
             flex-shrink: 0;
+            transition: transform 0.4s ease;
         }
 
-        @keyframes scroll {
+        .screenshots-track img:hover {
+            transform: scale(1.03);
+        }
+
+        @keyframes scroll-screenshots {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-260px * 6 - 24px * 6)); }
+            100% { transform: translateX(calc(-240px * 7 - 20px * 7)); }
         }
 
+        /* ─── WHY TOOLBELT ─── */
+        .why-toolbelt {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .why-content {
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-content h2 {
+            font-size: clamp(36px, 5vw, 52px);
+            font-weight: 800;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+
+        .why-story {
+            font-size: 18px;
+            line-height: 1.9;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .why-story.highlight {
+            color: var(--orange);
+            font-weight: 600;
+            font-size: 20px;
+            margin-top: 36px;
+            margin-bottom: 0;
+        }
+
+        /* ─── PRICING ─── */
         .pricing {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .pricing-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            max-width: 800px;
+            gap: 20px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
         .pricing-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px 32px;
-            backdrop-filter: blur(20px);
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 44px 36px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
         }
 
         .pricing-card.featured {
-            background: rgba(232, 115, 44, 0.15);
-            border-color: var(--orange);
-            transform: scale(1.02);
+            background: rgba(232, 115, 44, 0.06);
+            border-color: rgba(232, 115, 44, 0.25);
         }
 
         .pricing-card.featured::before {
             content: 'BEST VALUE';
             position: absolute;
-            top: -12px;
+            top: -13px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            padding: 6px 16px;
+            background: var(--orange);
+            padding: 6px 20px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            color: white;
         }
 
         .pricing-card:hover {
+            border-color: var(--border-hover);
             transform: translateY(-4px);
         }
 
-        .pricing-card.featured:hover {
-            transform: scale(1.02) translateY(-4px);
-        }
-
         .pricing-card h3 {
-            font-size: 24px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 8px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
         }
 
         .pricing-card .price {
-            font-size: 48px;
-            font-weight: 700;
-            margin: 16px 0 8px;
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 4px;
         }
 
         .pricing-card .price span {
             font-size: 18px;
             font-weight: 400;
             color: var(--text-muted);
+            letter-spacing: 0;
         }
 
         .pricing-card .period {
             color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 24px;
+            font-size: 14px;
+            margin-bottom: 32px;
         }
 
         .pricing-card ul {
             list-style: none;
-            margin: 24px 0;
+            margin: 0 0 32px;
             text-align: left;
         }
 
@@ -491,38 +633,42 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-light);
+            border-bottom: 1px solid var(--border);
         }
+
+        .pricing-card li:last-child { border-bottom: none; }
 
         .pricing-card li::before {
             content: '✓';
-            color: var(--orange-light);
+            color: var(--orange);
             font-weight: 700;
+            font-size: 14px;
         }
 
         .free-tier {
             text-align: center;
             margin-top: 40px;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            max-width: 500px;
+            padding: 20px 28px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            max-width: 480px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .free-tier p {
             color: var(--text-muted);
-            font-size: 15px;
+            font-size: 14px;
         }
 
-        .free-tier strong {
-            color: var(--text-white);
-        }
+        .free-tier strong { color: var(--text-white); }
 
+        /* ─── COMPARISON ─── */
         .comparison {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .comparison-table-wrapper {
@@ -536,84 +682,53 @@
             max-width: 800px;
             margin: 0 auto;
             border-collapse: collapse;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .comparison-table th,
         .comparison-table td {
-            padding: 16px 20px;
+            padding: 18px 20px;
             text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border);
         }
 
         .comparison-table th {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .comparison-table th:first-child,
-        .comparison-table td:first-child {
-            text-align: left;
-        }
+        .comparison-table td:first-child { text-align: left; }
 
-        .comparison-table th.highlight-col {
-            color: var(--orange);
-        }
+        .comparison-table th.highlight-col { color: var(--orange); }
+        .comparison-table td.highlight-col { background: rgba(232, 115, 44, 0.04); }
 
-        .comparison-table td.highlight-col {
-            background: rgba(232, 115, 44, 0.1);
-        }
+        .comparison-table tbody tr { transition: background 0.2s ease; }
+        .comparison-table tbody tr:hover { background: var(--surface-raised); }
 
-        .comparison-table tbody tr:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
+        .comparison-table .check { color: #22c55e; font-weight: 700; font-size: 16px; }
+        .comparison-table .cross { color: #ef4444; font-weight: 700; font-size: 16px; }
+        .comparison-table .partial { color: #fbbf24; font-size: 12px; }
 
-        .comparison-table .check {
-            color: #22c55e;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .comparison-table .cross {
-            color: #ef4444;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .comparison-table .partial {
-            color: #fbbf24;
-            font-size: 13px;
-        }
-
-        .comparison-table .price-row {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .comparison-table .price-row td {
-            padding: 20px;
-            font-size: 16px;
-        }
-
-        .comparison-table .price-row td.highlight-col strong {
-            color: var(--orange);
-            font-size: 20px;
-        }
+        .comparison-table .price-row td { padding: 22px 20px; font-size: 15px; }
+        .comparison-table .price-row td.highlight-col strong { color: var(--orange); font-size: 18px; }
 
         .comparison-cta {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 48px;
         }
 
         .comparison-cta p {
-            font-size: 17px;
-            color: var(--text-light);
+            font-size: 16px;
+            color: var(--text-muted);
         }
 
+        /* ─── CALCULATOR ─── */
         .calculator {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .calculator-wrapper {
@@ -622,53 +737,50 @@
         }
 
         .calculator-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(20px);
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 48px 40px;
         }
 
         .calculator-inputs {
             display: flex;
             gap: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 44px;
         }
 
-        .calc-input-group {
-            flex: 1;
-        }
+        .calc-input-group { flex: 1; }
 
         .calc-input-group label {
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--text-muted);
             margin-bottom: 12px;
+            letter-spacing: 0.3px;
         }
 
         .calc-input-wrapper {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
             overflow: hidden;
         }
 
         .calc-btn {
             width: 48px;
             height: 48px;
-            background: rgba(255, 255, 255, 0.1);
+            background: none;
             border: none;
-            color: var(--text-white);
+            color: var(--text-muted);
             font-size: 20px;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        .calc-btn:hover {
-            background: var(--orange);
-        }
+        .calc-btn:hover { background: var(--orange); color: white; }
 
         .calc-input-wrapper input {
             flex: 1;
@@ -678,24 +790,16 @@
             font-size: 20px;
             font-weight: 700;
             text-align: center;
-            padding: 12px 8px;
+            padding: 12px 4px;
             font-family: inherit;
             -moz-appearance: textfield;
         }
 
         .calc-input-wrapper input::-webkit-outer-spin-button,
-        .calc-input-wrapper input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+        .calc-input-wrapper input::-webkit-inner-spin-button { -webkit-appearance: none; }
+        .calc-input-wrapper input:focus { outline: none; }
 
-        .calc-input-wrapper input:focus {
-            outline: none;
-        }
-
-        .calculator-results {
-            text-align: center;
-        }
+        .calculator-results { text-align: center; }
 
         .result-comparison {
             display: flex;
@@ -710,41 +814,35 @@
             flex-direction: column;
             align-items: center;
             padding: 20px 24px;
-            border-radius: 16px;
+            border-radius: var(--radius-md);
             min-width: 140px;
         }
 
         .result-box.current {
-            background: rgba(239, 68, 68, 0.15);
-            border: 1px solid rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
         .result-box.toolbelt {
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
         }
 
         .result-label {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
         .result-value {
             font-size: 28px;
-            font-weight: 700;
-            color: var(--text-white);
+            font-weight: 800;
         }
 
-        .result-box.current .result-value {
-            color: #ef4444;
-        }
-
-        .result-box.toolbelt .result-value {
-            color: #22c55e;
-        }
+        .result-box.current .result-value { color: #ef4444; }
+        .result-box.toolbelt .result-value { color: #22c55e; }
 
         .result-sublabel {
             font-size: 12px;
@@ -752,16 +850,13 @@
             margin-top: 4px;
         }
 
-        .result-arrow {
-            font-size: 24px;
-            color: var(--orange);
-        }
+        .result-arrow { font-size: 24px; color: var(--orange); }
 
         .result-savings {
-            background: linear-gradient(135deg, rgba(232, 115, 44, 0.2) 0%, rgba(245, 146, 61, 0.1) 100%);
-            border: 1px solid var(--orange);
-            border-radius: 16px;
-            padding: 24px;
+            background: rgba(232, 115, 44, 0.06);
+            border: 1px solid rgba(232, 115, 44, 0.2);
+            border-radius: var(--radius-md);
+            padding: 28px;
         }
 
         .savings-highlight {
@@ -771,22 +866,16 @@
             margin-bottom: 16px;
         }
 
-        .savings-label {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
+        .savings-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
 
         .savings-value {
-            font-size: 42px;
-            font-weight: 700;
+            font-size: 44px;
+            font-weight: 800;
             color: var(--orange);
+            letter-spacing: -1px;
         }
 
-        .savings-sublabel {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
+        .savings-sublabel { font-size: 13px; color: var(--text-muted); }
 
         .savings-yearly {
             font-size: 15px;
@@ -794,655 +883,242 @@
             line-height: 1.6;
         }
 
-        .savings-yearly strong {
-            color: var(--orange);
+        .savings-yearly strong { color: var(--orange); }
+
+        /* ─── FAQ ─── */
+        .faq {
+            padding: 120px 0;
         }
 
-        @media (max-width: 600px) {
-            .calculator-card {
-                padding: 24px;
-            }
-            .calculator-inputs {
-                flex-direction: column;
-                gap: 16px;
-            }
-            .result-comparison {
-                flex-direction: column;
-                gap: 12px;
-            }
-            .result-arrow {
-                transform: rotate(90deg);
-            }
-            .savings-value {
-                font-size: 32px;
-            }
-            .comparison-table {
-                font-size: 13px;
-            }
-            .comparison-table th,
-            .comparison-table td {
-                padding: 12px 10px;
-            }
+        .faq-list {
+            max-width: 680px;
+            margin: 0 auto;
         }
 
-        .demo-section {
-            padding: 100px 0;
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
-        .demo-wrapper {
-            display: flex;
-            gap: 60px;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .demo-phone {
-            width: 280px;
-            height: 580px;
-            background: #1a1a2e;
-            border-radius: 40px;
-            padding: 12px;
-            position: relative;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
-        }
-
-        .demo-phone-notch {
-            position: absolute;
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90px;
-            height: 25px;
-            background: #1a1a2e;
-            border-radius: 20px;
-            z-index: 10;
-        }
-
-        .demo-screen {
+        .faq-question {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, #2a3a5a 0%, #1a2a4a 100%);
-            border-radius: 32px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .demo-play-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(42, 58, 90, 0.95) 0%, rgba(26, 42, 74, 0.98) 100%);
+            padding: 28px 0;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            z-index: 20;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: left;
             cursor: pointer;
-            transition: opacity 0.5s ease;
+            transition: all 0.2s ease;
+            letter-spacing: -0.2px;
         }
 
-        .demo-play-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+        .faq-question:hover { color: var(--orange); }
 
-        .play-content {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            box-shadow: 0 10px 40px rgba(232, 115, 44, 0.4);
+        .faq-icon {
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--text-muted);
             transition: all 0.3s ease;
-            animation: pulse-play 2s ease-in-out infinite;
+            flex-shrink: 0;
+            margin-left: 16px;
         }
 
-        .play-button svg {
-            margin-left: 4px;
-        }
-
-        .play-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 50px rgba(232, 115, 44, 0.6);
-        }
-
-        @keyframes pulse-play {
-            0%, 100% { box-shadow: 0 10px 40px rgba(232, 115, 44, 0.4); }
-            50% { box-shadow: 0 10px 60px rgba(232, 115, 44, 0.7); }
-        }
-
-        .play-text {
-            font-size: 18px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .play-subtext {
-            font-size: 12px;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .demo-frame {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .demo-frame.active {
-            opacity: 1;
-        }
-
-        .splash-screen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            background: linear-gradient(180deg, #2a3a5a 0%, #1a2a4a 100%);
-        }
-
-        .splash-logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 16px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .splash-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            letter-spacing: 3px;
-            color: white;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-        }
-
-        .app-header {
-            padding: 50px 16px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .app-greeting {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .app-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: white;
-        }
-
-        .back-btn {
-            font-size: 13px;
-            color: var(--orange-light);
-        }
-
-        .app-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            padding: 16px;
-        }
-
-        .app-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 20px 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .app-card.highlight-card {
-            background: rgba(232, 115, 44, 0.2);
-            border: 1px solid var(--orange);
-        }
-
-        .card-icon {
-            font-size: 28px;
-        }
-
-        .app-card span {
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-        }
-
-        .tap-indicator {
-            position: absolute;
-            top: 165px;
-            left: 55px;
-            pointer-events: none;
-        }
-
-        .tap-indicator.btn-tap {
-            top: auto;
-            bottom: 85px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .tap-circle {
-            width: 40px;
-            height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: tap 1.5s ease-in-out infinite;
-        }
-
-        @keyframes tap {
-            0%, 100% { transform: scale(0.8); opacity: 0; }
-            50% { transform: scale(1.2); opacity: 1; }
-        }
-
-        .invoice-form {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-field label {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .field-value {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 14px;
-            color: white;
-        }
-
-        .field-textarea {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            color: white;
-            min-height: 80px;
-            line-height: 1.5;
-        }
-
-        .cursor {
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .ai-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            color: white;
-            width: fit-content;
-            margin-top: 8px;
-            animation: glow 2s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(232, 115, 44, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(232, 115, 44, 0.8); }
-        }
-
-        .enhanced-badge {
-            color: var(--orange-light);
-            font-size: 10px;
-            font-weight: 400;
-        }
-
-        .form-field.enhanced .field-textarea {
-            border: 1px solid var(--orange);
-            background: rgba(232, 115, 44, 0.1);
-        }
-
-        .generate-btn-container, .share-btn-container {
-            padding: 16px;
-            margin-top: auto;
-            position: relative;
-        }
-
-        .generate-btn, .share-btn {
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            padding: 14px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            color: white;
-        }
-
-        .share-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .pdf-preview {
-            padding: 16px;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pdf-doc {
-            background: white;
-            border-radius: 8px;
-            padding: 16px;
-            width: 100%;
-            color: #333;
-            font-size: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .pdf-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .pdf-logo {
-            width: 30px;
-            height: 30px;
-            background: var(--orange);
-            border-radius: 6px;
-        }
-
-        .pdf-company {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .pdf-company strong {
-            font-size: 12px;
-        }
-
-        .pdf-company span {
-            font-size: 8px;
-            color: #666;
-        }
-
-        .pdf-invoice-num {
-            font-size: 9px;
-            color: #666;
-        }
-
-        .pdf-divider {
-            height: 2px;
-            background: var(--orange);
-            margin: 10px 0;
-        }
-
-        .pdf-details {
-            margin-bottom: 12px;
-        }
-
-        .pdf-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-            font-size: 9px;
-        }
-
-        .pdf-items {
-            background: #f5f5f5;
-            border-radius: 4px;
-            padding: 8px;
-            margin-bottom: 10px;
-        }
-
-        .pdf-item-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 8px;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 6px;
-            padding-bottom: 4px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .pdf-item {
-            display: flex;
-            justify-content: space-between;
-            font-size: 9px;
-        }
-
-        .pdf-total {
-            display: flex;
-            justify-content: space-between;
-            font-weight: 700;
-            font-size: 12px;
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
             color: var(--orange);
         }
 
-        .success-screen {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-            padding: 20px;
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
         }
 
-        .success-check {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            color: white;
-            margin-bottom: 20px;
-            animation: pop 0.5s ease;
-        }
+        .faq-item.active .faq-answer { max-height: 300px; }
 
-        @keyframes pop {
-            0% { transform: scale(0); }
-            70% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        .success-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .success-subtitle {
-            font-size: 13px;
+        .faq-answer p {
+            padding: 0 0 28px;
+            font-size: 15px;
+            line-height: 1.8;
             color: var(--text-muted);
+        }
+
+        /* ─── TESTIMONIALS ─── */
+        .testimonials {
+            padding: 120px 0;
+            overflow: hidden;
+        }
+
+        .testimonials-scroll {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            animation: scrollTestimonials 50s linear infinite;
+        }
+
+        .testimonials-scroll:hover { animation-play-state: paused; }
+
+        @keyframes scrollTestimonials {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-340px * 8 - 20px * 8)); }
+        }
+
+        .testimonial-card {
+            min-width: 340px;
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 16px;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-light);
             margin-bottom: 24px;
         }
 
-        .success-time {
-            font-size: 14px;
-            color: var(--orange-light);
-            font-weight: 600;
-        }
-
-        .demo-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 300px;
-        }
-
-        .demo-step {
+        .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            opacity: 0.5;
-            transition: all 0.4s ease;
+            gap: 12px;
         }
 
-        .demo-step.active {
-            opacity: 1;
+        .author-avatar {
+            width: 40px;
+            height: 40px;
             background: rgba(232, 115, 44, 0.1);
-            border-color: var(--orange);
-        }
-
-        .demo-step.completed {
-            opacity: 0.7;
-        }
-
-        .step-number {
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(232, 115, 44, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-muted);
-            flex-shrink: 0;
+            font-size: 18px;
         }
 
-        .demo-step.active .step-number {
-            background: var(--orange);
-            color: white;
+        .author-info { display: flex; flex-direction: column; gap: 2px; }
+        .author-info strong { font-size: 13px; font-weight: 600; }
+        .author-info span { font-size: 12px; color: var(--text-muted); }
+
+        /* ─── CONTACT ─── */
+        .contact {
+            padding: 120px 0;
         }
 
-        .demo-step.completed .step-number {
-            background: #22c55e;
-            color: white;
+        .contact-form-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
         }
 
-        .demo-step.completed .step-number::after {
-            content: '✓';
+        .contact-form {
+            background: var(--surface-raised);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 44px 36px;
         }
 
-        .demo-step.completed .step-number {
-            font-size: 0;
-        }
+        .form-group { margin-bottom: 24px; }
 
-        .demo-step.completed .step-number::after {
-            font-size: 14px;
-        }
-
-        .step-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .step-content strong {
-            font-size: 14px;
-            color: var(--text-white);
-        }
-
-        .step-content span {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .demo-controls {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
-        }
-
-        .demo-control-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--text-light);
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 14px;
+        .form-group label {
+            display: block;
+            font-size: 13px;
             font-weight: 600;
-            cursor: pointer;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-white);
+            font-family: inherit;
+            font-size: 15px;
             transition: all 0.3s ease;
         }
 
-        .demo-control-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--text-muted); }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
             border-color: var(--orange);
-            color: white;
+            background: rgba(232, 115, 44, 0.04);
+            box-shadow: 0 0 0 3px rgba(232, 115, 44, 0.1);
         }
 
-        @media (max-width: 768px) {
-            .demo-wrapper {
-                flex-direction: column;
-            }
-            .demo-steps {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                max-width: 100%;
-            }
-            .demo-step {
-                flex: 0 0 auto;
-                padding: 12px;
-            }
-            .step-content span {
-                display: none;
-            }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
         }
 
+        /* ─── CTA BANNER ─── */
+        .cta-banner {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 400px;
+            background: radial-gradient(ellipse, var(--orange-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta-banner p {
+            font-size: 17px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .cta-banner .app-store-btn {
+            position: relative;
+        }
+
+        /* ─── FOOTER ─── */
         footer {
             padding: 60px 0 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border);
         }
 
         .footer-content {
@@ -1461,344 +1137,70 @@
         .footer-links a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             transition: color 0.2s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--text-white);
-        }
+        .footer-links a:hover { color: var(--text-white); }
 
         .footer-copyright {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        .contact {
-            padding: 100px 0;
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .why-toolbelt {
-            padding: 100px 0;
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
-        .why-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .why-icon {
-            font-size: 48px;
-            margin-bottom: 24px;
-        }
-
-        .why-content h2 {
-            font-size: clamp(36px, 5vw, 48px);
-            font-weight: 700;
-            margin-bottom: 32px;
-        }
-
-        .why-story {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-
-        .why-story.highlight {
-            color: var(--orange-light);
-            font-weight: 600;
-            font-size: 20px;
-            margin-top: 32px;
-            margin-bottom: 0;
-        }
-
-        .faq {
-            padding: 100px 0;
-        }
-
-        .faq-list {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .faq-item.active {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--orange);
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: none;
-            border: none;
-            color: var(--text-white);
-            font-family: inherit;
-            font-size: 17px;
-            font-weight: 600;
-            text-align: left;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            color: var(--orange-light);
-        }
-
-        .faq-icon {
-            font-size: 24px;
-            font-weight: 300;
-            color: var(--orange);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-        }
-
-        .faq-answer p {
-            padding: 0 24px 24px;
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--text-muted);
-        }
-
-        .testimonials {
-            padding: 100px 0;
-            overflow: hidden;
-        }
-
-        .testimonials-scroll {
-            display: flex;
-            gap: 24px;
-            padding: 20px 0;
-            animation: scrollTestimonials 40s linear infinite;
-        }
-
-        .testimonials-scroll:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes scrollTestimonials {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-350px * 8 - 24px * 8)); }
-        }
-
-        .testimonial-card {
-            min-width: 350px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 28px;
-            backdrop-filter: blur(20px);
-            flex-shrink: 0;
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-4px);
-        }
-
-        .testimonial-stars {
-            color: #fbbf24;
-            font-size: 18px;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .testimonial-text {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-light);
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .author-avatar {
-            width: 44px;
-            height: 44px;
-            background: rgba(232, 115, 44, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .author-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .author-info strong {
-            font-size: 14px;
-            color: var(--text-white);
-        }
-
-        .author-info span {
-            font-size: 12px;
-            color: var(--text-muted);
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .testimonial-card {
-                min-width: 300px;
-            }
+            .nav-links { display: none; }
+            .hero { padding: 130px 0 80px; }
+            .phone-mockup { width: 220px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-cards { grid-template-columns: 1fr; }
+            .calculator-card { padding: 28px 20px; }
+            .calculator-inputs { flex-direction: column; gap: 16px; }
+            .result-comparison { flex-direction: column; gap: 12px; }
+            .result-arrow { transform: rotate(90deg); }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { flex-direction: column; gap: 16px; }
+            .video-phone-frame { border-radius: 36px; padding: 10px; }
+            .video-phone-frame video { border-radius: 28px; }
+            .video-phone-frame::before { width: 90px; height: 24px; }
+            .testimonial-card { min-width: 300px; }
             @keyframes scrollTestimonials {
                 0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-300px * 8 - 24px * 8)); }
+                100% { transform: translateX(calc(-300px * 8 - 20px * 8)); }
             }
         }
 
-        .contact-form-wrapper {
-            max-width: 500px;
-            margin: 0 auto;
+        @media (max-width: 600px) {
+            .savings-value { font-size: 32px; }
+            .comparison-table { font-size: 13px; }
+            .comparison-table th, .comparison-table td { padding: 12px 10px; }
         }
 
-        .contact-form {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px 32px;
-            backdrop-filter: blur(20px);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-light);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text-white);
-            font-family: inherit;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--orange);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 0 3px rgba(232, 115, 44, 0.2);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero {
-                padding: 120px 0 60px;
-            }
-            .phone-mockup {
-                width: 240px;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .pricing-cards {
-                grid-template-columns: 1fr;
-            }
-            .pricing-card.featured {
-                transform: none;
-            }
-            .pricing-card.featured:hover {
-                transform: translateY(-4px);
-            }
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-links {
-                flex-direction: column;
-                gap: 16px;
-            }
-            .app-store-btn {
-                padding: 16px 28px;
-            }
-            .app-store-btn .text strong {
-                font-size: 20px;
-            }
-            .app-store-btn svg {
-                width: 32px;
-                height: 32px;
-            }
-        }
-
-        section {
-            scroll-margin-top: 100px;
-        }
+        section { scroll-margin-top: 100px; }
     </style>
 </head>
 <body>
@@ -1818,10 +1220,11 @@
     </nav>
 
     <section class="hero">
+        <div class="hero-glow"></div>
         <div class="container">
-            <span class="hero-badge">Available on the App Store</span>
-            <h1>The <span>#1</span> Invoice App<br>for Contractors</h1>
-            <p class="hero-subtitle">Invoice and quote like a pro. From the job site.</p>
+            <span class="hero-badge"><span class="dot"></span> Available on the App Store</span>
+            <h1>The <span class="accent">#1</span> Invoice App<br>for Contractors</h1>
+            <p class="hero-subtitle">Create professional invoices and quotes in seconds. From the job site. AI-powered.</p>
             <div class="hero-cta">
                 <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" class="app-store-btn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1834,231 +1237,42 @@
                 </a>
             </div>
             <div class="hero-phones">
-                <img src="1.jpg" alt="Toolbelt App Screenshot" class="phone-mockup">
-                <img src="3.jpg" alt="Toolbelt App Features" class="phone-mockup secondary">
+                <img src="3.jpg" alt="Toolbelt App - Voice Input" class="phone-mockup">
+                <img src="5.jpg" alt="Toolbelt App - Dashboard" class="phone-mockup secondary">
             </div>
         </div>
     </section>
 
-    <section class="demo-section" id="demo">
+    <!-- Video Demo Section -->
+    <section class="video-section" id="demo">
         <div class="container">
-            <div class="section-header">
-                <h2>See It In Action</h2>
-                <p>Watch how easy it is to create a professional invoice in seconds.</p>
+            <div class="section-header reveal">
+                <span class="section-label">See It In Action</span>
+                <h2>Invoice in Under<br>30 Seconds</h2>
+                <p>Watch how Toolbelt turns job-site paperwork into a 30-second task.</p>
             </div>
-            <div class="demo-wrapper">
-                <div class="demo-phone">
-                    <div class="demo-phone-notch"></div>
-                    <div class="demo-screen">
-                        <div class="demo-play-overlay" id="demo-overlay">
-                            <div class="play-content">
-                                <div class="play-button" id="play-btn">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </div>
-                                <div class="play-text">Invoice in 27 seconds</div>
-                                <div class="play-subtext">Watch how Toolbelt turns paperwork into a 30-second task</div>
-                            </div>
-                        </div>
-                        <div class="demo-frame active" id="frame-splash">
-                            <div class="splash-screen">
-                                <img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" class="splash-logo">
-                                <div class="splash-title">TOOLBELT</div>
-                            </div>
-                        </div>
-                        <div class="demo-frame" id="frame-home">
-                            <div class="app-header">
-                                <span class="app-greeting">Good morning! 👋</span>
-                                <span class="app-title">Dashboard</span>
-                            </div>
-                            <div class="app-grid">
-                                <div class="app-card highlight-card">
-                                    <div class="card-icon">📄</div>
-                                    <span>New Invoice</span>
-                                </div>
-                                <div class="app-card">
-                                    <div class="card-icon">📋</div>
-                                    <span>New Quote</span>
-                                </div>
-                                <div class="app-card">
-                                    <div class="card-icon">👤</div>
-                                    <span>Clients</span>
-                                </div>
-                                <div class="app-card">
-                                    <div class="card-icon">📁</div>
-                                    <span>Templates</span>
-                                </div>
-                            </div>
-                            <div class="tap-indicator">
-                                <div class="tap-circle"></div>
-                            </div>
-                        </div>
-                        <div class="demo-frame" id="frame-invoice">
-                            <div class="app-header">
-                                <span class="back-btn">← Back</span>
-                                <span class="app-title">New Invoice</span>
-                            </div>
-                            <div class="invoice-form">
-                                <div class="form-field">
-                                    <label>Client</label>
-                                    <div class="field-value typing-effect" id="client-field">Johnson Residence</div>
-                                </div>
-                                <div class="form-field">
-                                    <label>Description</label>
-                                    <div class="field-textarea">
-                                        <span class="typing-text" id="desc-field"></span>
-                                        <span class="cursor">|</span>
-                                    </div>
-                                    <div class="ai-badge">
-                                        <span class="ai-icon">✨</span> AI Enhance
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="demo-frame" id="frame-ai">
-                            <div class="app-header">
-                                <span class="back-btn">← Back</span>
-                                <span class="app-title">New Invoice</span>
-                            </div>
-                            <div class="invoice-form">
-                                <div class="form-field">
-                                    <label>Client</label>
-                                    <div class="field-value">Johnson Residence</div>
-                                </div>
-                                <div class="form-field enhanced">
-                                    <label>Description <span class="enhanced-badge">✨ Enhanced</span></label>
-                                    <div class="field-textarea enhanced-text" id="enhanced-field"></div>
-                                </div>
-                                <div class="form-field">
-                                    <label>Amount</label>
-                                    <div class="field-value">$350.00</div>
-                                </div>
-                            </div>
-                            <div class="generate-btn-container">
-                                <div class="generate-btn">Generate PDF</div>
-                                <div class="tap-indicator btn-tap">
-                                    <div class="tap-circle"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="demo-frame" id="frame-pdf">
-                            <div class="app-header">
-                                <span class="back-btn">← Back</span>
-                                <span class="app-title">Invoice Preview</span>
-                            </div>
-                            <div class="pdf-preview">
-                                <div class="pdf-doc">
-                                    <div class="pdf-header">
-                                        <div class="pdf-logo"></div>
-                                        <div class="pdf-company">
-                                            <strong>Mike's Plumbing</strong>
-                                            <span>Professional Services</span>
-                                        </div>
-                                        <div class="pdf-invoice-num">INV-0042</div>
-                                    </div>
-                                    <div class="pdf-divider"></div>
-                                    <div class="pdf-details">
-                                        <div class="pdf-row">
-                                            <span>Bill To:</span>
-                                            <span>Johnson Residence</span>
-                                        </div>
-                                        <div class="pdf-row">
-                                            <span>Date:</span>
-                                            <span>Jan 18, 2025</span>
-                                        </div>
-                                    </div>
-                                    <div class="pdf-items">
-                                        <div class="pdf-item-header">
-                                            <span>Description</span>
-                                            <span>Amount</span>
-                                        </div>
-                                        <div class="pdf-item">
-                                            <span>Kitchen sink repair & maintenance</span>
-                                            <span>$350.00</span>
-                                        </div>
-                                    </div>
-                                    <div class="pdf-total">
-                                        <span>Total Due:</span>
-                                        <span>$350.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="share-btn-container">
-                                <div class="share-btn">
-                                    <span>📤</span> Send to Client
-                                </div>
-                            </div>
-                        </div>
-                        <div class="demo-frame" id="frame-success">
-                            <div class="success-screen">
-                                <div class="success-check">✓</div>
-                                <div class="success-title">Invoice Sent!</div>
-                                <div class="success-subtitle">Johnson Residence will receive it shortly.</div>
-                                <div class="success-time">Total time: 27 seconds</div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="video-wrapper reveal">
+                <div class="video-phone-frame">
+                    <video autoplay muted loop playsinline>
+                        <source src="Toolbelt_-_Invoice___Estimate_v2.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="demo-steps">
-                    <div class="demo-step active" data-step="0">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <strong>Open the app</strong>
-                            <span>Quick launch, no login required</span>
-                        </div>
-                    </div>
-                    <div class="demo-step" data-step="1">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <strong>Tap "New Invoice"</strong>
-                            <span>Start from the home screen</span>
-                        </div>
-                    </div>
-                    <div class="demo-step" data-step="2">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <strong>Describe the work</strong>
-                            <span>In your own words</span>
-                        </div>
-                    </div>
-                    <div class="demo-step" data-step="3">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <strong>AI enhances it</strong>
-                            <span>Professional wording, instantly</span>
-                        </div>
-                    </div>
-                    <div class="demo-step" data-step="4">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <strong>Preview PDF</strong>
-                            <span>Your branding, your layout</span>
-                        </div>
-                    </div>
-                    <div class="demo-step" data-step="5">
-                        <div class="step-number">6</div>
-                        <div class="step-content">
-                            <strong>Send to client</strong>
-                            <span>Done in under 30 seconds!</span>
-                        </div>
-                    </div>
+                <div class="video-label">
+                    <p>Create → Enhance → Send — <strong>that fast.</strong></p>
                 </div>
-            </div>
-            <div class="demo-controls">
-                <button class="demo-control-btn" id="demo-pause">⏸ Pause</button>
-                <button class="demo-control-btn" id="demo-restart">↺ Restart</button>
             </div>
         </div>
     </section>
 
+    <!-- Features -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-label">Features</span>
                 <h2>Built for the Trades</h2>
                 <p>Everything you need to run your business from your pocket. No office required.</p>
             </div>
-            <div class="features-grid">
+            <div class="features-grid reveal">
                 <div class="feature-card">
                     <div class="feature-icon">🤖</div>
                     <h3>AI-Powered Descriptions</h3>
@@ -2093,28 +1307,33 @@
         </div>
     </section>
 
+    <!-- Screenshots Carousel -->
     <section class="screenshots">
-        <div class="screenshots-scroll">
-            <img src="1.jpg" alt="Toolbelt Screenshot 1">
-            <img src="2.jpg" alt="Toolbelt Screenshot 2">
-            <img src="3.jpg" alt="Toolbelt Screenshot 3">
-            <img src="4.jpg" alt="Toolbelt Screenshot 4">
-            <img src="5.jpg" alt="Toolbelt Screenshot 5">
-            <img src="6.jpg" alt="Toolbelt Screenshot 6">
-            <img src="1.jpg" alt="Toolbelt Screenshot 1">
-            <img src="2.jpg" alt="Toolbelt Screenshot 2">
-            <img src="3.jpg" alt="Toolbelt Screenshot 3">
-            <img src="4.jpg" alt="Toolbelt Screenshot 4">
-            <img src="5.jpg" alt="Toolbelt Screenshot 5">
-            <img src="6.jpg" alt="Toolbelt Screenshot 6">
+        <div class="screenshots-track">
+            <img src="3.jpg" alt="Toolbelt - Voice Input">
+            <img src="4.jpg" alt="Toolbelt - Photos">
+            <img src="5.jpg" alt="Toolbelt - Dashboard">
+            <img src="6.jpg" alt="Toolbelt - Quotes">
+            <img src="7.jpg" alt="Toolbelt - Line Items">
+            <img src="8.jpg" alt="Toolbelt - Send Invoice">
+            <img src="9.jpg" alt="Toolbelt - AI Features">
+            <!-- Duplicated for seamless scroll -->
+            <img src="3.jpg" alt="Toolbelt - Voice Input">
+            <img src="4.jpg" alt="Toolbelt - Photos">
+            <img src="5.jpg" alt="Toolbelt - Dashboard">
+            <img src="6.jpg" alt="Toolbelt - Dashboard">
+            <img src="7.jpg" alt="Toolbelt - Line Items">
+            <img src="8.jpg" alt="Toolbelt - Send Invoice">
+            <img src="9.jpg" alt="Toolbelt - AI Features">
         </div>
     </section>
 
+    <!-- Why Toolbelt -->
     <section class="why-toolbelt" id="why">
         <div class="container">
-            <div class="why-content">
-                <div class="why-icon">🔧</div>
-                <h2>Why Toolbelt?</h2>
+            <div class="why-content reveal">
+                <span class="section-label">Why Toolbelt</span>
+                <h2>Built for the Real World</h2>
                 <p class="why-story">Most invoicing apps are built for office workers sitting at desks. But contractors don't work at desks — they're on ladders, under sinks, and covered in sawdust.</p>
                 <p class="why-story">Toolbelt was built for the real world. Voice input when your hands are full. AI that turns "fixed leaky pipe under kitchen sink, replaced washers" into professional invoice language. Offline mode for basements with no signal.</p>
                 <p class="why-story highlight">This is the invoicing app contractors deserve — fast, simple, and built for the job site.</p>
@@ -2122,13 +1341,15 @@
         </div>
     </section>
 
+    <!-- Pricing -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-label">Pricing</span>
                 <h2>Simple Pricing</h2>
                 <p>Start free. Upgrade when you're ready to grow.</p>
             </div>
-            <div class="pricing-cards">
+            <div class="pricing-cards reveal">
                 <div class="pricing-card">
                     <h3>Monthly</h3>
                     <div class="price">$14.99<span>/mo</span></div>
@@ -2158,19 +1379,21 @@
                     <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" class="btn btn-primary" style="width: 100%; justify-content: center;">Get Started</a>
                 </div>
             </div>
-            <div class="free-tier">
+            <div class="free-tier reveal">
                 <p><strong>Try it free</strong> — Create up to 3 documents per month at no cost. No credit card required.</p>
             </div>
         </div>
     </section>
 
+    <!-- Comparison -->
     <section class="comparison" id="compare">
         <div class="container">
-            <div class="section-header">
-                <h2>Why Contractors Switch to Toolbelt</h2>
+            <div class="section-header reveal">
+                <span class="section-label">Compare</span>
+                <h2>Why Contractors Switch</h2>
                 <p>See how we stack up against traditional invoicing software.</p>
             </div>
-            <div class="comparison-table-wrapper">
+            <div class="comparison-table-wrapper reveal">
                 <table class="comparison-table">
                     <thead>
                         <tr>
@@ -2188,23 +1411,25 @@
                         <tr><td>No learning curve</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="partial">Varies</span></td></tr>
                         <tr><td>Mobile-first design</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="cross">✗</span></td><td><span class="check">✓</span></td></tr>
                         <tr><td>Custom branded PDFs</td><td class="highlight-col"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="partial">Limited</span></td></tr>
-                        <tr class="price-row"><td>Monthly price</td><td class="highlight-col"><strong>$14.99</strong></td><td>$30 - $80</td><td>$15 - $25</td></tr>
+                        <tr class="price-row"><td>Monthly price</td><td class="highlight-col"><strong>$14.99</strong></td><td>$30 – $80</td><td>$15 – $25</td></tr>
                     </tbody>
                 </table>
             </div>
-            <div class="comparison-cta">
+            <div class="comparison-cta reveal">
                 <p>Stop paying for features you don't need. Get an app built for the job site.</p>
             </div>
         </div>
     </section>
 
+    <!-- Calculator -->
     <section class="calculator" id="calculator">
         <div class="container">
-            <div class="section-header">
-                <h2>How Much Time Are You Wasting?</h2>
+            <div class="section-header reveal">
+                <span class="section-label">ROI Calculator</span>
+                <h2>How Much Time Are<br>You Wasting?</h2>
                 <p>See how much time Toolbelt can save you every month.</p>
             </div>
-            <div class="calculator-wrapper">
+            <div class="calculator-wrapper reveal">
                 <div class="calculator-card">
                     <div class="calculator-inputs">
                         <div class="calc-input-group">
@@ -2254,13 +1479,15 @@
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-label">FAQ</span>
                 <h2>Frequently Asked Questions</h2>
                 <p>Everything you need to know about Toolbelt.</p>
             </div>
-            <div class="faq-list">
+            <div class="faq-list reveal">
                 <div class="faq-item">
                     <button class="faq-question"><span>Do I need internet to use Toolbelt?</span><span class="faq-icon">+</span></button>
                     <div class="faq-answer"><p>No! Toolbelt works completely offline. Create invoices and quotes from the job site, basement, or anywhere with no signal. Your data syncs automatically when you're back online.</p></div>
@@ -2289,40 +1516,62 @@
         </div>
     </section>
 
+    <!-- Testimonials -->
     <section class="testimonials" id="reviews">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-label">Reviews</span>
                 <h2>Approved by Contractors</h2>
                 <p>Join thousands of tradespeople who've simplified their invoicing.</p>
             </div>
         </div>
         <div class="testimonials-scroll">
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber • Austin, TX</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician • Denver, CO</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor • Phoenix, AZ</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman • Miami, FL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician • Toronto, ON</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber • Chicago, IL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter • Seattle, WA</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter • Atlanta, GA</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber • Austin, TX</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician • Denver, CO</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor • Phoenix, AZ</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman • Miami, FL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician • Toronto, ON</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber • Chicago, IL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter • Seattle, WA</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter • Atlanta, GA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber · Austin, TX</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician · Denver, CO</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor · Phoenix, AZ</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman · Miami, FL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician · Toronto, ON</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber · Chicago, IL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter · Seattle, WA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter · Atlanta, GA</span></div></div></div>
+            <!-- Duplicated for seamless scroll -->
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber · Austin, TX</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician · Denver, CO</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor · Phoenix, AZ</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman · Miami, FL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician · Toronto, ON</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber · Chicago, IL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter · Seattle, WA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter · Atlanta, GA</span></div></div></div>
         </div>
     </section>
 
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container reveal">
+            <h2>Ready to Ditch<br>the Paperwork?</h2>
+            <p>Join thousands of contractors who invoice in seconds, not hours.</p>
+            <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" class="app-store-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                <span class="text">
+                    <small>Download on the</small>
+                    <strong>App Store</strong>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
+                <span class="section-label">Contact</span>
                 <h2>Get in Touch</h2>
                 <p>Have questions or feedback? We'd love to hear from you.</p>
             </div>
-            <div class="contact-form-wrapper">
+            <div class="contact-form-wrapper reveal">
                 <form class="contact-form" action="https://formsubmit.co/47d0c9f8cca107167df3fb48480fdfb6" method="POST">
                     <input type="hidden" name="_subject" value="New Toolbelt Contact Form Submission">
                     <input type="hidden" name="_captcha" value="false">
@@ -2351,7 +1600,7 @@
         <div class="container">
             <div class="footer-content">
                 <a href="#" class="logo">
-                    <img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" style="width: 32px; height: 32px;">
+                    <img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" style="width: 32px; height: 32px; border-radius: 8px;">
                     <span class="logo-text" style="font-size: 20px;">TOOLBELT</span>
                 </a>
                 <div class="footer-links">
@@ -2366,15 +1615,17 @@
     </footer>
 
     <script>
+        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(item => { item.classList.remove('active'); });
-                if (!isActive) { faqItem.classList.add('active'); }
+                document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+                if (!isActive) faqItem.classList.add('active');
             });
         });
 
+        // Calculator
         const invoicesInput = document.getElementById('invoices-per-week');
         const minutesInput = document.getElementById('minutes-per-invoice');
         const currentTimeEl = document.getElementById('current-time');
@@ -2384,11 +1635,10 @@
         const daysSavedEl = document.getElementById('days-saved');
 
         function formatTime(minutes) {
-            if (minutes < 60) { return `${Math.round(minutes)} min`; }
+            if (minutes < 60) return `${Math.round(minutes)} min`;
             const hours = Math.floor(minutes / 60);
             const mins = Math.round(minutes % 60);
-            if (mins === 0) { return `${hours} hr${hours > 1 ? 's' : ''}`; }
-            return `${hours} hr${hours > 1 ? 's' : ''} ${mins} min`;
+            return mins === 0 ? `${hours} hr${hours > 1 ? 's' : ''}` : `${hours} hr${hours > 1 ? 's' : ''} ${mins} min`;
         }
 
         function calculateSavings() {
@@ -2397,31 +1647,20 @@
             const currentMonthlyMinutes = invoicesPerWeek * minutesPerInvoice * 4.33;
             const toolbeltMonthlyMinutes = invoicesPerWeek * 1 * 4.33;
             const savedMinutes = currentMonthlyMinutes - toolbeltMonthlyMinutes;
-            const yearlySavedMinutes = savedMinutes * 12;
-            const yearlySavedHours = Math.round(yearlySavedMinutes / 60);
+            const yearlySavedHours = Math.round(savedMinutes * 12 / 60);
             const workDaysSaved = yearlySavedHours / 8;
             currentTimeEl.textContent = formatTime(currentMonthlyMinutes);
             toolbeltTimeEl.textContent = formatTime(toolbeltMonthlyMinutes);
             timeSavedEl.textContent = formatTime(savedMinutes);
             yearlySavingsEl.textContent = `${yearlySavedHours} hours`;
-            if (workDaysSaved >= 5) {
-                const weeks = (workDaysSaved / 5).toFixed(1);
-                daysSavedEl.textContent = `${weeks} work weeks`;
-            } else {
-                daysSavedEl.textContent = `${workDaysSaved.toFixed(1)} work days`;
-            }
+            daysSavedEl.textContent = workDaysSaved >= 5 ? `${(workDaysSaved / 5).toFixed(1)} work weeks` : `${workDaysSaved.toFixed(1)} work days`;
         }
 
         document.querySelectorAll('.calc-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                const targetId = btn.dataset.target;
-                const input = document.getElementById(targetId);
-                const currentVal = parseInt(input.value) || 0;
-                if (btn.classList.contains('plus')) {
-                    input.value = Math.min(currentVal + 1, parseInt(input.max));
-                } else {
-                    input.value = Math.max(currentVal - 1, parseInt(input.min));
-                }
+                const input = document.getElementById(btn.dataset.target);
+                const val = parseInt(input.value) || 0;
+                input.value = btn.classList.contains('plus') ? Math.min(val + 1, parseInt(input.max)) : Math.max(val - 1, parseInt(input.min));
                 calculateSavings();
             });
         });
@@ -2430,104 +1669,16 @@
         minutesInput.addEventListener('input', calculateSavings);
         calculateSavings();
 
-        const demoFrames = ['frame-splash', 'frame-home', 'frame-invoice', 'frame-ai', 'frame-pdf', 'frame-success'];
-        const frameTimings = [2000, 2500, 4000, 3000, 3000, 3000];
-        let currentFrame = 0;
-        let demoTimeout;
-        let typingTimeout;
-        let isPaused = false;
-        const roughText = "fixed leaky pipe under kitchen sink replaced washers and tightened connections";
-        const enhancedText = "Professional plumbing repair service: Diagnosed and repaired leak beneath kitchen sink. Replaced worn washers and secured all pipe connections to prevent future issues.";
-        const pauseBtn = document.getElementById('demo-pause');
-        const restartBtn = document.getElementById('demo-restart');
-        const playBtn = document.getElementById('play-btn');
-        const overlay = document.getElementById('demo-overlay');
-
-        function typeText(element, text, speed = 50) {
-            return new Promise(resolve => {
-                let i = 0;
-                element.textContent = '';
-                function type() {
-                    if (isPaused) {
-                        const continueTyping = () => { if (!isPaused) { type(); } else { setTimeout(continueTyping, 100); } };
-                        setTimeout(continueTyping, 100);
-                        return;
-                    }
-                    if (i < text.length) {
-                        element.textContent += text.charAt(i);
-                        i++;
-                        typingTimeout = setTimeout(type, speed);
-                    } else { resolve(); }
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
-                type();
             });
-        }
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        function showFrame(index) {
-            document.querySelectorAll('.demo-frame').forEach(frame => { frame.classList.remove('active'); });
-            const frameId = demoFrames[index];
-            document.getElementById(frameId).classList.add('active');
-            document.querySelectorAll('.demo-step').forEach((step, i) => {
-                step.classList.remove('active', 'completed');
-                if (i < index) { step.classList.add('completed'); }
-                else if (i === index) { step.classList.add('active'); }
-            });
-            if (frameId === 'frame-invoice') {
-                const descField = document.getElementById('desc-field');
-                typeText(descField, roughText, 40);
-            }
-            if (frameId === 'frame-ai') {
-                const enhancedField = document.getElementById('enhanced-field');
-                enhancedField.textContent = '';
-                setTimeout(() => { typeText(enhancedField, enhancedText, 20); }, 500);
-            }
-        }
-
-        function runDemo() {
-            if (isPaused) return;
-            showFrame(currentFrame);
-            demoTimeout = setTimeout(() => {
-                if (isPaused) return;
-                currentFrame++;
-                if (currentFrame < demoFrames.length) { runDemo(); }
-                else { isPaused = true; pauseBtn.textContent = '▶ Play'; }
-            }, frameTimings[currentFrame]);
-        }
-
-        function startDemo() {
-            overlay.classList.add('hidden');
-            currentFrame = 0;
-            isPaused = false;
-            pauseBtn.textContent = '⏸ Pause';
-            runDemo();
-        }
-
-        overlay.addEventListener('click', startDemo);
-
-        pauseBtn.addEventListener('click', () => {
-            isPaused = !isPaused;
-            if (isPaused) {
-                clearTimeout(demoTimeout);
-                pauseBtn.textContent = '▶ Play';
-            } else {
-                pauseBtn.textContent = '⏸ Pause';
-                demoTimeout = setTimeout(() => {
-                    currentFrame++;
-                    if (currentFrame < demoFrames.length) { runDemo(); }
-                    else { currentFrame = 0; runDemo(); }
-                }, 1000);
-            }
-        });
-
-        restartBtn.addEventListener('click', () => {
-            clearTimeout(demoTimeout);
-            clearTimeout(typingTimeout);
-            overlay.classList.add('hidden');
-            currentFrame = 0;
-            isPaused = false;
-            pauseBtn.textContent = '⏸ Pause';
-            runDemo();
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
