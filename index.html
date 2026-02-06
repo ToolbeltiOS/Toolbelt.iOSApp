@@ -216,14 +216,63 @@
             50% { opacity: 0.4; }
         }
 
-        .hero h1 {
+        .hero-headline {
             font-size: clamp(52px, 8vw, 88px);
             font-weight: 800;
             line-height: 1.0;
             margin-bottom: 20px;
             letter-spacing: -2px;
-            animation: fadeInUp 0.6s ease 0.1s forwards;
+        }
+
+        .hero-headline .word {
+            display: inline-block;
             opacity: 0;
+            transform: translateY(40px) rotateX(15deg);
+            filter: blur(6px);
+            animation: wordReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-headline .w1 { animation-delay: 0.1s; }
+        .hero-headline .w2 { animation-delay: 0.25s; }
+        .hero-headline .w3 { animation-delay: 0.4s; }
+        .hero-headline .w4 { animation-delay: 0.55s; }
+        .hero-headline .w5 { animation-delay: 0.7s; }
+        .hero-headline .w6 { animation-delay: 0.85s; }
+
+        @keyframes wordReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) rotateX(15deg);
+                filter: blur(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+                filter: blur(0px);
+            }
+        }
+
+        .accent-shimmer {
+            background: linear-gradient(
+                90deg,
+                var(--orange) 0%,
+                #f7a84b 25%,
+                #ffd080 50%,
+                #f7a84b 75%,
+                var(--orange) 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: wordReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+                       shimmer 3s ease-in-out 1.2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
         }
 
         .hero h1 .accent {
@@ -242,7 +291,7 @@
             margin-left: auto;
             margin-right: auto;
             line-height: 1.5;
-            animation: fadeInUp 0.6s ease 0.2s forwards;
+            animation: fadeInUp 0.6s ease 1.1s forwards;
             opacity: 0;
         }
 
@@ -252,7 +301,7 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-bottom: 80px;
-            animation: fadeInUp 0.6s ease 0.3s forwards;
+            animation: fadeInUp 0.6s ease 1.3s forwards;
             opacity: 0;
         }
 
@@ -1169,7 +1218,15 @@
         <div class="hero-glow"></div>
         <div class="container">
             <span class="hero-badge"><span class="dot"></span> Available on the App Store</span>
-            <h1>The <span class="accent">#1</span> Invoice App<br>for Contractors</h1>
+            <h1 class="hero-headline">
+                <span class="word w1">The</span>
+                <span class="word w2 accent-shimmer">#1</span>
+                <span class="word w3">Invoice</span>
+                <span class="word w4">App</span>
+                <br>
+                <span class="word w5">for</span>
+                <span class="word w6">Contractors</span>
+            </h1>
             <p class="hero-subtitle">Create professional invoices and quotes in less than 30 seconds.</p>
             <div class="hero-cta">
                 <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" class="app-store-btn">
@@ -1182,7 +1239,7 @@
                     </span>
                 </a>
             </div>
-            <div class="hero-video-wrapper" style="animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0;">
+            <div class="hero-video-wrapper" style="animation: fadeInUp 0.8s ease 1.5s forwards; opacity: 0;">
                 <div class="video-phone-frame">
                     <video autoplay muted loop playsinline>
                         <source src="Toolbelt%20-%20Invoice%20_%20Estimate%20v2.mp4" type="video/mp4">
