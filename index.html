@@ -961,59 +961,87 @@
 
         @keyframes scrollTestimonials {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-340px * 8 - 20px * 8)); }
+            100% { transform: translateX(calc(-360px * 8 - 20px * 8)); }
         }
 
         .testimonial-card {
-            min-width: 340px;
-            background: var(--surface-raised);
+            min-width: 360px;
+            background: linear-gradient(165deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.015) 100%);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 32px;
+            padding: 36px;
             flex-shrink: 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-size: 80px;
+            font-family: Georgia, 'Times New Roman', serif;
+            color: rgba(232, 115, 44, 0.07);
+            line-height: 1;
+            pointer-events: none;
         }
 
         .testimonial-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
+            border-color: rgba(232, 115, 44, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(232, 115, 44, 0.06);
         }
 
         .testimonial-stars {
             color: #fbbf24;
-            font-size: 16px;
-            letter-spacing: 3px;
-            margin-bottom: 16px;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
         }
 
         .testimonial-text {
-            font-size: 14px;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.85;
             color: var(--text-light);
-            margin-bottom: 24px;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-divider {
+            width: 32px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--orange), transparent);
+            margin-bottom: 20px;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
         }
 
         .author-avatar {
-            width: 40px;
-            height: 40px;
-            background: rgba(232, 115, 44, 0.1);
-            border: 1px solid rgba(232, 115, 44, 0.15);
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, rgba(232, 115, 44, 0.15), rgba(232, 115, 44, 0.05));
+            border: 1px solid rgba(232, 115, 44, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: -0.5px;
+            font-family: 'Outfit', sans-serif;
         }
 
-        .author-info { display: flex; flex-direction: column; gap: 2px; }
-        .author-info strong { font-size: 13px; font-weight: 600; }
-        .author-info span { font-size: 12px; color: var(--text-muted); }
+        .author-info { display: flex; flex-direction: column; gap: 3px; }
+        .author-info strong { font-size: 14px; font-weight: 600; letter-spacing: -0.2px; }
+        .author-info span { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.3px; }
 
         /* ─── CONTACT ─── */
         .contact {
@@ -1182,7 +1210,7 @@
             .video-phone-frame { border-radius: 36px; padding: 10px; }
             .video-phone-frame video { border-radius: 28px; }
             .video-phone-frame::before { width: 90px; height: 24px; }
-            .testimonial-card { min-width: 300px; }
+            .testimonial-card { min-width: 310px; }
             @keyframes scrollTestimonials {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(calc(-300px * 8 - 20px * 8)); }
@@ -1217,7 +1245,6 @@
     <section class="hero">
         <div class="hero-glow"></div>
         <div class="container">
-            <span class="hero-badge"><span class="dot"></span> Available on the App Store</span>
             <h1 class="hero-headline">
                 <span class="word w1">The</span>
                 <span class="word w2 accent-shimmer">#1</span>
@@ -1227,7 +1254,7 @@
                 <span class="word w5">for</span>
                 <span class="word w6">Contractors</span>
             </h1>
-            <p class="hero-subtitle">Create professional invoices and quotes in less than 30 seconds.</p>
+            <p class="hero-subtitle">Create professional invoices and quotes in seconds in less than 30 seconds.</p>
             <div class="hero-cta">
                 <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" class="app-store-btn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1241,7 +1268,7 @@
             </div>
             <div class="hero-video-wrapper" style="animation: fadeInUp 0.8s ease 1.5s forwards; opacity: 0;">
                 <div class="video-phone-frame">
-                    <video autoplay muted loop playsinline>
+                    <video autoplay muted loop playsinline poster="3.jpg">
                         <source src="Toolbelt%20-%20Invoice%20_%20Estimate%20v2.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1523,23 +1550,23 @@
             </div>
         </div>
         <div class="testimonials-scroll">
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber · Austin, TX</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician · Denver, CO</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor · Phoenix, AZ</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman · Miami, FL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician · Toronto, ON</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber · Chicago, IL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter · Seattle, WA</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter · Atlanta, GA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><strong>Mike R.</strong><span>Plumber · Austin, TX</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">JT</div><div class="author-info"><strong>James T.</strong><span>Electrician · Denver, CO</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">DK</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor · Phoenix, AZ</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">CM</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman · Miami, FL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">SL</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician · Toronto, ON</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">TB</div><div class="author-info"><strong>Tom B.</strong><span>Plumber · Chicago, IL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">RP</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter · Seattle, WA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">MW</div><div class="author-info"><strong>Michelle W.</strong><span>Painter · Atlanta, GA</span></div></div></div>
             <!-- Duplicated for seamless scroll -->
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-author"><div class="author-avatar">🔧</div><div class="author-info"><strong>Mike R.</strong><span>Plumber · Austin, TX</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-author"><div class="author-avatar">⚡</div><div class="author-info"><strong>James T.</strong><span>Electrician · Denver, CO</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-author"><div class="author-avatar">🏠</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor · Phoenix, AZ</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-author"><div class="author-avatar">🔨</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman · Miami, FL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-author"><div class="author-avatar">❄️</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician · Toronto, ON</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-author"><div class="author-avatar">🚿</div><div class="author-info"><strong>Tom B.</strong><span>Plumber · Chicago, IL</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-author"><div class="author-avatar">🪚</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter · Seattle, WA</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-author"><div class="author-avatar">🎨</div><div class="author-info"><strong>Michelle W.</strong><span>Painter · Atlanta, GA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I used to spend Sunday nights doing paperwork. Now I invoice right after each job. Game changer."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">MR</div><div class="author-info"><strong>Mike R.</strong><span>Plumber · Austin, TX</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The AI feature is insane. I just say what I did and it makes me sound professional. My clients are impressed."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">JT</div><div class="author-info"><strong>James T.</strong><span>Electrician · Denver, CO</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Finally an app that gets it. No bloat, no confusion. Just fast invoices from my truck."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">DK</div><div class="author-info"><strong>Dave K.</strong><span>General Contractor · Phoenix, AZ</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Voice input is a lifesaver. I can create invoices while my hands are still dirty. Love it."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">CM</div><div class="author-info"><strong>Carlos M.</strong><span>Handyman · Miami, FL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My invoices look more professional than companies 10x my size. Clients take me more seriously now."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">SL</div><div class="author-info"><strong>Sarah L.</strong><span>HVAC Technician · Toronto, ON</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"I work in basements with no signal all day. Offline mode means I never miss an invoice."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">TB</div><div class="author-info"><strong>Tom B.</strong><span>Plumber · Chicago, IL</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Switched from QuickBooks. This is 10x simpler and actually built for guys like me in the field."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">RP</div><div class="author-info"><strong>Ryan P.</strong><span>Carpenter · Seattle, WA</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Got paid the same day I sent my first invoice. The PDF templates look super clean."</p><div class="testimonial-divider"></div><div class="testimonial-author"><div class="author-avatar">MW</div><div class="author-info"><strong>Michelle W.</strong><span>Painter · Atlanta, GA</span></div></div></div>
         </div>
     </section>
 
