@@ -4,415 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Toolbelt</title>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJV1HLMC17"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-EJV1HLMC17');
-    </script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EJV1HLMC17');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --orange: #E8732C;
-            --orange-light: #F5923D;
-            --deep-blue: #1a2a4a;
-            --darker-blue: #0f1a2e;
-            --text-white: #ffffff;
-            --text-light: rgba(255, 255, 255, 0.85);
-            --text-muted: rgba(255, 255, 255, 0.6);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(180deg, #d4702a 0%, #b85a24 15%, #6b4a5a 35%, #3a4a6a 55%, var(--deep-blue) 75%, var(--darker-blue) 100%);
-            min-height: 100vh;
-            color: var(--text-white);
-        }
-
-        nav {
-            padding: 24px 0;
-            background: linear-gradient(180deg, rgba(212, 112, 42, 0.95) 0%, rgba(212, 112, 42, 0) 100%);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--text-white);
-        }
-
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-        }
-
-        .logo-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            letter-spacing: 2px;
-        }
-
-        .content {
-            padding: 60px 0 100px;
-        }
-
-        .content h1 {
-            font-size: 42px;
-            margin-bottom: 16px;
-            color: var(--text-white);
-        }
-
-        .intro-text {
-            font-size: 18px;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .support-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .support-card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 32px;
-            backdrop-filter: blur(20px);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .support-card:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-4px);
-            cursor: pointer;
-        }
-
-        .card-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .support-card:hover .card-btn {
-            transform: scale(1.05);
-        }
-
-        .support-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .support-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: var(--text-white);
-        }
-
-        .support-card p {
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .support-card a {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .support-card a:hover {
-            transform: scale(1.05);
-        }
-
-        /* Contact Form */
-        .contact-form-wrapper {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(20px);
-            margin-bottom: 40px;
-        }
-
-        .contact-form-wrapper h2 {
-            font-size: 28px;
-            margin-bottom: 24px;
-            color: var(--text-white);
-            text-align: center;
-        }
-
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-light);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 14px 18px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text-white);
-            font-family: inherit;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-group select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-        }
-
-        .form-group select option {
-            background: var(--deep-blue);
-            color: var(--text-white);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-muted);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--orange);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 0 3px rgba(232, 115, 44, 0.2);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-family: inherit;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(232, 115, 44, 0.4);
-        }
-
-        .content-box {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(20px);
-            margin-bottom: 32px;
-        }
-
-        .content-box h2 {
-            font-size: 28px;
-            margin-bottom: 24px;
-            color: var(--text-white);
-        }
-
-        .content-box h3 {
-            font-size: 20px;
-            margin: 32px 0 16px;
-            color: var(--orange-light);
-        }
-
-        .content-box h3:first-of-type {
-            margin-top: 0;
-        }
-
-        .content-box p {
-            font-size: 16px;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        .content-box ul {
-            margin: 16px 0;
-            padding-left: 24px;
-        }
-
-        .content-box li {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--text-light);
-            margin-bottom: 8px;
-        }
-
-        .content-box strong {
-            color: var(--text-white);
-        }
-
-        .faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 20px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .faq-item h4 {
-            font-size: 17px;
-            color: var(--orange-light);
-            margin-bottom: 12px;
-        }
-
-        .faq-item p {
-            margin-bottom: 0;
-        }
-
-        .coming-soon {
-            background: rgba(232, 115, 44, 0.15);
-            border: 1px solid var(--orange);
-            border-radius: 16px;
-            padding: 24px;
-            margin-top: 24px;
-        }
-
-        .coming-soon h4 {
-            font-size: 18px;
-            color: var(--orange-light);
-            margin-bottom: 12px;
-        }
-
-        .coming-soon ul {
-            margin: 0;
-            padding-left: 24px;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 40px;
-            color: var(--orange-light);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .version {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-top: 40px;
-        }
+        :root{--orange:#E8732C;--orange-light:#F5923D;--orange-glow:rgba(232,115,44,0.35);--surface:#0c0f14;--surface-raised:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.15);--text-white:#f0f0f2;--text-light:rgba(240,240,242,0.75);--text-muted:rgba(240,240,242,0.45);--radius-md:16px;--radius-lg:24px}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+        body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--surface);min-height:100vh;color:var(--text-white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.018;pointer-events:none;z-index:1}
+        .container{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+        nav{padding:20px 0;position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,15,20,0.7);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border)}
+        nav .container{display:flex;justify-content:space-between;align-items:center;max-width:1200px}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text-white)}
+        .logo-icon{width:40px;height:40px;border-radius:10px}
+        .logo-text{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px}
+        .nav-links{display:flex;gap:36px;align-items:center}
+        .nav-links a{color:var(--text-muted);text-decoration:none;font-weight:500;font-size:14px;letter-spacing:0.3px;transition:color 0.2s ease}
+        .nav-links a:hover{color:var(--text-white)}
+        .content{padding:140px 0 100px}
+        .content h1{font-size:clamp(32px,5vw,48px);font-weight:800;margin-bottom:12px;letter-spacing:-1px}
+        .intro-text{font-size:17px;color:var(--text-light);margin-bottom:48px;line-height:1.7}
+        .support-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:48px}
+        .support-card{background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;transition:all 0.3s ease;cursor:pointer}
+        .support-card:hover{border-color:rgba(232,115,44,0.2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.3),0 0 30px rgba(232,115,44,0.05)}
+        .support-icon{width:56px;height:56px;margin:0 auto 20px;background:linear-gradient(135deg,rgba(232,115,44,0.12),rgba(232,115,44,0.04));border:1px solid rgba(232,115,44,0.15);border-radius:16px;display:flex;align-items:center;justify-content:center}
+        .support-icon svg{width:26px;height:26px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+        .support-card h3{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--text-white);letter-spacing:-0.2px}
+        .support-card p{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:20px}
+        .card-btn{display:inline-block;background:var(--orange);color:white;padding:10px 22px;border-radius:var(--radius-md);font-weight:600;font-size:13px;transition:all 0.3s ease;box-shadow:0 0 0 1px rgba(232,115,44,0.3),0 4px 16px rgba(232,115,44,0.2)}
+        .support-card:hover .card-btn{background:var(--orange-light);transform:scale(1.03)}
+        .contact-form-wrapper{background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--radius-lg);padding:44px;margin-bottom:48px;position:relative;overflow:hidden}
+        .contact-form-wrapper::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:250px;background:radial-gradient(ellipse,rgba(232,115,44,0.06) 0%,transparent 70%);pointer-events:none}
+        .contact-form-wrapper h2{font-size:26px;font-weight:800;margin-bottom:28px;color:var(--text-white);text-align:center;letter-spacing:-0.5px;position:relative}
+        .contact-form{max-width:500px;margin:0 auto;position:relative}
+        .form-group{margin-bottom:24px}
+        .form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text-light);font-family:'JetBrains Mono',monospace;letter-spacing:0.5px}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:14px 18px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,0.03);color:var(--text-white);font-family:'Outfit',sans-serif;font-size:15px;transition:all 0.3s ease}
+        .form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+        .form-group select option{background:var(--surface);color:var(--text-white)}
+        .form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-muted)}
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--orange);background:rgba(255,255,255,0.05);box-shadow:0 0 0 3px rgba(232,115,44,0.15)}
+        .form-group textarea{resize:vertical;min-height:120px}
+        .submit-btn{width:100%;padding:16px;background:var(--orange);border:none;border-radius:12px;color:white;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s ease;box-shadow:0 0 0 1px rgba(232,115,44,0.3),0 4px 20px var(--orange-glow)}
+        .submit-btn:hover{background:var(--orange-light);transform:translateY(-2px);box-shadow:0 0 0 1px rgba(232,115,44,0.5),0 8px 40px var(--orange-glow)}
+        .content-box{background:var(--surface-raised);border:1px solid var(--border);border-radius:var(--radius-lg);padding:44px;margin-bottom:24px;position:relative;overflow:hidden}
+        .content-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(circle,rgba(232,115,44,0.04) 0%,transparent 70%);pointer-events:none}
+        .content-box h2{font-size:24px;font-weight:800;margin-bottom:24px;color:var(--text-white);letter-spacing:-0.5px;position:relative}
+        .content-box h3{font-size:17px;font-weight:700;margin:32px 0 12px;color:var(--orange);position:relative}
+        .content-box h3:first-of-type{margin-top:0}
+        .content-box p{font-size:15px;color:var(--text-light);line-height:1.85;margin-bottom:16px;position:relative}
+        .content-box ul{margin:16px 0;padding-left:24px}
+        .content-box li{font-size:15px;line-height:1.85;color:var(--text-light);margin-bottom:8px}
+        .content-box strong{color:var(--text-white)}
+        .faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+        .faq-item:last-child{border-bottom:none;padding-bottom:0}
+        .faq-item h4{font-size:16px;font-weight:700;color:var(--orange);margin-bottom:10px}
+        .faq-item p{margin-bottom:0}
+        .coming-soon{background:rgba(232,115,44,0.06);border:1px solid rgba(232,115,44,0.15);border-radius:var(--radius-md);padding:24px;margin-top:24px}
+        .coming-soon h4{font-size:16px;color:var(--orange);margin-bottom:12px;font-weight:700}
+        .coming-soon ul{margin:0;padding-left:24px}
+        .back-link{display:inline-flex;align-items:center;gap:8px;margin-top:40px;color:var(--orange);text-decoration:none;font-weight:600;font-size:14px;transition:color 0.2s}
+        .back-link:hover{color:var(--orange-light)}
+        .version{text-align:center;color:var(--text-muted);font-size:13px;margin-top:40px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px}
+        footer{padding:60px 0 40px;border-top:1px solid var(--border);margin-top:80px}
+        .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;max-width:1200px;margin:0 auto;padding:0 24px}
+        .footer-links{display:flex;gap:32px}
+        .footer-links a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color 0.2s}
+        .footer-links a:hover{color:var(--text-white)}
+        .footer-copyright{color:var(--text-muted);font-size:13px}
+        @media(max-width:768px){.nav-links{display:none}.content-box{padding:28px}.contact-form-wrapper{padding:28px}.footer-content{flex-direction:column;text-align:center}.footer-links{flex-direction:column;gap:16px}}
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" class="logo-icon">
-                <span class="logo-text">TOOLBELT</span>
-            </a>
-        </div>
-    </nav>
+    <nav><div class="container" style="max-width:1200px"><a href="./" class="logo"><img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" class="logo-icon"><span class="logo-text">TOOLBELT</span></a><div class="nav-links"><a href="./#features">Features</a><a href="./#pricing">Pricing</a><a href="blog/">Blog</a><a href="./#contact">Contact</a></div></div></nav>
 
     <div class="content">
         <div class="container">
             <h1>Support</h1>
             <p class="intro-text">Toolbelt is a professional invoicing app designed specifically for contractors, freelancers, and small business owners. Create beautiful quotes and invoices in seconds.</p>
-            
+
             <div class="support-grid">
                 <div class="support-card" onclick="selectTopic('General Question')">
-                    <div class="support-icon">📧</div>
+                    <div class="support-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
                     <h3>Email Support</h3>
                     <p>Have a question or issue? Pro subscribers receive priority support with faster response times.</p>
                     <span class="card-btn">Contact Us</span>
                 </div>
                 <div class="support-card" onclick="selectTopic('Feature Request')">
-                    <div class="support-icon">💬</div>
+                    <div class="support-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                     <h3>Feature Request</h3>
                     <p>Have an idea to make Toolbelt better? We're constantly improving based on your feedback!</p>
                     <span class="card-btn">Send Suggestion</span>
                 </div>
                 <div class="support-card" onclick="selectTopic('Bug Report')">
-                    <div class="support-icon">🐛</div>
+                    <div class="support-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
                     <h3>Report a Bug</h3>
                     <p>Found something that's not working right? Let us know so we can fix it quickly.</p>
                     <span class="card-btn">Report Bug</span>
                 </div>
             </div>
 
-            <!-- Contact Form -->
             <div class="contact-form-wrapper">
                 <h2>Get in Touch</h2>
                 <form class="contact-form" action="https://formsubmit.co/ToolbeltiOS@gmail.com" method="POST">
-                    <!-- FormSubmit configuration -->
                     <input type="hidden" name="_subject" value="New Toolbelt Support Request">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_next" value="https://toolbelt.pro/thanks.html">
                     <input type="text" name="_honey" style="display:none">
-                    
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -440,10 +141,8 @@
                 </form>
             </div>
 
-            <!-- Getting Started -->
             <div class="content-box">
                 <h2>Getting Started</h2>
-                
                 <h3>First-Time Setup</h3>
                 <p>When you first open Toolbelt, you'll be guided through creating your business profile. This information will appear on all your quotes and invoices:</p>
                 <ul>
@@ -454,7 +153,6 @@
                     <li>Banking details for client payments</li>
                 </ul>
                 <p>You can update these details anytime from Settings > Business Profile.</p>
-
                 <h3>Creating Your First Invoice</h3>
                 <ul>
                     <li>Tap the + button on the home screen</li>
@@ -464,33 +162,25 @@
                     <li>Review the automatically calculated totals</li>
                     <li>Preview, then share or save as PDF</li>
                 </ul>
-
                 <h3>Quotes vs Invoices</h3>
                 <p><strong>Quotes</strong> are estimates you send to potential clients before work begins. They show your proposed pricing and help clients make decisions.</p>
                 <p><strong>Invoices</strong> are payment requests sent after work is completed. They include payment terms and banking details for client payments.</p>
             </div>
 
-            <!-- Key Features -->
             <div class="content-box">
                 <h2>Key Features</h2>
-                
-                <h3>🤖 AI-Powered Descriptions</h3>
+                <h3>AI-Powered Descriptions</h3>
                 <p>Save time with intelligent description suggestions. When adding line items, tap the AI icon to generate professional descriptions from simple inputs. The AI understands contractor terminology and will suggest descriptions that match your industry.</p>
-
-                <h3>🎤 Voice Input</h3>
+                <h3>Voice Input</h3>
                 <p>When you're on the job site and need to create an invoice quickly, use voice input. Tap the microphone icon in any text field, speak your description naturally, and the app converts your speech to text instantly. Perfect when you're wearing gloves or have dirty hands!</p>
-
-                <h3>📱 Offline Mode</h3>
+                <h3>Offline Mode</h3>
                 <p>Toolbelt works anywhere, even without internet connection. Create invoices and quotes in basements, remote locations, or anywhere with poor signal. All data is stored locally on your device. Note: AI features and voice input require internet connection.</p>
-
-                <h3>📄 Professional PDF Generation</h3>
+                <h3>Professional PDF Generation</h3>
                 <p>Every quote and invoice is automatically formatted as a beautiful, professional PDF with your business logo, clean layout, automatic calculations, tax breakdowns, and payment terms included.</p>
             </div>
 
-            <!-- Subscription Info -->
             <div class="content-box">
                 <h2>Subscription Information</h2>
-                
                 <h3>Free Plan</h3>
                 <ul>
                     <li>Create up to 3 quotes or invoices per month</li>
@@ -498,53 +188,43 @@
                     <li>Professional PDF generation</li>
                     <li>Perfect for occasional users or trying out the app</li>
                 </ul>
-
                 <h3>Pro Subscription ($14.99/month or $99.99/year)</h3>
                 <ul>
                     <li>Unlimited quotes and invoices</li>
                     <li>Priority customer support</li>
                     <li>Save 33% with annual billing</li>
                 </ul>
-
                 <p>To upgrade to Pro, go to Settings > Subscription and choose your preferred billing period. Subscriptions are managed through your App Store account and will automatically renew unless cancelled at least 24 hours before the end of the current period.</p>
             </div>
 
-            <!-- Troubleshooting -->
             <div class="content-box">
                 <h2>Troubleshooting</h2>
-                
                 <div class="faq-item">
                     <h4>My logo doesn't appear on invoices</h4>
                     <p>Make sure you've uploaded a logo in Settings > Business Profile. Supported formats are PNG and JPEG. If the logo still doesn't appear, try re-uploading with a smaller file size (under 2MB recommended).</p>
                 </div>
-
                 <div class="faq-item">
                     <h4>Calculations seem incorrect</h4>
                     <p>Double-check your tax rate in Business Profile settings. The app automatically calculates tax based on your subtotal.</p>
                 </div>
-
                 <div class="faq-item">
                     <h4>Voice input isn't working</h4>
                     <p>Ensure you've granted microphone permissions to Toolbelt in your device Settings > Privacy > Microphone. Voice input also requires an internet connection to process speech.</p>
                 </div>
-
                 <div class="faq-item">
                     <h4>I've reached my free monthly limit</h4>
                     <p>Free users can create 3 documents per month. Your quota resets on the first day of each month. To create unlimited documents, upgrade to Pro in Settings > Subscription.</p>
                 </div>
-
                 <div class="faq-item">
                     <h4>How do I cancel my subscription?</h4>
                     <p>You can cancel your subscription anytime through your Apple ID settings. Go to Settings → Your Name → Subscriptions → Toolbelt → Cancel Subscription.</p>
                 </div>
-
                 <div class="faq-item">
                     <h4>How do I get a refund?</h4>
                     <p>Refunds are handled by Apple. Visit reportaproblem.apple.com, sign in with your Apple ID, and request a refund for your Toolbelt purchase.</p>
                 </div>
             </div>
 
-            <!-- Coming Soon -->
             <div class="content-box">
                 <h2>Coming Soon</h2>
                 <p>We're actively developing new features based on your feedback:</p>
@@ -560,18 +240,16 @@
                 </div>
             </div>
 
-            <a href="index.html" class="back-link">← Back to Home</a>
-
+            <a href="./" class="back-link">← Back to Home</a>
             <p class="version">Version 1.0 | © 2026 Toolbelt</p>
         </div>
     </div>
 
+    <footer><div class="footer-content"><a href="./" class="logo"><img src="B08867EB-3D4C-47F4-ADA9-14E851617D94.png" alt="Toolbelt Logo" style="width:32px;height:32px;border-radius:8px"><span class="logo-text" style="font-size:20px">TOOLBELT</span></a><div class="footer-links"><a href="./#contact">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="support.html">Support</a></div><p class="footer-copyright">© 2025 Toolbelt. All rights reserved.</p></div></footer>
+
     <script>
         function selectTopic(topic) {
-            // Scroll to form
             document.querySelector('.contact-form-wrapper').scrollIntoView({ behavior: 'smooth' });
-            
-            // Set the dropdown value
             setTimeout(() => {
                 document.getElementById('type').value = topic;
                 document.getElementById('name').focus();
