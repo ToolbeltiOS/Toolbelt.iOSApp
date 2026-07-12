@@ -365,6 +365,13 @@
 
         .video-phone-frame video {
             width: 100%;
+            /* Required. The <video> carries width="720" height="1280" attributes so the
+               browser can reserve the right space before the file loads (no layout shift).
+               Without height:auto the CSS width scales but the 1280px height attribute
+               does not, and the frame stretches into a tube. The attributes still give us
+               the aspect ratio, so we keep both. */
+            height: auto;
+            aspect-ratio: 720 / 1280;
             border-radius: 36px;
             display: block;
         }
