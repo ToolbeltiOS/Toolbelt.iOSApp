@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice &amp; Quote App for Electricians | Toolbelt</title>
+<link rel="canonical" href="https://toolbelt.pro/for/electricians/">
+<meta name="description" content="Send electrical quotes and invoices from the job. Voice input, AI descriptions, offline mode. Built for sparkies on iPhone. Free to start.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Toolbelt">
+<meta property="og:title" content="Invoice &amp; Quote App for Electricians | Toolbelt">
+<meta property="og:description" content="Send electrical quotes and invoices from the job. Voice input, AI descriptions, offline mode. Built for sparkies on iPhone. Free to start.">
+<meta property="og:url" content="https://toolbelt.pro/for/electricians/">
+<meta property="og:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Invoice &amp; Quote App for Electricians | Toolbelt">
+<meta name="twitter:description" content="Send electrical quotes and invoices from the job. Voice input, AI descriptions, offline mode. Built for sparkies on iPhone. Free to start.">
+<meta name="twitter:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<link rel="icon" type="image/png" href="../../toolbelt-logo.png">
+<link rel="apple-touch-icon" href="../../toolbelt-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "v4peke782d");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://toolbelt.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Trades",
+      "item": "https://toolbelt.pro/for/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Electricians",
+      "item": "https://toolbelt.pro/for/electricians/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I send a quote and convert it to an invoice later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this is the core flow. Quote on the site visit, and when the customer says go and the work is finished, the same document becomes the invoice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I show permit fees as a pass-through?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Add it as a line item at cost and label it as such — customers are far happier about a fee they can see is not marked up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on a new-build with no power or signal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything works offline and syncs later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I put my licence number on the document?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — your business details, licence number and logo go on every quote and invoice you send."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --orange:#E8732C; --orange-light:#F5923D; --orange-glow:rgba(232,115,44,.35);
+  --surface:#0c0f14; --surface-raised:rgba(255,255,255,.04);
+  --surface-hover:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
+  --text-white:#f0f0f2; --text-light:rgba(240,240,242,.75);
+  --text-muted:rgba(240,240,242,.45);
+  --radius-sm:10px; --radius-md:16px; --radius-lg:24px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--surface);
+  color:var(--text-light);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--text-white);line-height:1.2;font-weight:700}
+h1{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.4vw,36px);margin:52px 0 18px;letter-spacing:-.01em}
+h3{font-size:21px;margin:32px 0 10px}
+p{margin-bottom:18px}
+a{color:var(--orange-light);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.prose{max-width:760px;margin:0 auto;padding:0 24px}
+ul,ol{margin:0 0 20px 22px}
+li{margin-bottom:9px}
+strong{color:var(--text-white)}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(12,15,20,.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo img{width:38px;height:38px;border-radius:9px}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:25px;letter-spacing:.08em;
+  color:var(--text-white)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-light);font-size:15px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:var(--orange-light)}
+@media(max-width:760px){.nav-links{gap:15px;font-size:13px}.nav-links a{font-size:13px}}
+
+header.page{padding:70px 0 44px;border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse at top,rgba(232,115,44,.10),transparent 62%)}
+header.page .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--orange);font-weight:500}
+header.page h1{margin:14px 0 14px}
+header.page .standfirst{font-size:19px;color:var(--text-light);max-width:640px}
+main{padding:14px 0 80px}
+
+.breadcrumb{font-size:14px;color:var(--text-muted);padding:16px 0 0}
+.breadcrumb a{color:var(--text-muted)}
+.breadcrumb a:hover{color:var(--orange-light)}
+
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;
+  background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);overflow:hidden}
+th,td{padding:12px 15px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+thead th{background:rgba(255,255,255,.06);color:var(--text-white);font-size:13px;
+  letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+
+.card{background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:24px 26px;margin:20px 0}
+.card h3{margin-top:0}
+.note{background:rgba(232,115,44,.07);border-left:3px solid var(--orange);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:24px 0}
+.note p:last-child{margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:24px 0}
+.grid a.tile{display:block;background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px;text-decoration:none;color:var(--text-white);
+  font-weight:600;transition:border-color .15s,transform .15s}
+.grid a.tile:hover{border-color:var(--orange);transform:translateY(-2px);text-decoration:none}
+.grid a.tile small{display:block;font-weight:400;color:var(--text-muted);font-size:13.5px;
+  margin-top:5px;line-height:1.5}
+
+.btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;
+  padding:14px 30px;border-radius:999px;text-decoration:none;font-size:16px;
+  box-shadow:0 8px 26px var(--orange-glow)}
+.btn:hover{background:var(--orange-light);text-decoration:none}
+.btn.secondary{background:transparent;border:1px solid var(--border-hover);
+  color:var(--text-white);box-shadow:none}
+.cta{background:linear-gradient(135deg,rgba(232,115,44,.13),rgba(232,115,44,.04));
+  border:1px solid rgba(232,115,44,.25);border-radius:var(--radius-lg);
+  padding:36px 34px;margin:56px 0 0;text-align:center}
+.cta h2{margin:0 0 10px}
+.cta p{color:var(--text-light);margin-bottom:22px}
+
+.faq-q{color:var(--text-white);font-weight:600;font-size:17.5px;margin:26px 0 6px}
+.win{border-left:3px solid #3ba55d}
+.lose{border-left:3px solid var(--orange)}
+
+footer{background:#080a0e;border-top:1px solid var(--border);padding:48px 0 34px;
+  color:var(--text-muted);font-size:14.5px}
+.footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;
+  margin-bottom:30px}
+.footer-cols h4{color:var(--text-white);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:12px}
+.footer-cols a{display:block;color:var(--text-muted);margin-bottom:7px;font-size:14.5px}
+.footer-cols a:hover{color:var(--orange-light)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;
+  justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="../../index.html" class="logo">
+      <img src="../../toolbelt-logo.png" alt="Toolbelt invoice app logo">
+      <span class="logo-text">TOOLBELT</span>
+    </a>
+    <div class="nav-links">
+      <a href="../../for/">Trades</a>
+      <a href="../../compare/">Compare</a>
+      <a href="../../templates/free-contractor-invoice-template/">Templates</a>
+      <a href="../../tools/contractor-hourly-rate-calculator/">Rate calculator</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+<div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../">Trades</a> / Electricians</p></div>
+<header class="page">
+  <div class="prose">
+    <span class="kicker">For electricians</span>
+    <h1>The quote and invoice app for electricians</h1>
+    <p class="standfirst">Send electrical quotes and invoices from the job. Voice input, AI descriptions, offline mode. Built for sparkies on iPhone. Free to start.</p>
+  </div>
+</header>
+<main>
+<div class="prose">
+<p>Electrical work is quoted more than almost any other trade. A panel upgrade, a rewire, a new circuit for a hot tub — the customer wants a number in writing before you touch anything, and the quote you send is competing with two others that landed the same day.</p><p>Toolbelt is built so the quote goes out while you are still in the driveway, not three days later when the customer has already booked someone else. Speak the scope, let the app write it up properly, send it as a clean PDF, and turn it into an invoice with one tap when the job is done.</p>
+
+<h2>What actually goes wrong when electricians invoice</h2>
+<p>These are the four billing problems we hear most often from electricians.
+None of them is about not knowing how to do the work — they are all about the gap
+between finishing a job and getting paid for it.</p>
+<div class="card"><h3>The quote that goes out three days late and loses the job</h3><p>You did the site visit on Tuesday. You wrote the quote on Friday night. By then the homeowner had two other numbers and picked one. Speed is not a nice-to-have in electrical quoting; it is most of the win.</p></div><div class="card"><h3>Explaining code-required work to a customer who thinks you're padding</h3><p>AFCI breakers, a bonded ground, a dedicated circuit — the homeowner did not ask for any of it and suspects you invented it. A line item that says "AFCI/GFCI breaker, required by code for this circuit" ends that conversation before it starts. A line item that says "breaker — $95" starts it.</p></div><div class="card"><h3>Panel and permit work priced from memory</h3><p>Permit fees, inspection call-backs, the second trip because the inspector wanted something moved — these get eaten because they were never on the original quote and it feels awkward to add them after.</p></div><div class="card"><h3>Quoting from a job site with no service</h3><p>New construction has no power and often no signal. That is exactly where you are doing rough-in walkthroughs and pricing the job.</p></div>
+
+<h2>How Toolbelt fits a electrician's day</h2>
+<h3>Quote on site, invoice on completion</h3><p>Build the quote in the driveway, send it before you drive away. When the work is done, convert the same document to an invoice — no retyping the scope.</p><h3>AI descriptions that explain code work</h3><p>Describe it plainly — "added dedicated 20A circuit for the garage freezer, AFCI breaker" — and get a description the customer understands well enough not to phone you about it.</p><h3>Voice input with gloved hands</h3><p>Speak the scope while you are coiling up. Line items get written for you.</p>
+
+<h2>Example electrician invoice line items</h2>
+<p>These are example line items with typical US market ranges, to show how a
+electrician's invoice breaks down. <strong>They are illustrations, not our
+recommended prices</strong> — your rates depend on your market, your licence, your
+overhead and your reputation, and nobody on the internet should be setting them
+for you.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Line item</th><th>Unit</th><th class="num">Typical range</th></tr></thead>
+<tbody><tr><td>Service call / diagnostic</td><td>flat</td><td class="num">$90 – $180</td></tr><tr><td>Labour — licensed electrician</td><td>per hour</td><td class="num">$85 – $150</td></tr><tr><td>Panel upgrade, 100A to 200A</td><td>flat</td><td class="num">$1,800 – $4,000</td></tr><tr><td>New dedicated 20A circuit</td><td>each</td><td class="num">$250 – $600</td></tr><tr><td>AFCI / GFCI breaker (code-required)</td><td>each</td><td class="num">$60 – $140</td></tr><tr><td>Recessed light install (per fixture)</td><td>each</td><td class="num">$120 – $250</td></tr><tr><td>EV charger install (Level 2, 240V)</td><td>flat</td><td class="num">$600 – $1,600</td></tr><tr><td>Permit + inspection fee (pass-through)</td><td>flat</td><td class="num">at cost</td></tr></tbody>
+</table>
+</div>
+<p>In Toolbelt you save the ones you use constantly, so after a couple of weeks
+most of an invoice is taps rather than typing. You can read more on structuring a
+document properly in our
+<a href="../../blog/professional-invoice-template-guide.html">invoice template guide</a>,
+or start from our
+<a href="../../templates/free-contractor-invoice-template/">free contractor invoice template</a>.</p>
+
+<h2>Pricing</h2>
+<p>Toolbelt is <strong>free for 3 invoices or quotes a
+month</strong>, with every feature switched on and no card required. Past that it
+is <strong>$14.99/month</strong> or <strong>$99.99/year</strong>
+— one price, everything included. If you are weighing it against the alternatives,
+we keep <a href="../../compare/">honest comparison pages</a> that tell you where the
+other apps beat us.</p>
+
+<h2>Getting paid: deposits and terms for electricians</h2>
+<p>Electrical quoting is a speed game, but payment is a staging game. On anything above a service call, structure it: a deposit on acceptance, a payment at rough-in, and the balance on final inspection. That way you are never more than one stage out of pocket, and the customer has a clear reason to keep the job moving.</p><p>The specific thing that costs electricians money is the permit and inspection cycle. Quote the permit as a pass-through line at cost, and state plainly that a re-inspection caused by something outside your control is billable. Say it up front, on the quote, and it is a term. Say it afterwards, on the invoice, and it is a fight.</p>
+<p>More on this in our guides to
+<a href="../../blog/contractor-deposit-and-payment-terms.html">deposits and payment terms</a>
+and <a href="../../blog/get-paid-faster-as-contractor.html">getting paid faster</a>.</p>
+
+<h2>What to put on a electrician invoice</h2>
+<p>The difference between an invoice that gets paid and one that gets a phone call is
+almost always detail. For electricians specifically, make sure these are on it:</p>
+<ul><li>The circuits, panel or fixtures you actually worked on</li><li>Code-required items, explicitly labelled as code-required</li><li>Permit and inspection fees, shown at cost as a pass-through</li><li>Your licence number</li><li>Materials separated from labour</li><li>Whether the work has passed inspection, and when</li></ul>
+
+<h2>Electricians FAQ</h2>
+<p class="faq-q">Can I send a quote and convert it to an invoice later?</p><p>Yes — this is the core flow. Quote on the site visit, and when the customer says go and the work is finished, the same document becomes the invoice.</p><p class="faq-q">Can I show permit fees as a pass-through?</p><p>Yes. Add it as a line item at cost and label it as such — customers are far happier about a fee they can see is not marked up.</p><p class="faq-q">Does it work on a new-build with no power or signal?</p><p>Yes. Everything works offline and syncs later.</p><p class="faq-q">Can I put my licence number on the document?</p><p>Yes — your business details, licence number and logo go on every quote and invoice you send.</p>
+
+<h2>Related trades</h2>
+<div class="grid"><a class="tile" href="../plumbers/">Invoicing for plumbers<small>How plumbers quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../hvac/">Invoicing for hvac contractors<small>How hvac contractors quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../general-contractors/">Invoicing for general contractors<small>How general contractors quote, bill and get paid — and where the money leaks.</small></a></div>
+
+<div class="cta">
+  <h2>Invoice your next electrician job from the truck</h2>
+  <p>Free for 3 documents a month. No card. iPhone.</p>
+  <a class="btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789?ct=website-trade-electricians&mt=8">Get Toolbelt on the App Store</a>
+</div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>By trade</h4>
+        <a href="../../for/plumbers/">Plumbers</a><a href="../../for/electricians/">Electricians</a><a href="../../for/hvac/">HVAC Contractors</a><a href="../../for/carpenters/">Carpenters</a><a href="../../for/painters/">Painters</a><a href="../../for/landscapers/">Landscapers</a>
+        <a href="../../for/">All trades &rarr;</a>
+      </div>
+      <div>
+        <h4>Free tools</h4>
+        <a href="../../templates/free-contractor-invoice-template/">Free invoice template</a>
+        <a href="../../tools/contractor-hourly-rate-calculator/">Hourly rate calculator</a>
+        <a href="../../blog/">Blog</a>
+      </div>
+      <div>
+        <h4>Compare</h4>
+        <a href="../../compare/">All comparisons</a>
+        <a href="../../compare/toolbelt-vs-joist/">vs Joist</a>
+        <a href="../../compare/toolbelt-vs-jobber/">vs Jobber</a>
+        <a href="../../compare/toolbelt-vs-quickbooks/">vs QuickBooks</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../../support.html">Support</a>
+        <a href="../../privacy.html">Privacy Policy</a>
+        <a href="../../terms.html">Terms of Service</a>
+        <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789">Download on iOS</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Toolbelt. All rights reserved.</span>
+      <span>Invoicing built for the job site.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

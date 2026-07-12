@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice App for Roofers | Toolbelt</title>
+<link rel="canonical" href="https://toolbelt.pro/for/roofers/">
+<meta name="description" content="Quote roofs by the square, take deposits, invoice on completion. Voice input, AI descriptions, works offline. Free to start.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Toolbelt">
+<meta property="og:title" content="Invoice App for Roofers | Toolbelt">
+<meta property="og:description" content="Quote roofs by the square, take deposits, invoice on completion. Voice input, AI descriptions, works offline. Free to start.">
+<meta property="og:url" content="https://toolbelt.pro/for/roofers/">
+<meta property="og:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Invoice App for Roofers | Toolbelt">
+<meta name="twitter:description" content="Quote roofs by the square, take deposits, invoice on completion. Voice input, AI descriptions, works offline. Free to start.">
+<meta name="twitter:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<link rel="icon" type="image/png" href="../../toolbelt-logo.png">
+<link rel="apple-touch-icon" href="../../toolbelt-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "v4peke782d");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://toolbelt.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Trades",
+      "item": "https://toolbelt.pro/for/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Roofers",
+      "item": "https://toolbelt.pro/for/roofers/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I take a deposit before ordering materials?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — put the deposit on the quote as its own line so it is agreed before you spend your own money on shingles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I attach photos of the roof damage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, to both quotes and invoices — and for insurance work you should attach as many as you can."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it price by the square?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, any unit you like. Squares, linear feet, sheets, flat rates — mix them on one document."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I quote from the roof with no signal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Build the whole thing offline; it syncs when you are back on the ground."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --orange:#E8732C; --orange-light:#F5923D; --orange-glow:rgba(232,115,44,.35);
+  --surface:#0c0f14; --surface-raised:rgba(255,255,255,.04);
+  --surface-hover:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
+  --text-white:#f0f0f2; --text-light:rgba(240,240,242,.75);
+  --text-muted:rgba(240,240,242,.45);
+  --radius-sm:10px; --radius-md:16px; --radius-lg:24px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--surface);
+  color:var(--text-light);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--text-white);line-height:1.2;font-weight:700}
+h1{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.4vw,36px);margin:52px 0 18px;letter-spacing:-.01em}
+h3{font-size:21px;margin:32px 0 10px}
+p{margin-bottom:18px}
+a{color:var(--orange-light);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.prose{max-width:760px;margin:0 auto;padding:0 24px}
+ul,ol{margin:0 0 20px 22px}
+li{margin-bottom:9px}
+strong{color:var(--text-white)}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(12,15,20,.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo img{width:38px;height:38px;border-radius:9px}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:25px;letter-spacing:.08em;
+  color:var(--text-white)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-light);font-size:15px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:var(--orange-light)}
+@media(max-width:760px){.nav-links{gap:15px;font-size:13px}.nav-links a{font-size:13px}}
+
+header.page{padding:70px 0 44px;border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse at top,rgba(232,115,44,.10),transparent 62%)}
+header.page .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--orange);font-weight:500}
+header.page h1{margin:14px 0 14px}
+header.page .standfirst{font-size:19px;color:var(--text-light);max-width:640px}
+main{padding:14px 0 80px}
+
+.breadcrumb{font-size:14px;color:var(--text-muted);padding:16px 0 0}
+.breadcrumb a{color:var(--text-muted)}
+.breadcrumb a:hover{color:var(--orange-light)}
+
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;
+  background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);overflow:hidden}
+th,td{padding:12px 15px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+thead th{background:rgba(255,255,255,.06);color:var(--text-white);font-size:13px;
+  letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+
+.card{background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:24px 26px;margin:20px 0}
+.card h3{margin-top:0}
+.note{background:rgba(232,115,44,.07);border-left:3px solid var(--orange);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:24px 0}
+.note p:last-child{margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:24px 0}
+.grid a.tile{display:block;background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px;text-decoration:none;color:var(--text-white);
+  font-weight:600;transition:border-color .15s,transform .15s}
+.grid a.tile:hover{border-color:var(--orange);transform:translateY(-2px);text-decoration:none}
+.grid a.tile small{display:block;font-weight:400;color:var(--text-muted);font-size:13.5px;
+  margin-top:5px;line-height:1.5}
+
+.btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;
+  padding:14px 30px;border-radius:999px;text-decoration:none;font-size:16px;
+  box-shadow:0 8px 26px var(--orange-glow)}
+.btn:hover{background:var(--orange-light);text-decoration:none}
+.btn.secondary{background:transparent;border:1px solid var(--border-hover);
+  color:var(--text-white);box-shadow:none}
+.cta{background:linear-gradient(135deg,rgba(232,115,44,.13),rgba(232,115,44,.04));
+  border:1px solid rgba(232,115,44,.25);border-radius:var(--radius-lg);
+  padding:36px 34px;margin:56px 0 0;text-align:center}
+.cta h2{margin:0 0 10px}
+.cta p{color:var(--text-light);margin-bottom:22px}
+
+.faq-q{color:var(--text-white);font-weight:600;font-size:17.5px;margin:26px 0 6px}
+.win{border-left:3px solid #3ba55d}
+.lose{border-left:3px solid var(--orange)}
+
+footer{background:#080a0e;border-top:1px solid var(--border);padding:48px 0 34px;
+  color:var(--text-muted);font-size:14.5px}
+.footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;
+  margin-bottom:30px}
+.footer-cols h4{color:var(--text-white);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:12px}
+.footer-cols a{display:block;color:var(--text-muted);margin-bottom:7px;font-size:14.5px}
+.footer-cols a:hover{color:var(--orange-light)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;
+  justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="../../index.html" class="logo">
+      <img src="../../toolbelt-logo.png" alt="Toolbelt invoice app logo">
+      <span class="logo-text">TOOLBELT</span>
+    </a>
+    <div class="nav-links">
+      <a href="../../for/">Trades</a>
+      <a href="../../compare/">Compare</a>
+      <a href="../../templates/free-contractor-invoice-template/">Templates</a>
+      <a href="../../tools/contractor-hourly-rate-calculator/">Rate calculator</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+<div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../">Trades</a> / Roofers</p></div>
+<header class="page">
+  <div class="prose">
+    <span class="kicker">For roofers</span>
+    <h1>The invoice app for roofers</h1>
+    <p class="standfirst">Quote roofs by the square, take deposits, invoice on completion. Voice input, AI descriptions, works offline. Free to start.</p>
+  </div>
+</header>
+<main>
+<div class="prose">
+<p>Roofing is a big-ticket, one-shot sale. The customer is spending five figures with someone they met once, usually under time pressure because there is water coming in, and often with an insurance company involved. The quote is doing an enormous amount of work — it has to justify the number, look like it came from a business that will still exist in ten years, and arrive before the other two.</p><p>Toolbelt gets that document out fast and makes it look serious: itemised by square, with the tear-off, the underlayment, the flashing and the disposal all priced separately, and photos of the damage attached.</p>
+
+<h2>What actually goes wrong when roofers invoice</h2>
+<p>These are the four billing problems we hear most often from roofers.
+None of them is about not knowing how to do the work — they are all about the gap
+between finishing a job and getting paid for it.</p>
+<div class="card"><h3>A five-figure quote that has to be trusted on sight</h3><p>Nobody hands over $14,000 on the basis of a number written on a notepad. The quote is the entire trust-building exercise, and it is competing against two others that landed the same week.</p></div><div class="card"><h3>Deposits, because you cannot float the materials</h3><p>A roof's worth of shingles is thousands of dollars of your money before a single nail goes in. No deposit means you are financing the job.</p></div><div class="card"><h3>Insurance jobs with their own paperwork logic</h3><p>When there is a claim involved, the document needs to be itemised in a way an adjuster can read — line by line, with the damage photographed.</p></div><div class="card"><h3>Storm season: quoting ten roofs a week</h3><p>After a hailstorm the work is there for the taking and it goes to whoever gets the quote out first. That is a speed problem, not a sales problem.</p></div>
+
+<h2>How Toolbelt fits a roofer's day</h2>
+<h3>Photos of the damage attached to the quote</h3><p>The photo from the ridge is the most persuasive thing you have. Put it on the document.</p><h3>Itemise by square, not by guess</h3><p>Tear-off, decking repair, underlayment, shingles, ridge, flashing, disposal — each on its own line so the number is defensible.</p><h3>Deposit on the quote, balance on completion</h3><p>Get the materials funded before you buy them.</p>
+
+<h2>Example roofer invoice line items</h2>
+<p>These are example line items with typical US market ranges, to show how a
+roofer's invoice breaks down. <strong>They are illustrations, not our
+recommended prices</strong> — your rates depend on your market, your licence, your
+overhead and your reputation, and nobody on the internet should be setting them
+for you.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Line item</th><th>Unit</th><th class="num">Typical range</th></tr></thead>
+<tbody><tr><td>Asphalt shingle roof (installed, per square)</td><td>per square (100 sq ft)</td><td class="num">$350 – $700</td></tr><tr><td>Tear-off and disposal of old roof</td><td>per square</td><td class="num">$100 – $250</td></tr><tr><td>Decking / sheathing replacement</td><td>per sheet</td><td class="num">$60 – $150</td></tr><tr><td>Underlayment (synthetic / ice &amp; water shield)</td><td>per square</td><td class="num">$40 – $120</td></tr><tr><td>Ridge vent installation</td><td>per linear ft</td><td class="num">$8 – $20</td></tr><tr><td>Step / chimney flashing replacement</td><td>each</td><td class="num">$200 – $600</td></tr><tr><td>Deposit on signing</td><td>% of contract</td><td class="num">25 – 50%</td></tr><tr><td>Skip / dumpster and haul-away</td><td>flat</td><td class="num">$400 – $900</td></tr></tbody>
+</table>
+</div>
+<p>In Toolbelt you save the ones you use constantly, so after a couple of weeks
+most of an invoice is taps rather than typing. You can read more on structuring a
+document properly in our
+<a href="../../blog/professional-invoice-template-guide.html">invoice template guide</a>,
+or start from our
+<a href="../../templates/free-contractor-invoice-template/">free contractor invoice template</a>.</p>
+
+<h2>Pricing</h2>
+<p>Toolbelt is <strong>free for 3 invoices or quotes a
+month</strong>, with every feature switched on and no card required. Past that it
+is <strong>$14.99/month</strong> or <strong>$99.99/year</strong>
+— one price, everything included. If you are weighing it against the alternatives,
+we keep <a href="../../compare/">honest comparison pages</a> that tell you where the
+other apps beat us.</p>
+
+<h2>Getting paid: deposits and terms for roofers</h2>
+<p>Roofing has the biggest deposit requirement of any trade on this list, and the strongest justification for it. A roof's worth of materials is thousands of dollars delivered to a driveway before you have earned a penny. A deposit of 25–50% on signing is standard, and a customer who refuses one is telling you something.</p><p>On insurance work, the payment structure is different again: the carrier often pays in two parts, holding back depreciation until the work is complete and documented. Itemise the quote so it maps to the adjuster's scope, photograph everything, and invoice in a way that lets the homeowner claim the second cheque without a fight.</p>
+<p>More on this in our guides to
+<a href="../../blog/contractor-deposit-and-payment-terms.html">deposits and payment terms</a>
+and <a href="../../blog/get-paid-faster-as-contractor.html">getting paid faster</a>.</p>
+
+<h2>What to put on a roofer invoice</h2>
+<p>The difference between an invoice that gets paid and one that gets a phone call is
+almost always detail. For roofers specifically, make sure these are on it:</p>
+<ul><li>The measured roof area, in squares</li><li>Tear-off and disposal, priced separately</li><li>Materials by name — shingle brand, underlayment type, ridge and flashing</li><li>The manufacturer's warranty AND your workmanship warranty, both stated</li><li>Photos of the damage and of the completed roof</li><li>For insurance jobs: line items that map to the adjuster's scope</li></ul>
+
+<h2>Roofers FAQ</h2>
+<p class="faq-q">Can I take a deposit before ordering materials?</p><p>Yes — put the deposit on the quote as its own line so it is agreed before you spend your own money on shingles.</p><p class="faq-q">Can I attach photos of the roof damage?</p><p>Yes, to both quotes and invoices — and for insurance work you should attach as many as you can.</p><p class="faq-q">Does it price by the square?</p><p>Yes, any unit you like. Squares, linear feet, sheets, flat rates — mix them on one document.</p><p class="faq-q">Can I quote from the roof with no signal?</p><p>Yes. Build the whole thing offline; it syncs when you are back on the ground.</p>
+
+<h2>Related trades</h2>
+<div class="grid"><a class="tile" href="../general-contractors/">Invoicing for general contractors<small>How general contractors quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../hvac/">Invoicing for hvac contractors<small>How hvac contractors quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../carpenters/">Invoicing for carpenters<small>How carpenters quote, bill and get paid — and where the money leaks.</small></a></div>
+
+<div class="cta">
+  <h2>Invoice your next roofer job from the truck</h2>
+  <p>Free for 3 documents a month. No card. iPhone.</p>
+  <a class="btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789?ct=website-trade-roofers&mt=8">Get Toolbelt on the App Store</a>
+</div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>By trade</h4>
+        <a href="../../for/plumbers/">Plumbers</a><a href="../../for/electricians/">Electricians</a><a href="../../for/hvac/">HVAC Contractors</a><a href="../../for/carpenters/">Carpenters</a><a href="../../for/painters/">Painters</a><a href="../../for/landscapers/">Landscapers</a>
+        <a href="../../for/">All trades &rarr;</a>
+      </div>
+      <div>
+        <h4>Free tools</h4>
+        <a href="../../templates/free-contractor-invoice-template/">Free invoice template</a>
+        <a href="../../tools/contractor-hourly-rate-calculator/">Hourly rate calculator</a>
+        <a href="../../blog/">Blog</a>
+      </div>
+      <div>
+        <h4>Compare</h4>
+        <a href="../../compare/">All comparisons</a>
+        <a href="../../compare/toolbelt-vs-joist/">vs Joist</a>
+        <a href="../../compare/toolbelt-vs-jobber/">vs Jobber</a>
+        <a href="../../compare/toolbelt-vs-quickbooks/">vs QuickBooks</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../../support.html">Support</a>
+        <a href="../../privacy.html">Privacy Policy</a>
+        <a href="../../terms.html">Terms of Service</a>
+        <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789">Download on iOS</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Toolbelt. All rights reserved.</span>
+      <span>Invoicing built for the job site.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

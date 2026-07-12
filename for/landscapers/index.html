@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice App for Landscapers | Toolbelt</title>
+<link rel="canonical" href="https://toolbelt.pro/for/landscapers/">
+<meta name="description" content="Bill recurring maintenance and one-off installs from the truck. Voice input, AI descriptions, works with no signal. Free to start.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Toolbelt">
+<meta property="og:title" content="Invoice App for Landscapers | Toolbelt">
+<meta property="og:description" content="Bill recurring maintenance and one-off installs from the truck. Voice input, AI descriptions, works with no signal. Free to start.">
+<meta property="og:url" content="https://toolbelt.pro/for/landscapers/">
+<meta property="og:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Invoice App for Landscapers | Toolbelt">
+<meta name="twitter:description" content="Bill recurring maintenance and one-off installs from the truck. Voice input, AI descriptions, works with no signal. Free to start.">
+<meta name="twitter:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<link rel="icon" type="image/png" href="../../toolbelt-logo.png">
+<link rel="apple-touch-icon" href="../../toolbelt-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "v4peke782d");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://toolbelt.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Trades",
+      "item": "https://toolbelt.pro/for/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Landscapers",
+      "item": "https://toolbelt.pro/for/landscapers/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I invoice a recurring maintenance customer quickly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — save their standard visit as a line item and it is two taps. Toolbelt does not auto-bill on a schedule; if fully automatic recurring billing is the core of your business, a field-service platform is a better fit and we will say so."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I quote a patio or wall install properly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — itemise excavation, base, materials, labour and disposal on a branded PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work at a rural property with no signal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything works offline and syncs later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I bill by volume — cubic yards, tons, rolls?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, any unit you like, on any line."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --orange:#E8732C; --orange-light:#F5923D; --orange-glow:rgba(232,115,44,.35);
+  --surface:#0c0f14; --surface-raised:rgba(255,255,255,.04);
+  --surface-hover:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
+  --text-white:#f0f0f2; --text-light:rgba(240,240,242,.75);
+  --text-muted:rgba(240,240,242,.45);
+  --radius-sm:10px; --radius-md:16px; --radius-lg:24px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--surface);
+  color:var(--text-light);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--text-white);line-height:1.2;font-weight:700}
+h1{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.4vw,36px);margin:52px 0 18px;letter-spacing:-.01em}
+h3{font-size:21px;margin:32px 0 10px}
+p{margin-bottom:18px}
+a{color:var(--orange-light);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.prose{max-width:760px;margin:0 auto;padding:0 24px}
+ul,ol{margin:0 0 20px 22px}
+li{margin-bottom:9px}
+strong{color:var(--text-white)}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(12,15,20,.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo img{width:38px;height:38px;border-radius:9px}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:25px;letter-spacing:.08em;
+  color:var(--text-white)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-light);font-size:15px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:var(--orange-light)}
+@media(max-width:760px){.nav-links{gap:15px;font-size:13px}.nav-links a{font-size:13px}}
+
+header.page{padding:70px 0 44px;border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse at top,rgba(232,115,44,.10),transparent 62%)}
+header.page .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--orange);font-weight:500}
+header.page h1{margin:14px 0 14px}
+header.page .standfirst{font-size:19px;color:var(--text-light);max-width:640px}
+main{padding:14px 0 80px}
+
+.breadcrumb{font-size:14px;color:var(--text-muted);padding:16px 0 0}
+.breadcrumb a{color:var(--text-muted)}
+.breadcrumb a:hover{color:var(--orange-light)}
+
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;
+  background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);overflow:hidden}
+th,td{padding:12px 15px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+thead th{background:rgba(255,255,255,.06);color:var(--text-white);font-size:13px;
+  letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+
+.card{background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:24px 26px;margin:20px 0}
+.card h3{margin-top:0}
+.note{background:rgba(232,115,44,.07);border-left:3px solid var(--orange);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:24px 0}
+.note p:last-child{margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:24px 0}
+.grid a.tile{display:block;background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px;text-decoration:none;color:var(--text-white);
+  font-weight:600;transition:border-color .15s,transform .15s}
+.grid a.tile:hover{border-color:var(--orange);transform:translateY(-2px);text-decoration:none}
+.grid a.tile small{display:block;font-weight:400;color:var(--text-muted);font-size:13.5px;
+  margin-top:5px;line-height:1.5}
+
+.btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;
+  padding:14px 30px;border-radius:999px;text-decoration:none;font-size:16px;
+  box-shadow:0 8px 26px var(--orange-glow)}
+.btn:hover{background:var(--orange-light);text-decoration:none}
+.btn.secondary{background:transparent;border:1px solid var(--border-hover);
+  color:var(--text-white);box-shadow:none}
+.cta{background:linear-gradient(135deg,rgba(232,115,44,.13),rgba(232,115,44,.04));
+  border:1px solid rgba(232,115,44,.25);border-radius:var(--radius-lg);
+  padding:36px 34px;margin:56px 0 0;text-align:center}
+.cta h2{margin:0 0 10px}
+.cta p{color:var(--text-light);margin-bottom:22px}
+
+.faq-q{color:var(--text-white);font-weight:600;font-size:17.5px;margin:26px 0 6px}
+.win{border-left:3px solid #3ba55d}
+.lose{border-left:3px solid var(--orange)}
+
+footer{background:#080a0e;border-top:1px solid var(--border);padding:48px 0 34px;
+  color:var(--text-muted);font-size:14.5px}
+.footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;
+  margin-bottom:30px}
+.footer-cols h4{color:var(--text-white);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:12px}
+.footer-cols a{display:block;color:var(--text-muted);margin-bottom:7px;font-size:14.5px}
+.footer-cols a:hover{color:var(--orange-light)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;
+  justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="../../index.html" class="logo">
+      <img src="../../toolbelt-logo.png" alt="Toolbelt invoice app logo">
+      <span class="logo-text">TOOLBELT</span>
+    </a>
+    <div class="nav-links">
+      <a href="../../for/">Trades</a>
+      <a href="../../compare/">Compare</a>
+      <a href="../../templates/free-contractor-invoice-template/">Templates</a>
+      <a href="../../tools/contractor-hourly-rate-calculator/">Rate calculator</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+<div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../">Trades</a> / Landscapers</p></div>
+<header class="page">
+  <div class="prose">
+    <span class="kicker">For landscapers</span>
+    <h1>The invoice app for landscapers</h1>
+    <p class="standfirst">Bill recurring maintenance and one-off installs from the truck. Voice input, AI descriptions, works with no signal. Free to start.</p>
+  </div>
+</header>
+<main>
+<div class="prose">
+<p>Landscaping bills in two shapes that fight each other. There is the maintenance round — the same forty lawns every fortnight, small amounts, high volume, and utterly unforgiving of slow invoicing. And there is the install: a patio, a retaining wall, a full re-turf, quoted like a construction job.</p><p>Toolbelt is fast enough for the round and detailed enough for the install. Speak each property as you leave it and the invoices are written by the time you are back at the yard.</p>
+
+<h2>What actually goes wrong when landscapers invoice</h2>
+<p>These are the four billing problems we hear most often from landscapers.
+None of them is about not knowing how to do the work — they are all about the gap
+between finishing a job and getting paid for it.</p>
+<div class="card"><h3>Forty small invoices are worse than one big one</h3><p>A $60 lawn cut is not worth ten minutes of paperwork — which is exactly why maintenance invoicing slips, and why landscapers end up chasing a month of small money all at once.</p></div><div class="card"><h3>Weather chaos in the schedule and the billing</h3><p>Rain moves everything. The job you did was not the job you planned, and the invoice has to reflect what actually happened, not the schedule.</p></div><div class="card"><h3>Install quotes competing on price alone</h3><p>A patio quote with one line on it is competing purely on the number. Itemise the excavation, the base, the materials and the labour and you are competing on what the customer actually gets.</p></div><div class="card"><h3>Materials by volume, priced badly</h3><p>Mulch by the yard, stone by the ton, sod by the roll — get the volume wrong on the quote and you eat the difference.</p></div>
+
+<h2>How Toolbelt fits a landscaper's day</h2>
+<h3>Invoice the round from the truck</h3><p>Speak the property and the work as you pull away. The invoice is done before the next driveway.</p><h3>Save your regulars as reusable line items</h3><p>The fortnightly cut, the hedge trim, the leaf clear — saved once, two taps thereafter.</p><h3>Itemised install quotes</h3><p>Excavation, base, materials, labour, disposal, each on its own line.</p>
+
+<h2>Example landscaper invoice line items</h2>
+<p>These are example line items with typical US market ranges, to show how a
+landscaper's invoice breaks down. <strong>They are illustrations, not our
+recommended prices</strong> — your rates depend on your market, your licence, your
+overhead and your reputation, and nobody on the internet should be setting them
+for you.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Line item</th><th>Unit</th><th class="num">Typical range</th></tr></thead>
+<tbody><tr><td>Lawn maintenance — mow, edge, blow</td><td>per visit</td><td class="num">$40 – $90</td></tr><tr><td>Labour — landscape crew</td><td>per hour</td><td class="num">$45 – $90</td></tr><tr><td>Mulch supply and spread</td><td>per cu yd</td><td class="num">$70 – $140</td></tr><tr><td>Sod supply and lay</td><td>per sq ft</td><td class="num">$1.50 – $4</td></tr><tr><td>Paver patio (installed, incl. base)</td><td>per sq ft</td><td class="num">$15 – $35</td></tr><tr><td>Retaining wall (block, installed)</td><td>per face ft</td><td class="num">$25 – $60</td></tr><tr><td>Hedge and shrub trimming</td><td>per hour</td><td class="num">$50 – $95</td></tr><tr><td>Green waste haul-away and disposal</td><td>per load</td><td class="num">$60 – $200</td></tr></tbody>
+</table>
+</div>
+<p>In Toolbelt you save the ones you use constantly, so after a couple of weeks
+most of an invoice is taps rather than typing. You can read more on structuring a
+document properly in our
+<a href="../../blog/professional-invoice-template-guide.html">invoice template guide</a>,
+or start from our
+<a href="../../templates/free-contractor-invoice-template/">free contractor invoice template</a>.</p>
+
+<h2>Pricing</h2>
+<p>Toolbelt is <strong>free for 3 invoices or quotes a
+month</strong>, with every feature switched on and no card required. Past that it
+is <strong>$14.99/month</strong> or <strong>$99.99/year</strong>
+— one price, everything included. If you are weighing it against the alternatives,
+we keep <a href="../../compare/">honest comparison pages</a> that tell you where the
+other apps beat us.</p>
+
+<h2>Getting paid: deposits and terms for landscapers</h2>
+<p>Maintenance rounds should be billed on a fixed cycle and, ideally, paid automatically. The economics of a $60 lawn cut do not survive a two-week chase. Get the round onto a regular invoice the customer expects, and be ruthless about sending it the same day every time.</p><p>Installs are construction jobs and should be treated like them: deposit covering materials, progress payment if it runs long, balance on completion. Stone, sod and plants are paid for before they arrive — do not let a customer's cash flow become yours.</p>
+<p>More on this in our guides to
+<a href="../../blog/contractor-deposit-and-payment-terms.html">deposits and payment terms</a>
+and <a href="../../blog/get-paid-faster-as-contractor.html">getting paid faster</a>.</p>
+
+<h2>What to put on a landscaper invoice</h2>
+<p>The difference between an invoice that gets paid and one that gets a phone call is
+almost always detail. For landscapers specifically, make sure these are on it:</p>
+<ul><li>The property address, if you service several for one owner</li><li>The date of the visit — critical when you are billing a round</li><li>Materials by volume: yards of mulch, tons of stone, rolls of sod</li><li>Disposal and haul-away as a separate line</li><li>Any plant warranty or replacement policy</li></ul>
+
+<h2>Landscapers FAQ</h2>
+<p class="faq-q">Can I invoice a recurring maintenance customer quickly?</p><p>Yes — save their standard visit as a line item and it is two taps. Toolbelt does not auto-bill on a schedule; if fully automatic recurring billing is the core of your business, a field-service platform is a better fit and we will say so.</p><p class="faq-q">Can I quote a patio or wall install properly?</p><p>Yes — itemise excavation, base, materials, labour and disposal on a branded PDF.</p><p class="faq-q">Does it work at a rural property with no signal?</p><p>Yes. Everything works offline and syncs later.</p><p class="faq-q">Can I bill by volume — cubic yards, tons, rolls?</p><p>Yes, any unit you like, on any line.</p>
+
+<h2>Related trades</h2>
+<div class="grid"><a class="tile" href="../handymen/">Invoicing for handymen<small>How handymen quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../general-contractors/">Invoicing for general contractors<small>How general contractors quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../carpenters/">Invoicing for carpenters<small>How carpenters quote, bill and get paid — and where the money leaks.</small></a></div>
+
+<div class="cta">
+  <h2>Invoice your next landscaper job from the truck</h2>
+  <p>Free for 3 documents a month. No card. iPhone.</p>
+  <a class="btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789?ct=website-trade-landscapers&mt=8">Get Toolbelt on the App Store</a>
+</div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>By trade</h4>
+        <a href="../../for/plumbers/">Plumbers</a><a href="../../for/electricians/">Electricians</a><a href="../../for/hvac/">HVAC Contractors</a><a href="../../for/carpenters/">Carpenters</a><a href="../../for/painters/">Painters</a><a href="../../for/landscapers/">Landscapers</a>
+        <a href="../../for/">All trades &rarr;</a>
+      </div>
+      <div>
+        <h4>Free tools</h4>
+        <a href="../../templates/free-contractor-invoice-template/">Free invoice template</a>
+        <a href="../../tools/contractor-hourly-rate-calculator/">Hourly rate calculator</a>
+        <a href="../../blog/">Blog</a>
+      </div>
+      <div>
+        <h4>Compare</h4>
+        <a href="../../compare/">All comparisons</a>
+        <a href="../../compare/toolbelt-vs-joist/">vs Joist</a>
+        <a href="../../compare/toolbelt-vs-jobber/">vs Jobber</a>
+        <a href="../../compare/toolbelt-vs-quickbooks/">vs QuickBooks</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../../support.html">Support</a>
+        <a href="../../privacy.html">Privacy Policy</a>
+        <a href="../../terms.html">Terms of Service</a>
+        <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789">Download on iOS</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Toolbelt. All rights reserved.</span>
+      <span>Invoicing built for the job site.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice App for HVAC Contractors | Toolbelt</title>
+<link rel="canonical" href="https://toolbelt.pro/for/hvac/">
+<meta name="description" content="Quote installs, bill service calls and invoice maintenance plans from the truck. Voice input, AI descriptions, offline. Free to start.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Toolbelt">
+<meta property="og:title" content="Invoice App for HVAC Contractors | Toolbelt">
+<meta property="og:description" content="Quote installs, bill service calls and invoice maintenance plans from the truck. Voice input, AI descriptions, offline. Free to start.">
+<meta property="og:url" content="https://toolbelt.pro/for/hvac/">
+<meta property="og:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Invoice App for HVAC Contractors | Toolbelt">
+<meta name="twitter:description" content="Quote installs, bill service calls and invoice maintenance plans from the truck. Voice input, AI descriptions, offline. Free to start.">
+<meta name="twitter:image" content="https://toolbelt.pro/toolbelt-og-card.png">
+<link rel="icon" type="image/png" href="../../toolbelt-logo.png">
+<link rel="apple-touch-icon" href="../../toolbelt-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "v4peke782d");
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://toolbelt.pro/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Trades",
+      "item": "https://toolbelt.pro/for/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "HVAC Contractors",
+      "item": "https://toolbelt.pro/for/hvac/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I bill a maintenance plan on a schedule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can save the plan as a line item and invoice it each time it comes round. Toolbelt does not run automatic recurring billing — if that is essential to your business, a field-service platform like Jobber will serve you better and we would rather tell you that than sell you the wrong tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I attach a photo of the failed part?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and you should. A photo of a cracked heat exchanger on the quote does more selling than any wording you can write."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I quote a full system install with model numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — as many itemised lines as you need, on a branded PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work in an attic with no signal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Everything works offline."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --orange:#E8732C; --orange-light:#F5923D; --orange-glow:rgba(232,115,44,.35);
+  --surface:#0c0f14; --surface-raised:rgba(255,255,255,.04);
+  --surface-hover:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
+  --text-white:#f0f0f2; --text-light:rgba(240,240,242,.75);
+  --text-muted:rgba(240,240,242,.45);
+  --radius-sm:10px; --radius-md:16px; --radius-lg:24px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--surface);
+  color:var(--text-light);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{color:var(--text-white);line-height:1.2;font-weight:700}
+h1{font-size:clamp(32px,5vw,52px);letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.4vw,36px);margin:52px 0 18px;letter-spacing:-.01em}
+h3{font-size:21px;margin:32px 0 10px}
+p{margin-bottom:18px}
+a{color:var(--orange-light);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+.prose{max-width:760px;margin:0 auto;padding:0 24px}
+ul,ol{margin:0 0 20px 22px}
+li{margin-bottom:9px}
+strong{color:var(--text-white)}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(12,15,20,.85);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo img{width:38px;height:38px;border-radius:9px}
+.logo-text{font-family:'Bebas Neue',sans-serif;font-size:25px;letter-spacing:.08em;
+  color:var(--text-white)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:var(--text-light);font-size:15px;font-weight:500;text-decoration:none}
+.nav-links a:hover{color:var(--orange-light)}
+@media(max-width:760px){.nav-links{gap:15px;font-size:13px}.nav-links a{font-size:13px}}
+
+header.page{padding:70px 0 44px;border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse at top,rgba(232,115,44,.10),transparent 62%)}
+header.page .kicker{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--orange);font-weight:500}
+header.page h1{margin:14px 0 14px}
+header.page .standfirst{font-size:19px;color:var(--text-light);max-width:640px}
+main{padding:14px 0 80px}
+
+.breadcrumb{font-size:14px;color:var(--text-muted);padding:16px 0 0}
+.breadcrumb a{color:var(--text-muted)}
+.breadcrumb a:hover{color:var(--orange-light)}
+
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15.5px;
+  background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);overflow:hidden}
+th,td{padding:12px 15px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+thead th{background:rgba(255,255,255,.06);color:var(--text-white);font-size:13px;
+  letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;white-space:nowrap}
+.tablewrap{overflow-x:auto}
+
+.card{background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:24px 26px;margin:20px 0}
+.card h3{margin-top:0}
+.note{background:rgba(232,115,44,.07);border-left:3px solid var(--orange);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin:24px 0}
+.note p:last-child{margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:24px 0}
+.grid a.tile{display:block;background:var(--surface-raised);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px;text-decoration:none;color:var(--text-white);
+  font-weight:600;transition:border-color .15s,transform .15s}
+.grid a.tile:hover{border-color:var(--orange);transform:translateY(-2px);text-decoration:none}
+.grid a.tile small{display:block;font-weight:400;color:var(--text-muted);font-size:13.5px;
+  margin-top:5px;line-height:1.5}
+
+.btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;
+  padding:14px 30px;border-radius:999px;text-decoration:none;font-size:16px;
+  box-shadow:0 8px 26px var(--orange-glow)}
+.btn:hover{background:var(--orange-light);text-decoration:none}
+.btn.secondary{background:transparent;border:1px solid var(--border-hover);
+  color:var(--text-white);box-shadow:none}
+.cta{background:linear-gradient(135deg,rgba(232,115,44,.13),rgba(232,115,44,.04));
+  border:1px solid rgba(232,115,44,.25);border-radius:var(--radius-lg);
+  padding:36px 34px;margin:56px 0 0;text-align:center}
+.cta h2{margin:0 0 10px}
+.cta p{color:var(--text-light);margin-bottom:22px}
+
+.faq-q{color:var(--text-white);font-weight:600;font-size:17.5px;margin:26px 0 6px}
+.win{border-left:3px solid #3ba55d}
+.lose{border-left:3px solid var(--orange)}
+
+footer{background:#080a0e;border-top:1px solid var(--border);padding:48px 0 34px;
+  color:var(--text-muted);font-size:14.5px}
+.footer-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;
+  margin-bottom:30px}
+.footer-cols h4{color:var(--text-white);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:12px}
+.footer-cols a{display:block;color:var(--text-muted);margin-bottom:7px;font-size:14.5px}
+.footer-cols a:hover{color:var(--orange-light)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;
+  justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="../../index.html" class="logo">
+      <img src="../../toolbelt-logo.png" alt="Toolbelt invoice app logo">
+      <span class="logo-text">TOOLBELT</span>
+    </a>
+    <div class="nav-links">
+      <a href="../../for/">Trades</a>
+      <a href="../../compare/">Compare</a>
+      <a href="../../templates/free-contractor-invoice-template/">Templates</a>
+      <a href="../../tools/contractor-hourly-rate-calculator/">Rate calculator</a>
+      <a href="../../blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+<div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../">Trades</a> / HVAC Contractors</p></div>
+<header class="page">
+  <div class="prose">
+    <span class="kicker">For hvac contractors</span>
+    <h1>The invoice app for HVAC contractors</h1>
+    <p class="standfirst">Quote installs, bill service calls and invoice maintenance plans from the truck. Voice input, AI descriptions, offline. Free to start.</p>
+  </div>
+</header>
+<main>
+<div class="prose">
+<p>HVAC has two completely different billing problems in one business. The service side is high-volume and low-value: twelve calls a week, each one a diagnostic fee plus parts, all of which needs to be invoiced fast or not at all. The install side is the opposite: a $9,000 system replacement that lives or dies on a quote the customer will compare against two others.</p><p>Toolbelt handles both without making the service call feel like filling in a form. Speak the diagnostic and the parts on the way back to the truck; build the install quote on the spot while the customer is still standing next to the old furnace.</p>
+
+<h2>What actually goes wrong when hvac contractors invoice</h2>
+<p>These are the four billing problems we hear most often from hvac contractors.
+None of them is about not knowing how to do the work — they are all about the gap
+between finishing a job and getting paid for it.</p>
+<div class="card"><h3>Twelve service calls, twelve invoices, none of them written</h3><p>The maintenance and service side of HVAC only works if the invoice goes out the same day. Twelve calls in a week is twelve invoices, and if they pile up to Friday you will get half of them wrong and send the rest late.</p></div><div class="card"><h3>Seasonal cash flow that punishes slow invoicing</h3><p>You make your year in two windows — the first heatwave and the first freeze. In those weeks you cannot afford to be doing paperwork at 10pm, and you absolutely cannot afford to be invoicing three weeks late when the money is needed to buy the next unit.</p></div><div class="card"><h3>System replacement quotes that need to look serious</h3><p>Nobody signs a $9,000 furnace-and-coil job off the back of a handwritten note. The quote has to look like it came from a real business, itemised, with the model numbers on it — and it has to arrive while you are still the person they remember.</p></div><div class="card"><h3>Attics in August, crawlspaces in January</h3><p>The work happens in the least connected, least comfortable parts of a house. You are not doing careful data entry up there.</p></div>
+
+<h2>How Toolbelt fits a HVAC contractor's day</h2>
+<h3>Voice input between calls</h3><p>Speak the diagnostic and the parts while you walk back to the truck. The invoice for the last call is written before you start the next one.</p><h3>Itemised install quotes that look like a real business sent them</h3><p>Model numbers, labour, permits, disposal of the old unit — all as separate line items on a branded PDF.</p><h3>Photos on the document</h3><p>Attach the photo of the cracked heat exchanger to the quote. It is the single most persuasive thing on the page, and it stops the "do I really need this?" conversation.</p>
+
+<h2>Example HVAC contractor invoice line items</h2>
+<p>These are example line items with typical US market ranges, to show how a
+HVAC contractor's invoice breaks down. <strong>They are illustrations, not our
+recommended prices</strong> — your rates depend on your market, your licence, your
+overhead and your reputation, and nobody on the internet should be setting them
+for you.</p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Line item</th><th>Unit</th><th class="num">Typical range</th></tr></thead>
+<tbody><tr><td>Diagnostic / service call fee</td><td>flat</td><td class="num">$85 – $180</td></tr><tr><td>Labour — HVAC technician</td><td>per hour</td><td class="num">$80 – $150</td></tr><tr><td>Furnace replacement (80% AFUE, installed)</td><td>flat</td><td class="num">$3,000 – $6,500</td></tr><tr><td>AC condenser replacement (2–3 ton, installed)</td><td>flat</td><td class="num">$3,500 – $7,500</td></tr><tr><td>Annual maintenance plan (2 visits)</td><td>per year</td><td class="num">$150 – $350</td></tr><tr><td>Refrigerant recharge (per lb, R-410A)</td><td>per lb</td><td class="num">$70 – $160</td></tr><tr><td>Capacitor / contactor replacement</td><td>each</td><td class="num">$150 – $400</td></tr><tr><td>Duct cleaning / sealing</td><td>flat</td><td class="num">$400 – $1,200</td></tr></tbody>
+</table>
+</div>
+<p>In Toolbelt you save the ones you use constantly, so after a couple of weeks
+most of an invoice is taps rather than typing. You can read more on structuring a
+document properly in our
+<a href="../../blog/professional-invoice-template-guide.html">invoice template guide</a>,
+or start from our
+<a href="../../templates/free-contractor-invoice-template/">free contractor invoice template</a>.</p>
+
+<h2>Pricing</h2>
+<p>Toolbelt is <strong>free for 3 invoices or quotes a
+month</strong>, with every feature switched on and no card required. Past that it
+is <strong>$14.99/month</strong> or <strong>$99.99/year</strong>
+— one price, everything included. If you are weighing it against the alternatives,
+we keep <a href="../../compare/">honest comparison pages</a> that tell you where the
+other apps beat us.</p>
+
+<h2>Getting paid: deposits and terms for hvac contractors</h2>
+<p>The service side should be paid on the day. A diagnostic fee plus parts, invoiced from the truck, paid before you drive off. If you let those accumulate you will be chasing forty small amounts at the end of the month, and the effort of chasing will exceed the value of several of them.</p><p>System installs need a deposit — a full furnace-and-coil replacement can be five figures of equipment ordered on your credit before a single hour is billed. Take 30–50% on signing to cover the equipment, and invoice the balance on commissioning. In peak season this is not optional: it is the difference between taking the next job and telling someone you cannot afford to start it.</p>
+<p>More on this in our guides to
+<a href="../../blog/contractor-deposit-and-payment-terms.html">deposits and payment terms</a>
+and <a href="../../blog/get-paid-faster-as-contractor.html">getting paid faster</a>.</p>
+
+<h2>What to put on a HVAC contractor invoice</h2>
+<p>The difference between an invoice that gets paid and one that gets a phone call is
+almost always detail. For hvac contractors specifically, make sure these are on it:</p>
+<ul><li>Model and serial numbers of any equipment installed</li><li>Diagnostic findings, in plain language</li><li>Refrigerant added, by type and weight (you may be legally required to log this)</li><li>Labour separated from parts</li><li>Warranty terms on both the equipment and your labour</li><li>The date of the next recommended service</li></ul>
+
+<h2>HVAC Contractors FAQ</h2>
+<p class="faq-q">Can I bill a maintenance plan on a schedule?</p><p>You can save the plan as a line item and invoice it each time it comes round. Toolbelt does not run automatic recurring billing — if that is essential to your business, a field-service platform like Jobber will serve you better and we would rather tell you that than sell you the wrong tool.</p><p class="faq-q">Can I attach a photo of the failed part?</p><p>Yes, and you should. A photo of a cracked heat exchanger on the quote does more selling than any wording you can write.</p><p class="faq-q">Can I quote a full system install with model numbers?</p><p>Yes — as many itemised lines as you need, on a branded PDF.</p><p class="faq-q">Does it work in an attic with no signal?</p><p>Yes. Everything works offline.</p>
+
+<h2>Related trades</h2>
+<div class="grid"><a class="tile" href="../plumbers/">Invoicing for plumbers<small>How plumbers quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../electricians/">Invoicing for electricians<small>How electricians quote, bill and get paid — and where the money leaks.</small></a><a class="tile" href="../general-contractors/">Invoicing for general contractors<small>How general contractors quote, bill and get paid — and where the money leaks.</small></a></div>
+
+<div class="cta">
+  <h2>Invoice your next HVAC contractor job from the truck</h2>
+  <p>Free for 3 documents a month. No card. iPhone.</p>
+  <a class="btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789?ct=website-trade-hvac&mt=8">Get Toolbelt on the App Store</a>
+</div>
+</div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-cols">
+      <div>
+        <h4>By trade</h4>
+        <a href="../../for/plumbers/">Plumbers</a><a href="../../for/electricians/">Electricians</a><a href="../../for/hvac/">HVAC Contractors</a><a href="../../for/carpenters/">Carpenters</a><a href="../../for/painters/">Painters</a><a href="../../for/landscapers/">Landscapers</a>
+        <a href="../../for/">All trades &rarr;</a>
+      </div>
+      <div>
+        <h4>Free tools</h4>
+        <a href="../../templates/free-contractor-invoice-template/">Free invoice template</a>
+        <a href="../../tools/contractor-hourly-rate-calculator/">Hourly rate calculator</a>
+        <a href="../../blog/">Blog</a>
+      </div>
+      <div>
+        <h4>Compare</h4>
+        <a href="../../compare/">All comparisons</a>
+        <a href="../../compare/toolbelt-vs-joist/">vs Joist</a>
+        <a href="../../compare/toolbelt-vs-jobber/">vs Jobber</a>
+        <a href="../../compare/toolbelt-vs-quickbooks/">vs QuickBooks</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="../../support.html">Support</a>
+        <a href="../../privacy.html">Privacy Policy</a>
+        <a href="../../terms.html">Terms of Service</a>
+        <a href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789">Download on iOS</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Toolbelt. All rights reserved.</span>
+      <span>Invoicing built for the job site.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

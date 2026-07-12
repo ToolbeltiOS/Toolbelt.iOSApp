@@ -1,0 +1,9 @@
+# robots.txt for https://toolbelt.pro
+User-agent: *
+Allow: /
+
+# Confirmation page — no search value, and indexing it would put a dead-end page
+# in front of someone searching for the product.
+Disallow: /thanks.html
+
+Sitemap: https://toolbelt.pro/sitemap.xml
