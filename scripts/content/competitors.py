@@ -45,7 +45,7 @@ COMPETITORS = {
         # row is a page nobody believes.
         "they_win": [
             ("Android and web", "Joist runs on Android and in a browser. Toolbelt is "
-             "iPhone-only. If your crew is on Android, or you do your paperwork on a "
+             "iPhone and iPad only. If your crew is on Android, or you do your paperwork on a "
              "desktop at the end of the week, Joist covers a case we simply do not."),
             ("Homeowner financing", "Joist can offer your customer financing at the point "
              "of the estimate, which for a $12,000 roof or a full re-pipe can be the "
@@ -94,7 +94,7 @@ COMPETITORS = {
         "plans": [],
         "they_win": [
             ("Android and web", "Same story as Joist. Invoice Simple is everywhere; "
-             "Toolbelt is iPhone-only."),
+             "Toolbelt is iPhone and iPad only."),
             ("Dead simple for non-trades", "It is a general-purpose invoice maker and it is "
              "very good at that. If you are a freelancer or a shop owner rather than a "
              "contractor, its generic approach is a feature, not a bug."),
@@ -237,7 +237,7 @@ COMPETITORS = {
             ("Premium", "see their site", "—", "Unlimited invoices · 2.9% card fee"),
         ],
         "they_win": [
-            ("Android and web", "Again: Toolbelt is iPhone-only. Invoice2go is not."),
+            ("Android and web", "Again: Toolbelt is iPhone and iPad only. Invoice2go is not."),
             ("Payments and card processing built in", "Card payment acceptance is baked "
              "into the plans, with the fee dropping as you move up the tiers."),
             ("Accounting integrations", "QuickBooks and Xero sync on the middle tier up."),

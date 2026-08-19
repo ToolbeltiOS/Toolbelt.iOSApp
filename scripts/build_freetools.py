@@ -171,7 +171,7 @@ the driveway. It is free for {C.FREE_TIER_DOCS_PER_MONTH} documents a month, so 
 find out on a real job without paying anyone.</p>
 
 {S.cta(depth, "Or skip the paperwork entirely",
-       f"Free for {C.FREE_TIER_DOCS_PER_MONTH} invoices or quotes a month. No card required.",
+       f"Free for {C.FREE_TIER_DOCS_PER_MONTH} documents a month. No card required.",
        "website", "template", "invoice-template")}
 </div>"""
 

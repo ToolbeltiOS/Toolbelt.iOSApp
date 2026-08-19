@@ -41,7 +41,7 @@ CURRENCY = "USD"
 PRICE_MONTHLY = "14.99"
 PRICE_YEARLY = "99.99"
 FREE_TIER_DOCS_PER_MONTH = 3
-FREE_TIER_DESC = (f"Free plan: up to {FREE_TIER_DOCS_PER_MONTH} invoices or quotes "
+FREE_TIER_DESC = (f"Free plan: up to {FREE_TIER_DOCS_PER_MONTH} documents "
                   f"per month, all features included. No credit card required.")
 
 # ------------------------------------------------------------------- identity --

@@ -113,7 +113,7 @@ or start from our
 <a href="../../templates/free-contractor-invoice-template/">free contractor invoice template</a>.</p>
 
 <h2>Pricing</h2>
-<p>Toolbelt is <strong>free for {C.FREE_TIER_DOCS_PER_MONTH} invoices or quotes a
+<p>Toolbelt is <strong>free for {C.FREE_TIER_DOCS_PER_MONTH} documents a
 month</strong>, with every feature switched on and no card required. Past that it
 is <strong>${C.PRICE_MONTHLY}/month</strong> or <strong>${C.PRICE_YEARLY}/year</strong>
 — one price, everything included. If you are weighing it against the alternatives,
@@ -256,7 +256,7 @@ worth less than no comparison page at all.</p>
              f"are not going to claim we are cheaper without checking. Their pricing page is "
              f"linked above."))),
         (f"Can I use Toolbelt if I'm on Android?",
-         "No. Toolbelt is iPhone only. If your phone is an Android, "
+         "No. Toolbelt is iPhone and iPad only. If your phone is an Android, "
          f"{c['name']} covers you and we do not — that is the end of the decision, and no "
          "feature table changes it."),
         (f"Does {c['name']} have voice input or AI descriptions?",
@@ -295,7 +295,7 @@ taken from the competitor's own pricing page and stamped with the date we checke
 <table>
 <thead><tr><th>Toolbelt plan</th><th class="num">Price</th><th>What you get</th></tr></thead>
 <tbody>
-<tr><td>Free</td><td class="num">$0</td><td>{C.FREE_TIER_DOCS_PER_MONTH} invoices or quotes
+<tr><td>Free</td><td class="num">$0</td><td>{C.FREE_TIER_DOCS_PER_MONTH} documents
 per month, every feature on, no card required</td></tr>
 <tr><td>Monthly</td><td class="num">${C.PRICE_MONTHLY}/mo</td><td>Unlimited invoices and
 quotes, voice input, AI descriptions, offline, custom PDF templates</td></tr>
@@ -304,7 +304,7 @@ per month</td></tr>
 </tbody>
 </table>
 </div>
-<p>Platforms: <strong>iPhone only</strong>. {esc(c["name"])} runs on {esc(c["platforms"])}.
+<p>Platforms: <strong>iPhone and iPad only</strong>. {esc(c["name"])} runs on {esc(c["platforms"])}.
 That is a real gap and it is the first thing on this page you should weigh — if you are on
 Android, this decision is already made for you.</p>
 
@@ -313,7 +313,7 @@ Android, this decision is already made for you.</p>
 <table>
 <thead><tr><th>&nbsp;</th><th>Toolbelt</th><th>{esc(c["name"])}</th></tr></thead>
 <tbody>
-<tr><td>Platforms</td><td>iPhone only</td><td>{esc(c["platforms"])}</td></tr>
+<tr><td>Platforms</td><td>iPhone and iPad only</td><td>{esc(c["platforms"])}</td></tr>
 <tr><td>Free tier</td><td>{C.FREE_TIER_DOCS_PER_MONTH} documents/month, forever, all features</td>
 <td>{esc(str(c["free_plan"])) if c["free_plan"] else "None"}</td></tr>
 <tr><td>Trial</td><td>Not needed — the free tier is permanent</td><td>{esc(c["trial"])}</td></tr>

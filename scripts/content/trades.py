@@ -603,7 +603,7 @@ TRADES = {
              "That is the point — if it takes longer than that, you will not do it on site, "
              "and if you do not do it on site it will slip."),
             ("Is there a free version?",
-             "Yes — 3 invoices or quotes per month, free forever, with every feature on. No "
+             "Yes — 3 documents per month, free forever, with every feature on. No "
              "card required. If you send more than that, it is $14.99/mo or $99.99/yr."),
             ("Can I take a deposit for a bigger job?",
              "Yes — put a deposit line on the quote and invoice the balance on completion."),
