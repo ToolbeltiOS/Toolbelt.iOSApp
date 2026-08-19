@@ -1,0 +1,25 @@
+{
+  "_derived_from": "brain/claims.md (owner-ratified 2026-08-18) + the CHECKPOINT-0 ban ruling. NOT SafeNest's rules — this is a Toolbelt-authored claim set.",
+  "version": "1.0.0",
+  "prose_checker": {
+    "_note": "Literal, always-a-violation substrings (matched lowercased). Ambiguous cases that depend on subject/shape (e.g. '#1', payments, invented counts) live in prose_gate.CLAIM_SHAPES, not here, so ordinals and competitor descriptions are not false-flagged.",
+    "banned_phrases": [
+      {"pattern": "top-rated", "why": "0 ratings and no ranking source. claims.md §4."},
+      {"pattern": "top rated", "why": "0 ratings and no ranking source. claims.md §4."},
+      {"pattern": "highest-rated", "why": "0 ratings. claims.md §4."},
+      {"pattern": "highest rated", "why": "0 ratings. claims.md §4."},
+      {"pattern": "best-rated", "why": "0 ratings. claims.md §4."},
+      {"pattern": "most popular", "why": "no popularity source; unverifiable superiority. claims.md §4."},
+      {"pattern": "contractors are switching", "why": "unsourced trend claim. claims.md §4."},
+      {"pattern": "trusted by thousands", "why": "invented count; no user-count source (0 ratings). claims.md §6."},
+      {"pattern": "join thousands", "why": "invented count. claims.md §6."},
+      {"pattern": "5-star", "why": "0 ratings; no star average exists. claims.md §4."},
+      {"pattern": "five-star", "why": "0 ratings. claims.md §4."},
+      {"pattern": "iphone only", "why": "false since iPad support shipped — say 'iPhone and iPad'. claims.md §2."},
+      {"pattern": "iphone-only", "why": "false since iPad support shipped. claims.md §2."},
+      {"pattern": "get paid in the app", "why": "unverified payment feature; the app sends invoices, payment happens outside. claims.md §6."},
+      {"pattern": "get paid inside the app", "why": "unverified payment feature. claims.md §6."},
+      {"pattern": "get paid through the app", "why": "unverified payment feature. claims.md §6."}
+    ]
+  }
+}

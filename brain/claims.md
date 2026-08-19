@@ -94,6 +94,10 @@ Use these; phrase them plainly.
 - Website: https://toolbelt.pro (GitHub Pages, custom domain).
 - Support: https://toolbelt.pro/support.html · Privacy: https://toolbelt.pro/privacy.html
 - Analytics on site: Google Analytics `G-EJV1HLMC17`, Microsoft Clarity `v4peke782d`.
+- **Enforcement:** `rules/prose_gate.py` is the gate for this file's prohibitions
+  (§4, §6). `python3 rules/prose_gate.py --all` scans every built page and fails on
+  any prohibited claim; `python3 rules/prose_gate.py` runs the fixture self-test.
+  Ported from safenest-web-reports with a Toolbelt-authored `rules/rules.json`.
 
 ---
 *Owner-ratified 2026-08-18 (Luis Freyre) at CHECKPOINT 0, in writing via the session
