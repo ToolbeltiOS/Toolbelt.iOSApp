@@ -53,9 +53,23 @@ def changefreq(url_path):
 
 
 def git_lastmod(rel):
+    """The date the page's OWN content last changed.
+
+    CONVENTION (shared with the SafeNest repo): lastmod tracks the page's content,
+    NOT shared chrome (nav / footer / header). A commit that only touches the shared
+    shell is tagged "[lastmod-skip]" in its message and excluded here, so a footer
+    link added to 21 pages does not bump 21 lastmods to today. The sitemap already
+    communicates a new page through its new <loc>; inflating unchanged articles'
+    freshness for a footer change only teaches crawlers to distrust our dates.
+
+    The test is "did THIS page's content change", not "is the change visible" — a
+    footer link is visible and functional, and still not this page's content.
+    """
     try:
-        d = subprocess.run(["git", "-C", ROOT, "log", "--format=%as", "-1", "--", rel],
-                           capture_output=True, text=True, check=True).stdout.strip()
+        d = subprocess.run(
+            ["git", "-C", ROOT, "log", "--format=%as", "-1",
+             "--invert-grep", "-F", "--grep=[lastmod-skip]", "--", rel],
+            capture_output=True, text=True, check=True).stdout.strip()
         return d or None
     except Exception:
         return None

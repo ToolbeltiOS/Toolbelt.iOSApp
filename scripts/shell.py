@@ -162,8 +162,11 @@ def footer(depth, trades=None):
       </div>
       <div>
         <h4>Free tools</h4>
+        <a href="{r}tools/">All free tools</a>
         <a href="{r}templates/free-contractor-invoice-template/">Free invoice template</a>
         <a href="{r}tools/contractor-hourly-rate-calculator/">Hourly rate calculator</a>
+        <a href="{r}tools/contractor-markup-calculator/">Markup calculator</a>
+        <a href="{r}tools/job-estimate-calculator/">Job estimate calculator</a>
         <a href="{r}blog/">Blog</a>
       </div>
       <div>
