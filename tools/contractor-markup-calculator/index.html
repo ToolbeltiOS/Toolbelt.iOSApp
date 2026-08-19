@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contractor Hourly Rate Calculator (Free)</title>
-<link rel="canonical" href="https://toolbelt.pro/tools/contractor-hourly-rate-calculator/">
-<meta name="description" content="Work out what you should charge per hour. Free calculator using your target pay, overhead and real billable hours. No signup, nothing stored.">
+<title>Contractor Markup Calculator (Free)</title>
+<link rel="canonical" href="https://toolbelt.pro/tools/contractor-markup-calculator/">
+<meta name="description" content="Free markup vs margin calculator for contractors. Enter your cost and the margin you want; get the price, the markup, and the profit. No signup.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Toolbelt">
-<meta property="og:title" content="Contractor Hourly Rate Calculator (Free)">
-<meta property="og:description" content="Work out what you should charge per hour. Free calculator using your target pay, overhead and real billable hours. No signup, nothing stored.">
-<meta property="og:url" content="https://toolbelt.pro/tools/contractor-hourly-rate-calculator/">
+<meta property="og:title" content="Contractor Markup Calculator (Free)">
+<meta property="og:description" content="Free markup vs margin calculator for contractors. Enter your cost and the margin you want; get the price, the markup, and the profit. No signup.">
+<meta property="og:url" content="https://toolbelt.pro/tools/contractor-markup-calculator/">
 <meta property="og:image" content="https://toolbelt.pro/toolbelt-og-card.png">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contractor Hourly Rate Calculator (Free)">
-<meta name="twitter:description" content="Work out what you should charge per hour. Free calculator using your target pay, overhead and real billable hours. No signup, nothing stored.">
+<meta name="twitter:title" content="Contractor Markup Calculator (Free)">
+<meta name="twitter:description" content="Free markup vs margin calculator for contractors. Enter your cost and the margin you want; get the price, the markup, and the profit. No signup.">
 <meta name="twitter:image" content="https://toolbelt.pro/toolbelt-og-card.png">
 <link rel="icon" type="image/png" href="../../toolbelt-logo.png">
 <link rel="apple-touch-icon" href="../../toolbelt-logo.png">
@@ -43,14 +43,14 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Tools",
+      "name": "Free tools",
       "item": "https://toolbelt.pro/tools/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Hourly rate calculator",
-      "item": "https://toolbelt.pro/tools/contractor-hourly-rate-calculator/"
+      "name": "Markup calculator",
+      "item": "https://toolbelt.pro/tools/contractor-markup-calculator/"
     }
   ]
 }
@@ -59,8 +59,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Contractor Hourly Rate Calculator",
-  "url": "https://toolbelt.pro/tools/contractor-hourly-rate-calculator/",
+  "name": "Contractor Markup Calculator",
+  "url": "https://toolbelt.pro/tools/contractor-markup-calculator/",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any (runs in the browser)",
   "offers": {
@@ -68,7 +68,7 @@
     "price": "0",
     "priceCurrency": "USD"
   },
-  "description": "Calculates the hourly rate a contractor needs to charge, from target earnings, overhead, working weeks and real billable-hour percentage."
+  "description": "Converts a job cost and a target profit margin into the price to charge, and shows the equivalent markup and profit."
 }
 </script>
 <style>
@@ -214,20 +214,20 @@ footer{background:#080a0e;border-top:1px solid var(--border);padding:48px 0 34px
     </div>
   </div>
 </nav>
-<div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / Tools / Hourly rate calculator</p></div>
+<div class="container"><p class="breadcrumb"><a href="../../index.html">Home</a> / <a href="../">Tools</a> / Markup calculator</p></div>
 <header class="page">
   <div class="prose">
     <span class="kicker">Free tool</span>
-    <h1>Contractor hourly rate calculator</h1>
-    <p class="standfirst">What you should charge, from what you need to earn — not from what the other guy is charging.</p>
+    <h1>Contractor markup calculator</h1>
+    <p class="standfirst">Markup and margin are different numbers. Price the job right, and see the gap that quietly underpays most contractors.</p>
   </div>
 </header>
 <main>
 <div class="prose">
-<p>Most contractors set their hourly rate by asking what the other guy charges. That is
-how an entire trade ends up underpriced together. This calculator works it out from the
-only numbers that matter: what you need to earn, what it costs you to show up, and how
-many hours you can actually bill.</p>
+<p>Enter what a job costs you and the profit margin you want, and this works out the
+price to charge — and, just as importantly, the markup that price represents. Markup and
+margin are two different numbers, and confusing them is one of the most expensive
+arithmetic mistakes a contractor can make.</p>
 <p>Nothing is sent anywhere. It runs in your browser, there is no signup, and we cannot
 see what you type.</p>
 
@@ -235,138 +235,119 @@ see what you type.</p>
 <div class="calc">
   <div class="calc-grid">
     <div class="field">
-      <label for="target">What you want to earn</label>
-      <div class="hint">Your take-home pay, per year, before tax.</div>
-      <input type="number" id="target" value="75000" min="0" step="1000">
+      <label for="cost">What the job costs you</label>
+      <div class="hint">Materials + labour + subs — your real cost to deliver it.</div>
+      <input type="number" id="cost" value="1000" min="0" step="50">
     </div>
     <div class="field">
-      <label for="overhead">Annual overhead</label>
-      <div class="hint">Van, insurance, tools, phone, fuel, accountant, software.</div>
-      <input type="number" id="overhead" value="18000" min="0" step="500">
-    </div>
-    <div class="field">
-      <label for="weeks">Weeks you work</label>
-      <div class="hint">52 minus holiday, sickness and the dead weeks.</div>
-      <input type="number" id="weeks" value="48" min="1" max="52">
-    </div>
-    <div class="field">
-      <label for="hours">Hours per week</label>
-      <div class="hint">All of them — including the ones in the van.</div>
-      <input type="number" id="hours" value="45" min="1" max="80">
-    </div>
-    <div class="field">
-      <label for="billable">Billable hours (%)</label>
-      <div class="hint">The honest number. Most trades land at 55&ndash;70%.</div>
-      <input type="number" id="billable" value="65" min="1" max="100">
-    </div>
-    <div class="field">
-      <label for="margin">Profit margin (%)</label>
-      <div class="hint">On top of covering yourself. This is the bit that grows the business.</div>
-      <input type="number" id="margin" value="20" min="0" max="90">
+      <label for="margin">Profit margin you want (%)</label>
+      <div class="hint">Margin, not markup — the share of the <em>price</em> that is profit.</div>
+      <input type="number" id="margin" value="30" min="0" max="95">
     </div>
   </div>
-
   <div class="result">
-    <div class="lbl">Your hourly rate should be</div>
-    <div class="big" id="rate">$0</div>
+    <div class="lbl">Price to charge</div>
+    <div class="big" id="price">$0</div>
     <div class="subresults">
-      <div class="subresult"><span>Billable hours</span><b id="billableHours">0</b></div>
-      <div class="subresult"><span>Break-even rate</span><b id="breakeven">$0</b></div>
-      <div class="subresult"><span>Revenue at this rate</span><b id="revenue">$0</b></div>
-      <div class="subresult"><span>Unbilled hours</span><b id="unbilled">0</b></div>
+      <div class="subresult"><span>Markup on cost</span><b id="markup">0%</b></div>
+      <div class="subresult"><span>Margin on price</span><b id="marginOut">0%</b></div>
+      <div class="subresult"><span>Profit</span><b id="profit">$0</b></div>
     </div>
   </div>
 </div>
 
-<h2>The number that ruins most rates: billable hours</h2>
-<p>This is where nearly everyone gets it wrong, so it is worth being blunt about it.</p>
-<p>You work, say, 45 hours a week. You do not <em>bill</em> 45 hours a week. You bill the
-hours you are on a job with a tool in your hand. You do not bill the drive between jobs,
-the trip to the supply house, the quote you wrote that did not land, the hour on the phone
-with a customer who is deciding, the invoicing on Sunday night, or the morning you spent
-chasing an unpaid bill.</p>
-<p>For most one-person trade businesses that lands somewhere between <strong>55% and
-70%</strong>. If you have never measured it, start at 65% and be suspicious if you think
-you are higher. A contractor who believes they bill 90% of their hours and actually bills
-60% has set their rate a third too low — and will work themselves into the ground
-wondering why the money never arrives.</p>
+<h2>Markup and margin are not the same number</h2>
+<p>This is the whole point of the tool, so it is worth being blunt. <strong>Markup</strong>
+is measured against your <em>cost</em>. <strong>Margin</strong> is measured against your
+<em>price</em>. They describe the same dollar of profit from two different ends, and the
+gap between them is bigger than almost everyone expects.</p>
+<p>Add 30% markup to a $1,000 job and you charge $1,300 — but your margin is only
+<strong>23%</strong>, because $300 is 23% of $1,300, not 30%. The contractor who thinks
+"I add 30%, so I make 30%" is quietly making a third less than they believe on every job.
+Do that all year and it is the difference between a business and a hobby with a van.</p>
 
-<h2>Overhead is not optional and it is not small</h2>
-<p>Overhead is everything you pay for whether or not you work a single day this month. The
-van and its payments, fuel, insurance (vehicle, liability, tools), your phone, tool
-replacement and repair, licensing and continuing education, the accountant, software,
-advertising, and the yard or storage if you have one.</p>
-<p>Add it up honestly once a year. Most contractors underestimate it by thousands, and
-every dollar you miss is a dollar you are paying out of what you thought was your wage.</p>
-
-<h2>Why the profit margin is separate from your pay</h2>
-<p>Your target earnings are your wage — what you take home for doing the work. Profit is
-different: it is what the <em>business</em> makes on top of paying you and its costs. It is
-what buys the second van, survives the slow February, replaces the compressor when it dies
-on a Friday, and eventually pays you when you are not the one swinging the hammer.</p>
-<p>A business with no margin is a job with extra paperwork and more risk. 15&ndash;25% is a
-reasonable place to start.</p>
-
-<h2>What to do with the number</h2>
-<p>Treat it as a floor, not a price list. It is the rate below which you are, arithmetically,
-working for less than you decided you were worth. Above it, you have room to move — for a
-job you want, a client who pays fast, or work in a season when you would otherwise be idle.</p>
-<p>And do not quote it. The rate is for <em>you</em>, so you know what a job needs to earn.
-Most customers should see a price for the job, not an hourly rate to argue with. Our
-<a href="../../blog/how-to-write-an-invoice-as-a-contractor.html">guide to writing an
-invoice</a> covers how to present it.</p>
-
-<h2>A worked example</h2>
-<p>Take a plumber who wants $75,000 take-home, has $18,000 of overhead, works 48 weeks at
-45 hours, bills 65% of those hours, and wants a 20% margin.</p>
-<p>That is 2,160 hours worked, of which 1,404 are billable. They need $93,000 to cover
-their pay and their costs, which is about $66/hr just to break even. With a 20% margin,
-the rate is roughly <strong>$83/hr</strong> — and every hour they bill under that is an
-hour they are subsidising the customer.</p>
-<p>Now look at the "unbilled hours" box in the calculator. That is 756 hours a year — about
-19 working weeks — spent driving, quoting, invoicing and chasing. You cannot get rid of all
-of it, but the invoicing and chasing part is the part you can shrink, and that is worth as
-much to you as a rate rise.</p>
-
-<h2>What the trades typically charge per hour</h2>
-<p>For reference only — a sense check against the number above, not a target. These are
-typical US market ranges for labour, and they vary enormously by region, licence and
-demand. If the calculator says you need more than the top of your trade's range, that is
-not necessarily wrong: it may mean your overhead is too high, your billable percentage is
-too low, or you are in a market that will not support what you need. All three are worth
-knowing.</p>
+<h2>Markup-to-margin, at a glance</h2>
+<p>A reference you can sanity-check against. If you have always priced by markup, find your
+number in the left column and see what you are actually keeping.</p>
 <div class="tablewrap">
 <table>
-<thead><tr><th>Trade</th><th class="num">Typical hourly labour rate</th><th>Guide</th></tr></thead>
-<tbody><tr><td>Plumbers</td><td class="num">$75 – $130</td><td><a href="../../for/plumbers/">Plumbers invoicing guide</a></td></tr><tr><td>Electricians</td><td class="num">$85 – $150</td><td><a href="../../for/electricians/">Electricians invoicing guide</a></td></tr><tr><td>HVAC Contractors</td><td class="num">$80 – $150</td><td><a href="../../for/hvac/">HVAC Contractors invoicing guide</a></td></tr><tr><td>Carpenters</td><td class="num">$55 – $110</td><td><a href="../../for/carpenters/">Carpenters invoicing guide</a></td></tr><tr><td>Landscapers</td><td class="num">$45 – $90</td><td><a href="../../for/landscapers/">Landscapers invoicing guide</a></td></tr><tr><td>Handymen</td><td class="num">$50 – $100</td><td><a href="../../for/handymen/">Handymen invoicing guide</a></td></tr><tr><td>General Contractors</td><td class="num">$75 – $150</td><td><a href="../../for/general-contractors/">General Contractors invoicing guide</a></td></tr></tbody>
+<thead><tr><th class="num">Markup on cost</th><th class="num">Margin on price</th></tr></thead>
+<tbody>
+<tr><td class="num">10%</td><td class="num">9.1%</td></tr>
+<tr><td class="num">15%</td><td class="num">13.0%</td></tr>
+<tr><td class="num">20%</td><td class="num">16.7%</td></tr>
+<tr><td class="num">25%</td><td class="num">20.0%</td></tr>
+<tr><td class="num">30%</td><td class="num">23.1%</td></tr>
+<tr><td class="num">40%</td><td class="num">28.6%</td></tr>
+<tr><td class="num">50%</td><td class="num">33.3%</td></tr>
+<tr><td class="num">100%</td><td class="num">50.0%</td></tr>
+</tbody>
 </table>
 </div>
+<p>The formula, if you ever need it on paper: to hit a target margin, divide your cost by
+(1 &minus; margin). A $1,000 cost at a 30% margin is 1000 &divide; 0.70 = about $1,429 —
+which is a 43% markup, not 30%.</p>
+
+<h2>How to choose your margin</h2>
+<p>Your margin has to cover more than it looks like it does. It absorbs the jobs that go
+sideways, the customer who pays sixty days late, the material price that moved between the
+quote and the order, and the warranty callback eighteen months from now. A margin that only
+just breaks even on a clean job loses money the moment a job is not clean — and few are.</p>
+<p>Most trade work sustains a margin somewhere in the <strong>20&ndash;40%</strong> band on
+labour-and-materials jobs, higher on small or specialist work where your expertise is the
+product, lower on big material-heavy jobs where you are partly a purchasing agent. Start
+where your trade sits and adjust for how much risk the specific job carries.</p>
+
+<h2>Cost is not just materials</h2>
+<p>The tool is only as honest as the cost you feed it. "What the job costs you" means all of
+it: materials, the hours you will spend times what an hour of your time actually costs,
+anything you sub out, plus the job-specific extras — permits, disposal, a rental, the second
+trip for the part the supplier got wrong. Leave those out and every margin you calculate is
+optimistic, which is a polite word for wrong. If you are not sure what an hour of your time
+costs, the <a href="../contractor-hourly-rate-calculator/">hourly rate calculator</a> works
+it out, and the <a href="../job-estimate-calculator/">job estimate calculator</a> adds the
+pieces up for a whole job.</p>
+
+<h2>A worked example</h2>
+<p>A job costs you $1,000 all-in and you want a 30% margin. The tool prices it at about
+<strong>$1,429</strong>: a 42.9% markup, $429 of profit, and a margin of exactly 30%. If you
+had instead "added 30%" the way most people do, you would have charged $1,300, kept $300,
+and run a 23% margin — $129 less profit on one small job, and you would never have seen it,
+because the mistake hides inside a number that looks right.</p>
+
+<h2>Don't price by matching the other guy</h2>
+<p>The most common way contractors set a markup is by copying whatever they think the
+competition charges. The problem is that you are copying a number without the costs behind
+it — their materials deal, their overhead, their billable hours, none of which are yours. A
+markup that keeps them solvent can bankrupt you, and one that leaves them scraping by can
+leave real money sitting on your table. Price from your own cost and your own margin, and use
+what others charge only as a reality check on whether your market will bear the result — not
+as the source of the number. If the price your margin needs is well above the local going
+rate, that is information: it usually means your overhead is high, your billable hours are
+low, or the market genuinely will not support a living wage for that work. All three are
+worth knowing before you take the job, not after.</p>
 
 <h2>Questions people ask about this</h2>
-<p class="faq-q">Should I charge hourly or a flat price for the job?</p>
-<p>Quote flat prices to customers wherever you can, and use your hourly rate privately to
-check the job is worth doing. Customers hate an open-ended hourly meter, and it punishes
-you for being fast — which, as you get better, you increasingly are.</p>
-<p class="faq-q">My calculated rate is higher than everyone else in my area. Now what?</p>
-<p>Then either your costs are higher than theirs, your billable percentage is worse, or
-they are underpricing and do not know it. The third is more common than people think. Do
-not automatically drop to match a number someone else picked out of the air.</p>
-<p class="faq-q">Does this work for a crew, not just one person?</p>
-<p>Roughly. Run it once per billable person, with that person's wage as the target and
-their share of overhead. It gets less accurate the bigger you get — at that point you
-need job costing, not a web calculator.</p>
+<p class="faq-q">So should I quote markup or margin to a customer?</p>
+<p>Neither. Quote a price for the job. Markup and margin are how <em>you</em> arrive at that
+price and check it is worth doing; they are not something a customer needs to see or argue
+with.</p>
+<p class="faq-q">Why does a 50% markup only give a 33% margin?</p>
+<p>Because the markup is measured against cost and the margin against the (larger) price. Half
+of cost is a third of cost-plus-half-of-cost. It is not a trick — it is just which number
+sits on the bottom of the fraction.</p>
 <p class="faq-q">Is anything I type here stored?</p>
 <p>No. It runs entirely in your browser. Nothing is sent to us, and there is no signup.</p>
 
 <p><strong>Related free tools:</strong>
-<a href="../contractor-markup-calculator/">markup calculator</a>,
+<a href="../contractor-hourly-rate-calculator/">hourly rate calculator</a>,
 <a href="../job-estimate-calculator/">job estimate calculator</a>,
 <a href="../../templates/free-contractor-invoice-template/">free invoice template</a>.</p>
 
 <div class="cta">
-  <h2>Get the invoicing hours back</h2>
-  <p>Speak the job, send the invoice before you leave the driveway. Free for 3 documents a month.</p>
-  <a class="btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789?ct=website-tool-rate-calculator&mt=8">Get Toolbelt on the App Store</a>
+  <h2>Put the number on a real invoice</h2>
+  <p>Price the job here, then invoice it in seconds from the job site. Free for 3 documents a month.</p>
+  <a class="btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789?ct=website-tool-markup-calculator&mt=8">Get Toolbelt on the App Store</a>
 </div>
 </div>
 </main>
@@ -410,37 +391,21 @@ need job costing, not a web calculator.</p>
 </footer>
 <script>
 (function(){
-  var $ = function(id){ return document.getElementById(id); };
-  var money = function(n){
-    return '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
-  };
-
+  var $=function(id){return document.getElementById(id);};
+  var money=function(n){return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});};
+  var pct=function(n){return (Math.round(n*10)/10).toLocaleString('en-US')+'%';};
   function calc(){
-    var target   = Math.max(0, parseFloat($('target').value)   || 0);
-    var overhead = Math.max(0, parseFloat($('overhead').value) || 0);
-    var weeks    = Math.min(52, Math.max(1, parseFloat($('weeks').value) || 48));
-    var hours    = Math.min(80, Math.max(1, parseFloat($('hours').value) || 40));
-    var billable = Math.min(100, Math.max(1, parseFloat($('billable').value) || 65));
-    var margin   = Math.min(90, Math.max(0, parseFloat($('margin').value) || 20));
-
-    var totalHours    = weeks * hours;
-    var billableHours = totalHours * (billable / 100);
-    var costBase      = target + overhead;
-    var breakeven     = billableHours > 0 ? costBase / billableHours : 0;
-    var rate          = margin < 100 ? breakeven / (1 - margin / 100) : breakeven;
-
-    $('billableHours').textContent = Math.round(billableHours).toLocaleString() + ' hrs/yr';
-    $('breakeven').textContent = money(breakeven) + '/hr';
-    $('rate').textContent = money(rate);
-    $('revenue').textContent = money(rate * billableHours);
-    $('unbilled').textContent = Math.round(totalHours - billableHours).toLocaleString() + ' hrs/yr';
+    var cost=Math.max(0,parseFloat($('cost').value)||0);
+    var margin=Math.min(95,Math.max(0,parseFloat($('margin').value)||0));
+    var price=margin<100?cost/(1-margin/100):cost;
+    var profit=price-cost;
+    var markup=cost>0?(profit/cost)*100:0;
+    $('price').textContent=money(price);
+    $('markup').textContent=pct(markup);
+    $('marginOut').textContent=pct(margin);
+    $('profit').textContent=money(profit);
   }
-
-  ['target','overhead','weeks','hours','billable','margin'].forEach(function(id){
-    var el = $(id);
-    el.addEventListener('input', calc);
-    el.addEventListener('change', calc);
-  });
+  ['cost','margin'].forEach(function(id){var el=$(id);el.addEventListener('input',calc);el.addEventListener('change',calc);});
   calc();
 })();
 </script>
