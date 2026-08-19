@@ -148,17 +148,6 @@ h1 em{font-style:normal;color:var(--orange)}
 .hero-ctas{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:20px;animation:fadeUp .8s .4s both}
 .hero-note{font-family:var(--mono);font-size:12.5px;color:var(--smoke);letter-spacing:.04em;animation:fadeUp .8s .5s both}
 .hero-note b{color:var(--fog);font-weight:500}
-.scroll-cue{
-  position:absolute;bottom:64px;left:50%;transform:translateX(-50%);z-index:3;
-  font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--smoke);
-  animation:fadeUp .8s .7s both;
-}
-.scroll-cue::after{
-  content:'';display:block;width:2px;height:32px;margin:12px auto 0;
-  background:linear-gradient(to bottom,var(--orange),transparent);
-  animation:cue 1.8s ease-in-out infinite;
-}
-@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
 /* ================= CONTENT ================= */
 main{position:relative;z-index:2}
@@ -232,12 +221,11 @@ h2 em{font-style:normal;color:var(--orange)}
   text-transform:uppercase;display:block;margin-bottom:14px;
 }
 
-/* screenshots strip */
-.shots{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.shots::-webkit-scrollbar{height:6px}
-.shots::-webkit-scrollbar-thumb{background:var(--line-l-strong);border-radius:3px}
+/* screenshots carousel (auto-scrolling, non-interactive) */
+.shots{overflow:hidden;padding:8px 0 24px}
+.shots-track{display:flex;gap:16px;width:max-content;will-change:transform}
 .shot{
-  flex:0 0 auto;width:min(240px,62vw);border-radius:14px;overflow:hidden;scroll-snap-align:start;
+  flex:0 0 auto;width:min(240px,62vw);border-radius:14px;overflow:hidden;
   box-shadow:0 0 0 1px var(--line-l-strong), 0 24px 48px -20px rgba(34,38,46,.35);
 }
 .shot img{width:100%;height:auto}
@@ -404,12 +392,12 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
   .feat-grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
-  h1,.eyebrow,.hero-sub,.hero-ctas,.hero-note,.nav,.scroll-cue{animation:none !important}
+  h1,.eyebrow,.hero-sub,.hero-ctas,.hero-note,.nav{animation:none !important}
   .chapter{position:relative;opacity:1 !important;visibility:visible !important;height:auto;padding:80px clamp(20px,4vw,48px)}
   .chapter-stage{height:auto;display:block}
   .ch-progress{display:none}
   .giant-mark span{transform:none}
-  .scroll-cue::after{animation:none}
+  .shots{overflow-x:auto}
 }
 </style>
 <script type="application/ld+json">
@@ -567,7 +555,6 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
     </div>
     <p class="hero-note">Free for <b>3 documents</b> a month · No credit card · No contracts</p>
   </div>
-  <div class="scroll-cue">Scroll</div>
 </header>
 
 <main>
@@ -625,6 +612,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
       <div class="sec-eyebrow">In the field</div>
       <h2>Straight from <em>the app.</em></h2>
       <div class="shots" style="margin-top:clamp(32px,4vw,48px)">
+        <div class="shots-track">
         <div class="shot"><img src="https://toolbelt.pro/contractor-invoice-voice-input.jpg" alt="Contractor dictating an invoice line item by voice" loading="lazy"></div>
         <div class="shot"><img src="https://toolbelt.pro/ai-invoice-description-writing.jpg" alt="AI turning plain-English notes into professional invoice wording" loading="lazy"></div>
         <div class="shot"><img src="https://toolbelt.pro/contractor-invoicing-dashboard.jpg" alt="Dashboard showing paid and outstanding invoices" loading="lazy"></div>
@@ -632,6 +620,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
         <div class="shot"><img src="https://toolbelt.pro/contractor-invoice-line-items.jpg" alt="Itemised labour and materials line items" loading="lazy"></div>
         <div class="shot"><img src="https://toolbelt.pro/contractor-invoice-job-photos.jpg" alt="Job site photos attached to an invoice" loading="lazy"></div>
         <div class="shot"><img src="https://toolbelt.pro/send-invoice-from-job-site.jpg" alt="Sending a finished invoice from the job site" loading="lazy"></div>
+        </div>
       </div>
     </section>
 
@@ -848,13 +837,6 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
   });
   roiUpdate();
 
-  /* hero chrome scoped to hero */
-  ScrollTrigger.create({
-    trigger:'#chapters', start:'top 85%',
-    onEnter:function(){ gsap.to('.scroll-cue',{opacity:0,duration:.35,overwrite:'auto'}); },
-    onLeaveBack:function(){ gsap.to('.scroll-cue',{opacity:1,duration:.35,overwrite:'auto'}); }
-  });
-
   if(reduced) return;
 
   /* ============ pinned chapters (SafeNest-tuned timing) ============ */
@@ -915,6 +897,20 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
       track.style.transform='translateX('+x+'px)';
     });
   });
+
+  /* screenshots carousel — continuous, non-interactive */
+  (function(){
+    var track=document.querySelector('.shots-track');
+    if(!track) return;
+    track.innerHTML+=track.innerHTML;
+    var x=0;
+    gsap.ticker.add(function(){
+      x-=0.6;
+      var half=track.scrollWidth/2;
+      if(-x>=half) x+=half;
+      track.style.transform='translateX('+x+'px)';
+    });
+  })();
 
   /* reveals */
   gsap.utils.toArray('.feat').forEach(function(f,i){
