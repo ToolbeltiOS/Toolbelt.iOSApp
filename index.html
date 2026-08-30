@@ -204,11 +204,11 @@ h2 em{font-style:normal;color:var(--orange)}
 }
 .chapter .ch-num{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--smoke);margin-bottom:24px;text-transform:uppercase}
 .chapter .ch-num b{color:var(--orange);font-weight:500}
-.chapter h3{
+.chapter h2{
   font-family:var(--display);font-weight:400;text-transform:uppercase;
   font-size:clamp(64px,14vw,180px);line-height:.94;letter-spacing:.01em;
 }
-.chapter h3 em{font-style:normal;color:var(--orange)}
+.chapter h2 em{font-style:normal;color:var(--orange)}
 .chapter p{color:var(--fog);font-size:clamp(15px,1.5vw,18px);max-width:540px;margin-top:28px}
 .chapter .ch-mono{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-top:20px}
 .ch-progress{position:absolute;left:50%;bottom:42px;transform:translateX(-50%);display:flex;gap:10px;z-index:5}
@@ -391,6 +391,13 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
 .foot-links a{font-size:13.5px;color:var(--fog);transition:color .2s}
 .foot-links a:hover{color:var(--paper)}
+.trades-row{position:relative;z-index:2;padding:clamp(48px,6vw,80px) clamp(20px,4vw,48px);border-top:1px solid var(--line-l);background:var(--paper)}
+.trades-inner{max-width:1160px;margin:0 auto;text-align:center}
+.trades-title{font-family:var(--display);font-size:clamp(22px,3vw,34px);text-transform:uppercase;letter-spacing:.01em;color:var(--ink);margin-bottom:clamp(18px,2.6vw,28px)}
+.trades-title em{font-style:normal;color:var(--orange)}
+.trades-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.trades-links a{font-family:var(--mono);font-size:13px;letter-spacing:.03em;color:var(--body-t);padding:8px 14px;border:1px solid var(--line-l);border-radius:6px;transition:color .2s,border-color .2s,background .2s}
+.trades-links a:hover{color:var(--orange);border-color:var(--line-orange);background:rgba(232,115,44,.05)}
 .copyright{font-family:var(--mono);font-size:12px;color:var(--smoke);letter-spacing:.06em;padding-top:24px;border-top:1px dashed var(--line-d)}
 
 @media (max-width:920px){
@@ -415,6 +422,127 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
   .scroll-cue::after{animation:none}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "SoftwareApplication",
+    "MobileApplication"
+  ],
+  "name": "Toolbelt",
+  "description": "Invoice and estimate app for contractors and tradespeople. Voice input, AI-written descriptions, and full offline use.",
+  "url": "https://toolbelt.pro",
+  "downloadUrl": "https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789",
+  "installUrl": "https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Invoicing",
+  "operatingSystem": "iOS",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Toolbelt",
+    "url": "https://toolbelt.pro"
+  },
+  "image": "https://toolbelt.pro/toolbelt-logo.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free plan: up to 3 documents per month, all features included. No credit card required.",
+      "category": "free"
+    },
+    {
+      "@type": "Offer",
+      "name": "Monthly",
+      "price": "14.99",
+      "priceCurrency": "USD",
+      "description": "Unlimited invoices and quotes, billed monthly.",
+      "category": "subscription"
+    },
+    {
+      "@type": "Offer",
+      "name": "Yearly",
+      "price": "99.99",
+      "priceCurrency": "USD",
+      "description": "Unlimited invoices and quotes, billed yearly.",
+      "category": "subscription"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Toolbelt",
+  "url": "https://toolbelt.pro",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://toolbelt.pro/toolbelt-logo.png"
+  },
+  "email": "support@toolbelt.pro",
+  "sameAs": [
+    "https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need internet to use Toolbelt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No! Toolbelt works completely offline. Create invoices and quotes from the job site, basement, or anywhere with no signal. Your data syncs automatically when you're back online."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add my own logo to invoices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Add your business logo, choose your brand colors, and pick from multiple professional templates. Your invoices will look like they came from an established business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data secure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your data is stored securely on your device and protected by iOS security. We don't sell your information or share it with third parties. Your business data stays your business."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the AI writing feature work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Just describe the work in your own words — \"fixed leaky pipe, replaced washers\" — and our AI transforms it into professional invoice language. You can also use voice input when your hands are busy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel my subscription anytime?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, no contracts or commitments. Cancel anytime directly through your Apple account. You'll keep access until the end of your billing period."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in the free version?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The free version lets you create up to 3 documents per month — an invoice or a quote each counts as one — with all features included. No credit card required, no trial expiration. Upgrade only when you need more."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -470,19 +598,19 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
     <div class="chapter-stage">
       <section class="chapter" data-ch="0">
         <div class="ch-num"><b>01</b> / 03 — From the job site</div>
-        <h3><em>Speak</em> it.</h3>
+        <h2><em>Speak</em> it.</h2>
         <p>Hands full? Just say it: "Fixed leaky pipe under the kitchen sink, replaced washers." AI turns your words into professional invoice language.</p>
         <div class="ch-mono">Voice input · AI descriptions</div>
       </section>
       <section class="chapter" data-ch="1">
         <div class="ch-num"><b>02</b> / 03 — From the job site</div>
-        <h3><em>Send</em> it.</h3>
+        <h2><em>Send</em> it.</h2>
         <p>Your logo, your colors, a clean PDF — sent from the truck before you leave the driveway. Works in basements with no signal; syncs when you're back.</p>
         <div class="ch-mono">Custom PDFs · Offline mode</div>
       </section>
       <section class="chapter" data-ch="2">
         <div class="ch-num"><b>03</b> / 03 — From the job site</div>
-        <h3>Get <em>paid.</em></h3>
+        <h2>Get <em>paid.</em></h2>
         <p>Every client, every job, every outstanding balance in one place. Invoice the day of the job — not Sunday night at the kitchen table.</p>
         <div class="ch-mono">Client management · Dashboard</div>
       </section>
@@ -517,7 +645,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
 
     <section class="section" style="padding-top:0">
       <div class="sec-eyebrow">In the field</div>
-      <h2>Straight from <em>the app.</em></h2>
+      <h2>The contractor invoicing app, <em>in action.</em></h2>
       <div class="shots" style="margin-top:clamp(32px,4vw,48px)">
         <div class="shot"><img src="contractor-invoice-voice-input.jpg" alt="Contractor dictating an invoice line item by voice" loading="lazy"></div>
         <div class="shot"><img src="ai-invoice-description-writing.jpg" alt="AI turning plain-English notes into professional invoice wording" loading="lazy"></div>
@@ -676,6 +804,22 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
   </div>
 </main>
 
+<section class="trades-row" aria-label="Built for every trade">
+  <div class="trades-inner">
+    <h2 class="trades-title">Built for <em>every trade.</em></h2>
+    <nav class="trades-links">
+      <a href="for/plumbers/">Invoice app for plumbers</a>
+      <a href="for/electricians/">Invoice app for electricians</a>
+      <a href="for/hvac/">Invoice app for HVAC</a>
+      <a href="for/carpenters/">Invoice app for carpenters</a>
+      <a href="for/painters/">Invoice app for painters</a>
+      <a href="for/roofers/">Invoice app for roofers</a>
+      <a href="for/handymen/">Invoice app for handymen</a>
+      <a href="for/general-contractors/">Invoice app for general contractors</a>
+    </nav>
+  </div>
+</section>
+
 <footer>
   <div class="giant-mark" aria-hidden="true"><span id="giantmark">Tool<b>belt</b></span></div>
   <div class="foot-inner">
@@ -763,7 +907,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
     }
   });
   chapters.forEach(function(ch,i){
-    var h=ch.querySelector('h3'), p=ch.querySelector('p'), n=ch.querySelector('.ch-num'), m=ch.querySelector('.ch-mono');
+    var h=ch.querySelector('h2'), p=ch.querySelector('p'), n=ch.querySelector('.ch-num'), m=ch.querySelector('.ch-mono');
     if(i>0){
       chTl.set(ch,{visibility:'visible'},'ch'+i)
           .fromTo(ch,{opacity:0},{opacity:1,duration:0.18},'ch'+i);
