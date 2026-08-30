@@ -37,6 +37,7 @@
   gtag('js', new Date());
   gtag('config', 'G-EJV1HLMC17');
 </script>
+<link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -62,10 +63,13 @@
   --line-l:rgba(34,38,46,.14);
   --line-l-strong:rgba(34,38,46,.28);
   --line-orange:rgba(232,115,44,.4);
-  --display:'Anton', Impact, sans-serif;
+  --display:'Anton','Anton-fb',Impact,sans-serif;
   --sans:'Archivo', -apple-system, sans-serif;
   --mono:'IBM Plex Mono', 'SF Mono', monospace;
 }
+/* metric-matched fallback for Anton so the display h1 does not reflow on font swap (CLS) */
+@font-face{font-family:'Anton-fb';src:local('Arial Narrow'),local('Arial');
+  size-adjust:76%;ascent-override:100%;descent-override:25%;line-gap-override:0%;}
 *{margin:0;padding:0;box-sizing:border-box}
 html{background:var(--paper)}
 body{
@@ -413,7 +417,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
 <nav class="nav" id="nav">
   <a class="nav-logo" href="#top">
     <img src="toolbelt-logo.png" alt="Toolbelt logo">
-    TOOL<b>BELT</b>
+    <span>TOOL<b>BELT</b></span>
   </a>
   <div class="nav-right">
     <a class="nav-link" href="for/">Trades</a>
@@ -663,7 +667,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
     <div class="foot-top">
       <a class="nav-logo" href="#top">
         <img src="toolbelt-logo.png" alt="">
-        TOOL<b>BELT</b>
+        <span>TOOL<b>BELT</b></span>
       </a>
       <div class="foot-links">
         <a href="for/">Trades</a>
