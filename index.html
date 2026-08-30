@@ -139,7 +139,7 @@ img{max-width:100%;display:block}
     radial-gradient(ellipse 90% 70% at 50% 40%, transparent 32%, rgba(23,25,30,.55) 74%, rgba(23,25,30,.95) 100%),
     linear-gradient(to bottom, rgba(23,25,30,.55) 0%, transparent 24%, transparent 68%, rgba(23,25,30,.9) 100%);
 }
-.hero-inner{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:110px clamp(20px,4vw,48px) 0;width:100%;text-align:center}
+.hero-inner{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:110px clamp(20px,4vw,48px) 150px;width:100%;text-align:center}
 .eyebrow{
   font-family:var(--mono);font-size:12px;letter-spacing:.24em;color:var(--orange);text-transform:uppercase;
   display:inline-flex;align-items:center;gap:12px;margin-bottom:26px;
@@ -170,6 +170,8 @@ h1 em{font-style:normal;color:var(--orange)}
   background:linear-gradient(to bottom,var(--orange),transparent);
   animation:cue 1.8s ease-in-out infinite;
 }
+@media(max-width:768px){.scroll-cue{bottom:36px}}
+@media(max-height:640px){.scroll-cue{display:none}}
 @keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
 /* ================= CONTENT ================= */
@@ -433,18 +435,19 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
 <div id="backdrop"></div>
 
 <header class="hero" id="top">
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata"
-         poster="./assets/hero-poster.jpg" aria-hidden="true">
-    <source src="./assets/hero-loop.mp4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline
+         preload="metadata" aria-hidden="true">
+    <source type="video/mp4">
   </video>
   <script>
   (function(){
-    if(window.matchMedia('(max-width:768px)').matches){
-      var v=document.querySelector('.hero-video');
-      if(v){ v.poster='assets/hero-poster-mobile.jpg';
-        var s=v.querySelector('source');
-        s.src='assets/hero-loop-mobile.mp4'; v.load(); }
-    }
+    var mob = window.matchMedia('(max-width:768px)').matches;
+    var v = document.querySelector('.hero-video');
+    if(!v) return;
+    v.poster = mob ? 'assets/hero-poster-mobile.jpg' : 'assets/hero-poster.jpg';
+    v.querySelector('source').src = mob ? 'assets/hero-loop-mobile.mp4'
+                                        : 'assets/hero-loop.mp4';
+    v.load();
   })();
   </script>
   <div class="hero-vignette"></div>
