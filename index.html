@@ -9,6 +9,7 @@
 <link rel="canonical" href="https://toolbelt.pro/">
 <link rel="icon" type="image/png" href="https://toolbelt.pro/toolbelt-logo.png">
 <link rel="apple-touch-icon" href="https://toolbelt.pro/toolbelt-logo.png">
+<meta name="apple-itunes-app" content="app-id=6757926789">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Toolbelt">
 <meta property="og:title" content="Invoice App for Contractors | Toolbelt">
@@ -41,10 +42,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* ===== Toolbelt tokens (PLACEHOLDER trades palette — swap with real brand hexes) ===== */
-  --coal:#17191E;          /* darkest ground */
-  --steel:#20242C;         /* dark panels */
-  --iron:#2C313C;          /* raised dark surfaces */
+  /* ===== Toolbelt tokens (Toolbelt brand palette (matched to site: for/ compare/ tools/)) ===== */
+  --coal:#0C0F14;          /* darkest ground */
+  --steel:#151A22;         /* dark panels */
+  --iron:#212732;          /* raised dark surfaces */
   --smoke:#8B93A3;         /* secondary text on dark */
   --fog:#C3C9D4;           /* brighter secondary on dark */
   --paper:#F5F2EA;         /* invoice-paper light ground */
@@ -52,15 +53,15 @@
   --card:#FCFAF4;          /* light cards */
   --ink:#22262E;           /* text on light */
   --body-t:#4C525E;        /* body text on light */
-  --orange:#F26A21;        /* safety orange — primary action */
-  --orange-hot:#FF7A2F;    /* hover */
+  --orange:#E8732C;        /* safety orange — primary action */
+  --orange-hot:#F5923D;    /* hover */
   --tan:#D9C9A3;           /* plywood */
   --timber:#B98A4E;        /* lumber */
   --line-d:rgba(139,147,163,.16);
   --line-d-strong:rgba(139,147,163,.3);
   --line-l:rgba(34,38,46,.14);
   --line-l-strong:rgba(34,38,46,.28);
-  --line-orange:rgba(242,106,33,.4);
+  --line-orange:rgba(232,115,44,.4);
   --display:'Anton', Impact, sans-serif;
   --sans:'Archivo', -apple-system, sans-serif;
   --mono:'IBM Plex Mono', 'SF Mono', monospace;
@@ -72,7 +73,7 @@ body{
   font-family:var(--sans);font-size:16px;line-height:1.6;
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
-::selection{background:rgba(242,106,33,.3)}
+::selection{background:rgba(232,115,44,.3)}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
@@ -102,7 +103,7 @@ img{max-width:100%;display:block}
   transition:transform .2s, background .2s, box-shadow .2s;
   text-transform:uppercase;letter-spacing:.04em;
 }
-.btn-orange{background:var(--orange);color:#fff;box-shadow:0 0 0 1px rgba(242,106,33,.5),0 10px 30px -10px rgba(242,106,33,.6)}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 0 0 1px rgba(232,115,44,.5),0 10px 30px -10px rgba(232,115,44,.6)}
 .btn-orange:hover{transform:translateY(-1px);background:var(--orange-hot)}
 .btn-ghost{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1px var(--line-d-strong)}
 .btn-ghost:hover{box-shadow:inset 0 0 0 1px rgba(195,201,212,.55);background:rgba(195,201,212,.07)}
@@ -114,13 +115,18 @@ img{max-width:100%;display:block}
   background:
     repeating-linear-gradient(90deg, rgba(139,147,163,.045) 0 1px, transparent 1px 56px),
     repeating-linear-gradient(0deg, rgba(139,147,163,.045) 0 1px, transparent 1px 56px),
-    radial-gradient(ellipse 75% 55% at 50% 62%, rgba(242,106,33,.16), transparent 62%),
-    radial-gradient(ellipse 130% 55% at 50% 100%, rgba(242,106,33,.1), transparent 55%),
+    radial-gradient(ellipse 75% 55% at 50% 62%, rgba(232,115,44,.16), transparent 62%),
+    radial-gradient(ellipse 130% 55% at 50% 100%, rgba(232,115,44,.1), transparent 55%),
     linear-gradient(180deg, #14161B 0%, #1B1E27 55%, #262127 100%);
 }
 
 /* ================= HERO ================= */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;color:var(--paper)}
+.hero-video{
+  position:absolute;inset:0;z-index:0;width:100%;height:100%;
+  object-fit:cover;object-position:60% 35%;
+  filter:brightness(.52) saturate(.85);
+}
 .hero-vignette{
   position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
@@ -145,9 +151,20 @@ h1 em{font-style:normal;color:var(--orange)}
   font-size:clamp(16px,1.6vw,19px);color:var(--fog);max-width:620px;margin:0 auto 38px;line-height:1.65;
   animation:fadeUp .8s .25s both;
 }
-.hero-ctas{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:20px;animation:fadeUp .8s .4s both}
+.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;animation:fadeUp .8s .4s both}
 .hero-note{font-family:var(--mono);font-size:12.5px;color:var(--smoke);letter-spacing:.04em;animation:fadeUp .8s .5s both}
 .hero-note b{color:var(--fog);font-weight:500}
+.scroll-cue{
+  position:absolute;bottom:64px;left:50%;transform:translateX(-50%);z-index:3;
+  font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--smoke);
+  animation:fadeUp .8s .7s both;
+}
+.scroll-cue::after{
+  content:'';display:block;width:2px;height:32px;margin:12px auto 0;
+  background:linear-gradient(to bottom,var(--orange),transparent);
+  animation:cue 1.8s ease-in-out infinite;
+}
+@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
 /* ================= CONTENT ================= */
 main{position:relative;z-index:2}
@@ -221,11 +238,12 @@ h2 em{font-style:normal;color:var(--orange)}
   text-transform:uppercase;display:block;margin-bottom:14px;
 }
 
-/* screenshots carousel (auto-scrolling, non-interactive) */
-.shots{overflow:hidden;padding:8px 0 24px}
-.shots-track{display:flex;gap:16px;width:max-content;will-change:transform}
+/* screenshots strip */
+.shots{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.shots::-webkit-scrollbar{height:6px}
+.shots::-webkit-scrollbar-thumb{background:var(--line-l-strong);border-radius:3px}
 .shot{
-  flex:0 0 auto;width:min(240px,62vw);border-radius:14px;overflow:hidden;
+  flex:0 0 auto;width:min(240px,62vw);border-radius:14px;overflow:hidden;scroll-snap-align:start;
   box-shadow:0 0 0 1px var(--line-l-strong), 0 24px 48px -20px rgba(34,38,46,.35);
 }
 .shot img{width:100%;height:auto}
@@ -341,7 +359,7 @@ h2 em{font-style:normal;color:var(--orange)}
 .final-panel::before{
   content:'';position:absolute;left:50%;bottom:-40%;transform:translateX(-50%);
   width:900px;height:480px;border-radius:50%;
-  background:radial-gradient(ellipse,rgba(242,106,33,.16),transparent 65%);pointer-events:none;
+  background:radial-gradient(ellipse,rgba(232,115,44,.16),transparent 65%);pointer-events:none;
 }
 .final{text-align:center;padding-bottom:clamp(90px,11vw,150px)}
 .final h2{color:var(--paper);font-size:clamp(38px,5.6vw,72px);max-width:860px;margin:0 auto 18px}
@@ -349,18 +367,6 @@ h2 em{font-style:normal;color:var(--orange)}
 .final .sec-eyebrow{justify-content:center}
 .appstore-badge{height:50px;width:auto;opacity:.94;transition:opacity .2s}
 .appstore-badge:hover{opacity:1}
-/* App Store badge — Apple-logo download button (matches the toolbelt.pro site badge) */
-.appstore-btn{
-  display:inline-flex;align-items:center;gap:12px;
-  background:#fff;color:#000;padding:12px 24px;border-radius:8px;
-  transition:transform .2s, box-shadow .2s;
-  box-shadow:0 0 0 1px rgba(255,255,255,.12), 0 12px 32px -12px rgba(0,0,0,.55);
-}
-.appstore-btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(255,255,255,.28), 0 18px 44px -14px rgba(0,0,0,.65)}
-.appstore-btn svg{width:28px;height:28px;flex-shrink:0}
-.appstore-btn .txt{text-align:left;line-height:1.05}
-.appstore-btn .txt small{display:block;font-size:11px;font-weight:600;opacity:.6;letter-spacing:.02em}
-.appstore-btn .txt strong{font-size:19px;font-weight:700;letter-spacing:.01em}
 
 /* footer */
 footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;border-top:1px solid var(--line-orange)}
@@ -371,7 +377,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
   color:transparent;-webkit-text-stroke:1px rgba(195,201,212,.2);
   transform:translateY(30%);
 }
-.giant-mark b{color:transparent;-webkit-text-stroke:1px rgba(242,106,33,.55);font-weight:400}
+.giant-mark b{color:transparent;-webkit-text-stroke:1px rgba(232,115,44,.55);font-weight:400}
 .foot-inner{max-width:1160px;margin:0 auto;padding:clamp(44px,5vw,60px) clamp(20px,4vw,48px)}
 .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:36px;flex-wrap:wrap;margin-bottom:32px}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
@@ -392,148 +398,28 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
   .feat-grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
-  h1,.eyebrow,.hero-sub,.hero-ctas,.hero-note,.nav{animation:none !important}
+  .hero-video{display:none}
+  h1,.eyebrow,.hero-sub,.hero-ctas,.hero-note,.nav,.scroll-cue{animation:none !important}
   .chapter{position:relative;opacity:1 !important;visibility:visible !important;height:auto;padding:80px clamp(20px,4vw,48px)}
   .chapter-stage{height:auto;display:block}
   .ch-progress{display:none}
   .giant-mark span{transform:none}
-  .shots{overflow-x:auto}
+  .scroll-cue::after{animation:none}
 }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": [
-    "SoftwareApplication",
-    "MobileApplication"
-  ],
-  "name": "Toolbelt",
-  "description": "Invoice and estimate app for contractors and tradespeople. Voice input, AI-written descriptions, and full offline use.",
-  "url": "https://toolbelt.pro",
-  "downloadUrl": "https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789",
-  "installUrl": "https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789",
-  "applicationCategory": "BusinessApplication",
-  "applicationSubCategory": "Invoicing",
-  "operatingSystem": "iOS",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Toolbelt",
-    "url": "https://toolbelt.pro"
-  },
-  "image": "https://toolbelt.pro/toolbelt-logo.png",
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Free",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "Free plan: up to 3 documents per month, all features included. No credit card required.",
-      "category": "free"
-    },
-    {
-      "@type": "Offer",
-      "name": "Monthly",
-      "price": "14.99",
-      "priceCurrency": "USD",
-      "description": "Unlimited invoices and quotes, billed monthly.",
-      "category": "subscription"
-    },
-    {
-      "@type": "Offer",
-      "name": "Yearly",
-      "price": "99.99",
-      "priceCurrency": "USD",
-      "description": "Unlimited invoices and quotes, billed yearly.",
-      "category": "subscription"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Toolbelt",
-  "url": "https://toolbelt.pro",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://toolbelt.pro/toolbelt-logo.png"
-  },
-  "email": "support@toolbelt.pro",
-  "sameAs": [
-    "https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789"
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do I need internet to use Toolbelt?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No! Toolbelt works completely offline. Create invoices and quotes from the job site, basement, or anywhere with no signal. Your data syncs automatically when you're back online."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I add my own logo to invoices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Add your business logo, choose your brand colors, and pick from multiple professional templates. Your invoices will look like they came from an established business."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Your data is stored securely on your device and protected by iOS security. We don't sell your information or share it with third parties. Your business data stays your business."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the AI writing feature work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Just describe the work in your own words — \"fixed leaky pipe, replaced washers\" — and our AI transforms it into professional invoice language. You can also use voice input when your hands are busy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I cancel my subscription anytime?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, no contracts or commitments. Cancel anytime directly through your Apple account. You'll keep access until the end of your billing period."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's included in the free version?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The free version lets you create up to 3 documents per month — an invoice or a quote each counts as one — with all features included. No credit card required, no trial expiration. Upgrade only when you need more."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <a class="nav-logo" href="#top">
-    <img src="https://toolbelt.pro/toolbelt-logo.png" alt="Toolbelt logo">
-    <span>TOOL<b>BELT</b></span>
+    <img src="toolbelt-logo.png" alt="Toolbelt logo">
+    TOOL<b>BELT</b>
   </a>
   <div class="nav-right">
-    <a class="nav-link" href="https://toolbelt.pro/for/">Trades</a>
-    <a class="nav-link" href="https://toolbelt.pro/compare/">Compare</a>
+    <a class="nav-link" href="for/">Trades</a>
+    <a class="nav-link" href="compare/">Compare</a>
     <a class="nav-link" href="#pricing">Pricing</a>
-    <a class="nav-link" href="https://toolbelt.pro/blog/">Blog</a>
+    <a class="nav-link" href="blog/">Blog</a>
     <a class="btn btn-orange btn-nav" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789">Download</a>
   </div>
 </nav>
@@ -541,20 +427,22 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
 <div id="backdrop"></div>
 
 <header class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+         poster="./assets/hero-poster.jpg" aria-hidden="true">
+    <source src="./assets/hero-loop.mp4" type="video/mp4">
+  </video>
   <div class="hero-vignette"></div>
   <div class="hero-inner">
     <div class="eyebrow">Voice · AI · Offline · iPhone</div>
     <h1>The invoice app<br>built for <em>contractors.</em></h1>
     <p class="hero-sub">Say what you did — Toolbelt turns it into a professional PDF invoice and sends it from the truck, in under 30 seconds. Even with no signal.</p>
     <div class="hero-ctas">
-      <a class="appstore-btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" aria-label="Download Toolbelt on the App Store">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
-      </a>
+      <a class="btn btn-orange" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789">Download on the App Store</a>
       <a class="btn btn-ghost" href="#features">See how it works</a>
     </div>
     <p class="hero-note">Free for <b>3 documents</b> a month · No credit card · No contracts</p>
   </div>
+  <div class="scroll-cue">Scroll</div>
 </header>
 
 <main>
@@ -612,15 +500,13 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
       <div class="sec-eyebrow">In the field</div>
       <h2>Straight from <em>the app.</em></h2>
       <div class="shots" style="margin-top:clamp(32px,4vw,48px)">
-        <div class="shots-track">
-        <div class="shot"><img src="https://toolbelt.pro/contractor-invoice-voice-input.jpg" alt="Contractor dictating an invoice line item by voice" loading="lazy"></div>
-        <div class="shot"><img src="https://toolbelt.pro/ai-invoice-description-writing.jpg" alt="AI turning plain-English notes into professional invoice wording" loading="lazy"></div>
-        <div class="shot"><img src="https://toolbelt.pro/contractor-invoicing-dashboard.jpg" alt="Dashboard showing paid and outstanding invoices" loading="lazy"></div>
-        <div class="shot"><img src="https://toolbelt.pro/contractor-quote-estimate.jpg" alt="A contractor quote ready to send" loading="lazy"></div>
-        <div class="shot"><img src="https://toolbelt.pro/contractor-invoice-line-items.jpg" alt="Itemised labour and materials line items" loading="lazy"></div>
-        <div class="shot"><img src="https://toolbelt.pro/contractor-invoice-job-photos.jpg" alt="Job site photos attached to an invoice" loading="lazy"></div>
-        <div class="shot"><img src="https://toolbelt.pro/send-invoice-from-job-site.jpg" alt="Sending a finished invoice from the job site" loading="lazy"></div>
-        </div>
+        <div class="shot"><img src="contractor-invoice-voice-input.jpg" alt="Contractor dictating an invoice line item by voice" loading="lazy"></div>
+        <div class="shot"><img src="ai-invoice-description-writing.jpg" alt="AI turning plain-English notes into professional invoice wording" loading="lazy"></div>
+        <div class="shot"><img src="contractor-invoicing-dashboard.jpg" alt="Dashboard showing paid and outstanding invoices" loading="lazy"></div>
+        <div class="shot"><img src="contractor-quote-estimate.jpg" alt="A contractor quote ready to send" loading="lazy"></div>
+        <div class="shot"><img src="contractor-invoice-line-items.jpg" alt="Itemised labour and materials line items" loading="lazy"></div>
+        <div class="shot"><img src="contractor-invoice-job-photos.jpg" alt="Job site photos attached to an invoice" loading="lazy"></div>
+        <div class="shot"><img src="send-invoice-from-job-site.jpg" alt="Sending a finished invoice from the job site" loading="lazy"></div>
       </div>
     </section>
 
@@ -764,10 +650,7 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
       <h2>Ready to ditch <em>the paperwork?</em></h2>
       <p class="sec-sub">Invoice in seconds, not hours — from the job site, before you leave.</p>
       <div class="hero-ctas" style="animation:none;opacity:1">
-        <a class="appstore-btn" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789" aria-label="Download Toolbelt on the App Store">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
-        </a>
+        <a class="btn btn-orange" href="https://apps.apple.com/us/app/toolbelt-invoice-estimate/id6757926789">Download on the App Store</a>
       </div>
       <p class="hero-note" style="animation:none;opacity:1">Free for <b>3 documents</b> a month · iPhone</p>
     </section>
@@ -779,25 +662,25 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
   <div class="foot-inner">
     <div class="foot-top">
       <a class="nav-logo" href="#top">
-        <img src="https://toolbelt.pro/toolbelt-logo.png" alt="">
-        <span>TOOL<b>BELT</b></span>
+        <img src="toolbelt-logo.png" alt="">
+        TOOL<b>BELT</b>
       </a>
       <div class="foot-links">
-        <a href="https://toolbelt.pro/for/">Trades</a>
-        <a href="https://toolbelt.pro/compare/">Compare</a>
-        <a href="https://toolbelt.pro/templates/free-contractor-invoice-template/">Free invoice template</a>
-        <a href="https://toolbelt.pro/tools/contractor-hourly-rate-calculator/">Rate calculator</a>
-        <a href="https://toolbelt.pro/support.html">Support</a>
-        <a href="https://toolbelt.pro/privacy.html">Privacy</a>
-        <a href="https://toolbelt.pro/terms.html">Terms</a>
+        <a href="for/">Trades</a>
+        <a href="compare/">Compare</a>
+        <a href="templates/free-contractor-invoice-template/">Free invoice template</a>
+        <a href="tools/contractor-hourly-rate-calculator/">Rate calculator</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </div>
     <p class="copyright">© 2026 Toolbelt. All rights reserved.</p>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
 <script>
 (function(){
   'use strict';
@@ -836,6 +719,13 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
     });
   });
   roiUpdate();
+
+  /* hero chrome scoped to hero */
+  ScrollTrigger.create({
+    trigger:'#chapters', start:'top 85%',
+    onEnter:function(){ gsap.to('.scroll-cue',{opacity:0,duration:.35,overwrite:'auto'}); },
+    onLeaveBack:function(){ gsap.to('.scroll-cue',{opacity:1,duration:.35,overwrite:'auto'}); }
+  });
 
   if(reduced) return;
 
@@ -897,20 +787,6 @@ footer{background:var(--coal);color:var(--paper);position:relative;z-index:2;bor
       track.style.transform='translateX('+x+'px)';
     });
   });
-
-  /* screenshots carousel — continuous, non-interactive */
-  (function(){
-    var track=document.querySelector('.shots-track');
-    if(!track) return;
-    track.innerHTML+=track.innerHTML;
-    var x=0;
-    gsap.ticker.add(function(){
-      x-=0.6;
-      var half=track.scrollWidth/2;
-      if(-x>=half) x+=half;
-      track.style.transform='translateX('+x+'px)';
-    });
-  })();
 
   /* reveals */
   gsap.utils.toArray('.feat').forEach(function(f,i){
