@@ -42,6 +42,25 @@ def write(relpath, content):
     return relpath, len(re.sub(r"<[^>]+>", " ", body).split())
 
 
+# On phones the trade table's three link columns collapse to text links that are
+# too small to tap reliably (Clarity: users failing to grab the downloads). Scope
+# this to the template page via extra_head; the shared CSS in shell.py is untouched.
+TEMPLATE_CSS = """<style>
+@media(max-width:600px){
+  #trade-table{font-size:14px}
+  #trade-table th,#trade-table td{padding:9px 6px}
+  /* Every link in the table gets a >=44px tap target */
+  #trade-table td a{display:inline-block;min-height:46px;line-height:1.35;padding:8px 0}
+  /* PDF / Word downloads become small padded buttons */
+  #trade-table td a[download]{
+    padding:12px 8px;text-align:center;font-weight:600;color:var(--text-white);
+    background:var(--surface-hover);border:1px solid var(--border-hover);
+    border-radius:var(--radius-sm)}
+  #trade-table td a[download]:hover{border-color:var(--orange);text-decoration:none}
+}
+</style>"""
+
+
 # --------------------------------------------------------------- templates ----
 def build_templates_page():
     depth = 2
@@ -50,8 +69,8 @@ def build_templates_page():
 
     rows = "".join(
         f'<tr><td><strong>{t["name"]}</strong></td>'
-        f'<td><a href="{d}/{slug}-invoice-template.pdf" download>PDF</a></td>'
-        f'<td><a href="{d}/{slug}-invoice-template.docx" download>Word / Google Docs</a></td>'
+        f'<td><a href="{d}/{slug}-invoice-template.pdf" download="{slug}-invoice-template.pdf">PDF</a></td>'
+        f'<td><a href="{d}/{slug}-invoice-template.docx" download="{slug}-invoice-template.docx">Word / Google Docs</a></td>'
         f'<td><a href="../../for/{slug}/">Invoicing guide for {t["name"].lower()}</a></td></tr>'
         for slug, t in TRADES.items())
 
@@ -70,9 +89,9 @@ send it to someone else. If you never install our app, that is genuinely fine.</
   <h3 style="margin-top:0">Generic contractor invoice template</h3>
   <p>Blank line items. Works for any trade.</p>
   <p>
-    <a class="btn" href="{d}/contractor-invoice-template.pdf" download>Download PDF</a>
+    <a class="btn" href="{d}/contractor-invoice-template.pdf" download="contractor-invoice-template.pdf">Download PDF</a>
     &nbsp;
-    <a class="btn secondary" href="{d}/contractor-invoice-template.docx" download>Download Word (.docx)</a>
+    <a class="btn secondary" href="{d}/contractor-invoice-template.docx" download="contractor-invoice-template.docx">Download Word (.docx)</a>
   </p>
   <p style="margin-bottom:0">{gdoc_line}</p>
 </div>
@@ -83,7 +102,7 @@ items that trade actually bills for already typed into the description column â€
 plumber's starts with an emergency call-out and a drain snake, a roofer's starts with
 tear-off and squares â€” so you are filling in numbers, not staring at a blank grid.</p>
 <div class="tablewrap">
-<table>
+<table id="trade-table">
 <thead><tr><th>Trade</th><th>PDF</th><th>Editable</th><th>Guide</th></tr></thead>
 <tbody>{rows}</tbody>
 </table>
@@ -184,7 +203,7 @@ find out on a real job without paying anyone.</p>
         url_path=url, kicker="Free template",
         h1="Free contractor invoice template",
         standfirst="PDF and Word. Ten trade-specific versions. No email, no signup, no watermark.",
-        body=body, trades=TRADE_NAV,
+        body=body, trades=TRADE_NAV, extra_head=TEMPLATE_CSS,
         breadcrumb=S.breadcrumb_html(depth, [
             ("Home", "../../index.html"), ("Templates", None),
             ("Contractor invoice template", None)]),
